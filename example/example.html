@@ -6,33 +6,32 @@
   <meta name="description" content="Port of bootstrap datepicker to Zurb Foundation framework">
   <meta name="author" content="Peter Beno, najlepsiwebdesigner@gmail.com">
   
-  	<!-- CDN -->
-  	<script src="http://code.jquery.com/jquery.min.js"></script>
-  	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-  	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
-  	<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
-  	<link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
-  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<!-- CDN -->
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	
   
   
-	  <!-- foundation start -->
-	  <!-- Set the viewport width to device width for mobile -->
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	  <!-- Included CSS Files (Compressed) -->
-	  <link rel="stylesheet" href="../foundation/stylesheets/foundation.min.css">
-	  <link rel="stylesheet" href="../foundation/stylesheets/app.css">
-	  <script src="../foundation/javascripts/modernizr.foundation.js"></script>  
-	  <!-- foundation end -->
+  <!-- foundation start -->
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="../foundation/stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="../foundation/stylesheets/app.css">
+  <script src="../foundation/javascripts/modernizr.foundation.js"></script>  
+  <!-- foundation end -->
   
-<!-- 	  <link rel="stylesheet" href="../bootstrap-datepicker/css/datepicker.css"> -->
 	  
-	  
-	  <!-- foundation datepicker start -->
-	  <script src="foundation-datepicker.js"></script>
-	  <link rel="stylesheet" href="foundation-datepicker.css">
-	  <!-- foundation datepicker end -->
+  <!-- foundation datepicker start -->
+  <script src="js/foundation-datepicker.js"></script>
+  <link rel="stylesheet" href="stylesheets/foundation-datepicker.css">
+  <!-- foundation datepicker end -->
   
-  <link rel="stylesheet" href="example.css">
+  <link rel="stylesheet" href="stylesheets/example.css">
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -40,7 +39,7 @@
 <body>
 	<div class="container">
 	  <header class="row">
-        <h1 class="twelve columns">Datepicker for Foundation <br><small>foundation-datepicker.js</small></h1>
+        <h1 class="twelve columns subheader">Datepicker for Foundation <br><small>foundation-datepicker.js</small></h1>
 	  </header>
 
       <div class="row">
@@ -48,8 +47,8 @@
           <h3>About</h3>
           <p>Foundation jQuery datepicker plugin! 
           	<ul>
-	          	<li><a href="http://fdatepicker.peterbeno.com/">project website</a></li>
-	          	<li><a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">github</a></li>
+	          	<li><a href="http://fdatepicker.peterbeno.com/">original author website</a></li>
+	          	<li><a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">forked project @github</a></li>
           	</ul>	
           </p>
 		  <p>
@@ -59,11 +58,15 @@
           	<li><a href="https://github.com/eternicode/bootstrap-datepicker">github</a></li>
 		  </ul>
 		  </p>
+		  <h4>Description:</h4>
 		  <ul>
 			<li>can be used as a component</li>
 			<li>formats: dd, d, mm, m, yyyy, yy</li>
 			<li>separators: -, /, .</li>
 		  </ul>
+		  <div class="alert-box">
+		  	<h6>Warning!</h6> <br> This plugin is really fresh and even when it uses really robust, tested base (bootstrap-datepicker plugin), this is only early prototype, which was not properly tested - so please, if you find an error, report it to github. Thanks! :)
+		  </div>
         </div>
         <div class="nine columns">
           <h2>Example</h2>
@@ -71,7 +74,7 @@
           <div class="panel">
             <input type="text" class="span2" value="02-16-2012" id="dp1" >
           </div>
-          <p>Attachet to a field with the format specified via data tag.</p>
+          <p>Attached to a field with the format specified via data tag and close button enabled.</p>
           <div class="panel">
             <input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2" >
           </div>
@@ -224,7 +227,7 @@ $(&#039;#dp5&#039;).fdatepicker()
 			$('#dp1').fdatepicker({
 				format: 'mm-dd-yyyy'
 			});
-			$('#dp2').fdatepicker();
+			$('#dp2').fdatepicker({closeButton:true});
 			$('#dp3').fdatepicker();
 			$('#dp3').fdatepicker();
 			$('#dpYears').fdatepicker();
@@ -257,7 +260,6 @@ $(&#039;#dp5&#039;).fdatepicker()
 				});
 		});
 	</script>
-	
-<!-- 	<script src="js/scripts.js"></script> -->
+
 </body>
 </html>

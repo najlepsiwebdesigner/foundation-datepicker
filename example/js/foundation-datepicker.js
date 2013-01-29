@@ -1,9 +1,14 @@
 /* =========================================================
- * bootstrap-datepicker.js
- * http://www.eyecon.ro/bootstrap-datepicker
- * =========================================================
- * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
+ * foundation-datepicker.js
+ * Copyright 2013 Peter Beno, najlepsiwebdesigner@gmail.com, @benopeter
+ * project website http://foundation-datepicker.peterbeno.com
+ * 
+ * original project:
+ * 		bootstrap-datepicker.js
+ * 		http://www.eyecon.ro/bootstrap-datepicker
+ * 		=========================================================
+ * 		Copyright 2012 Stefan Petre
+ * 		Improvements by Andrew Rowls
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +39,7 @@
 		var that = this;
 
 		this.element = $(element);
+		this.closeButton = options.closeButton;
 		this.language = options.language||this.element.data('date-language')||"en";
 		this.language = this.language in dates ? this.language : this.language.split('-')[0]; //Check if "de-DE" style date is available, if not language should fallback to 2 letter code eg "de"
 		this.language = this.language in dates ? this.language : "en";
@@ -41,7 +47,7 @@
 		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||dates[this.language].format||'mm/dd/yyyy');
 		this.isInline = false;
 		this.isInput = this.element.is('input');
-		this.component = this.element.is('.date') ? this.element.find('.add-on') : false;
+		this.component = this.element.is('.date') ? this.element.find('.prefix') : false;
 		this.hasInput = this.component && this.element.find('input').length;
 		if(this.component && this.component.length === 0)
 			this.component = false;
@@ -62,6 +68,9 @@
 								click: $.proxy(this.click, this),
 								mousedown: $.proxy(this.mousedown, this)
 							});
+		if (this.closeButton){
+			this.picker.find('a.datepicker-close').show();
+		}
 
 		if(this.isInline) {
 			this.picker.addClass('datepicker-inline');
@@ -80,7 +89,7 @@
 			}
 		});
 
-		this.autoclose = false;
+		this.autoclose = true;
 		if ('autoclose' in options) {
 			this.autoclose = options.autoclose;
 		} else if ('dateAutoclose' in this.element.data()) {
@@ -501,6 +510,11 @@
 		click: function(e) {
 			e.stopPropagation();
 			e.preventDefault();
+			
+			if ($(e.target).hasClass('datepicker-close')){
+				this.hide();
+			}
+			
 			var target = $(e.target).closest('span, td, th');
 			if (target.length == 1) {
 				switch(target[0].nodeName.toLowerCase()) {
@@ -763,7 +777,7 @@
 		}
 	};
 
-	$.fn.datepicker = function ( option ) {
+	$.fn.fdatepicker = function ( option ) {
 		var args = Array.apply(null, arguments);
 		args.shift();
 		return this.each(function () {
@@ -771,7 +785,7 @@
 				data = $this.data('datepicker'),
 				options = typeof option == 'object' && option;
 			if (!data) {
-				$this.data('datepicker', (data = new Datepicker(this, $.extend({}, $.fn.datepicker.defaults,options))));
+				$this.data('datepicker', (data = new Datepicker(this, $.extend({}, $.fn.fdatepicker.defaults,options))));
 			}
 			if (typeof option == 'string' && typeof data[option] == 'function') {
 				data[option].apply(data, args);
@@ -779,10 +793,10 @@
 		});
 	};
 
-	$.fn.datepicker.defaults = {
+	$.fn.fdatepicker.defaults = {
 	};
-	$.fn.datepicker.Constructor = Datepicker;
-	var dates = $.fn.datepicker.dates = {
+	$.fn.fdatepicker.Constructor = Datepicker;
+	var dates = $.fn.fdatepicker.dates = {
 		en: {
 			days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 			daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -952,6 +966,7 @@
 		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
 	};
 	DPGlobal.template = '<div class="datepicker">'+
+							
 							'<div class="datepicker-days">'+
 								'<table class=" table-condensed">'+
 									DPGlobal.headTemplate+
@@ -973,8 +988,9 @@
 									DPGlobal.footTemplate+
 								'</table>'+
 							'</div>'+
+							'<a class="button datepicker-close small alert right" style="width:auto;"><i class="icon-remove"></i></a>'+
 						'</div>';
 
-	$.fn.datepicker.DPGlobal = DPGlobal;
+	$.fn.fdatepicker.DPGlobal = DPGlobal;
 
 }( window.jQuery );

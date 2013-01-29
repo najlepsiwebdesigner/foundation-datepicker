@@ -1,17 +1,24 @@
 /*!
- * Datepicker for Bootstrap
+ * Datepicker for Foundation - less stylesheet, just version customized to foundation
  *
- * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
+ * Copyright 2013 Peter Beno, najlepsiwebdesigner@gmail.com, @benopeter
+ * project website http://foundation-datepicker.peterbeno.com
  *
+ * Original project https://github.com/eternicode/bootstrap-datepicker
+ * 		Original author 2012 Stefan Petre
+ * 		Improvements by Andrew Rowls
+ * 		Licensed under the Apache License v2.0
+ * 		http://www.apache.org/licenses/LICENSE-2.0
  */
 
+@import "build.less";
+
+// real datepicker styles 
 .datepicker {
+	display:none;
+	position:absolute;
 	padding: 4px;
 	margin-top: 1px;
-	.border-radius(4px);
 	&-inline {
 		width: 220px;
 	}
@@ -60,6 +67,8 @@
 		display: block;
 	}
 	table{
+			
+		border:none;
 		margin: 0;
 	}
 	td,
@@ -67,9 +76,27 @@
 		text-align: center;
 		width: 20px;
 		height: 20px;
-		.border-radius(4px);
-
 		border: none;
+		font-size:12px;
+		padding:4px 8px;
+		background:#fff;
+		cursor:pointer;
+		
+		
+		&.active {
+			&.day {
+				background:@activeColor; 
+			}
+
+			&.year {
+				background:@activeColor; 
+			}
+			
+		}
+		span.active {
+			background:@activeColor; 
+		}
+
 	}
 	// Inline display inside a table presents some problems with
 	// border and background colors.
@@ -79,35 +106,7 @@
 		}
 	}
 	table tr td {
-		&.day:hover {
-			background: @grayLighter;
-			cursor: pointer;
-		}
-		&.old,
-		&.new {
-			color: @grayLight;
-		}
-		&.disabled,
-		&.disabled:hover {
-			background: none;
-			color: @grayLight;
-			cursor: default;
-		}
-		&.today,
-		&.today:hover,
-		&.today.disabled,
-		&.today.disabled:hover {
-			@todayBackground: lighten(@orange, 30%);
-			.buttonBackground(@todayBackground, spin(@todayBackground, 20));
-		}
-		&.active,
-		&.active:hover,
-		&.active.disabled,
-		&.active.disabled:hover {
-			.buttonBackground(@btnPrimaryBackground, spin(@btnPrimaryBackground, 20));
-			color: #fff;
-			text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-		}
+
 		span {
 			display: block;
 			width: 23%;
@@ -116,27 +115,6 @@
 			float: left;
 			margin: 1%;
 			cursor: pointer;
-			.border-radius(4px);
-			&:hover {
-				background: @grayLighter;
-			}
-			&.disabled,
-			&.disabled:hover {
-				background:none;
-				color: @grayLight;
-				cursor: default;
-			}
-			&.active,
-			&.active:hover,
-			&.active.disabled,
-			&.active.disabled:hover {
-				.buttonBackground(@btnPrimaryBackground, spin(@btnPrimaryBackground, 20));
-				color: #fff;
-				text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-			}
-			&.old {
-				color: @grayLight;
-			}
 		}
 	}
 
@@ -147,14 +125,7 @@
 	thead tr:first-child th,
 	tfoot tr:first-child th {
 		cursor: pointer;
-		&:hover{
-			background: @grayLighter;
-		}
 	}
-	/*.dow {
-		border-top: 1px solid #ddd !important;
-	}*/
-
 	// Basic styling for calendar-week cells
 	.cw {
 		font-size: 10px;
@@ -167,14 +138,16 @@
 		background-color: transparent;
 	}
 }
-.input-append,
-.input-prepend {
-	&.date {
-		.add-on i {
-			display: block;
-			cursor: pointer;
-			width: 16px;
-			height: 16px;
-		}
-	}
+
+.datepicker-dropdown::before, .datepicker-dropdown::after {
+	display:none;
+}
+.datepicker-close {
+	position:absolute;
+	top:-30px;
+	right:0px;
+	width:15px;
+	height:30px;
+	padding:0px;
+	display: none;
 }
