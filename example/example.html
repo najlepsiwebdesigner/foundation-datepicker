@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Foundation datepicker</title>
+  <meta name="description" content="Port of bootstrap datepicker to Zurb Foundation framework">
+  <meta name="author" content="Peter Beno, najlepsiwebdesigner@gmail.com">
+  
+  	<!-- CDN -->
+  	<script src="http://code.jquery.com/jquery.min.js"></script>
+  	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+  	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
+  	<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
+  	<link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
+  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+  
+	  <!-- foundation start -->
+	  <!-- Set the viewport width to device width for mobile -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  <!-- Included CSS Files (Compressed) -->
+	  <link rel="stylesheet" href="../foundation/stylesheets/foundation.min.css">
+	  <link rel="stylesheet" href="../foundation/stylesheets/app.css">
+	  <script src="../foundation/javascripts/modernizr.foundation.js"></script>  
+	  <!-- foundation end -->
+  
+<!-- 	  <link rel="stylesheet" href="../bootstrap-datepicker/css/datepicker.css"> -->
+	  
+	  
+	  <!-- foundation datepicker start -->
+	  <script src="foundation-datepicker.js"></script>
+	  <link rel="stylesheet" href="foundation-datepicker.css">
+	  <!-- foundation datepicker end -->
+  
+  <link rel="stylesheet" href="example.css">
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<div class="container">
+	  <header class="row">
+        <h1 class="twelve columns">Datepicker for Foundation <br><small>foundation-datepicker.js</small></h1>
+	  </header>
+
+      <div class="row">
+        <div class="three columns" id="sidebar-wrap">
+          <h3>About</h3>
+          <p>Foundation jQuery datepicker plugin! 
+          	<ul>
+	          	<li><a href="http://fdatepicker.peterbeno.com/">project website</a></li>
+	          	<li><a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">github</a></li>
+          	</ul>	
+          </p>
+		  <p>
+		  Based on best available datepicker in this galaxy - bootstrap-datepicker:
+		  <ul>
+          	<li><a href="http://www.eyecon.ro/bootstrap-datepicker/">website</a></li>
+          	<li><a href="https://github.com/eternicode/bootstrap-datepicker">github</a></li>
+		  </ul>
+		  </p>
+		  <ul>
+			<li>can be used as a component</li>
+			<li>formats: dd, d, mm, m, yyyy, yy</li>
+			<li>separators: -, /, .</li>
+		  </ul>
+        </div>
+        <div class="nine columns">
+          <h2>Example</h2>
+          <p>Attached to a field with the format specified via options.</p>
+          <div class="panel">
+            <input type="text" class="span2" value="02-16-2012" id="dp1" >
+          </div>
+          <p>Attachet to a field with the format specified via data tag.</p>
+          <div class="panel">
+            <input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2" >
+          </div>
+          <p>As component.</p>
+          <div class="panel">
+			  <div class="row date collapse" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+				<input class="columns three" size="16" type="text" value="12-02-2012" readonly>
+				<span class="prefix columns one end"><i class="icon-calendar"></i></span>
+			  </div>
+          </div>
+          <p>Start with years viewMode.</p>
+          <div class="panel">
+			  <div class="row date collapse" id="dpYears" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+				<input class="columns three" size="16" type="text" value="12-02-2012" readonly>
+				<span class="prefix columns one end"><i class="icon-calendar"></i></span>
+			  </div>
+          </div>
+          <p>Limit the view mode to months</p>
+          <div class="panel">
+			  <div class="row collape date" id="dpMonths" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+				<input class="columns three" size="16" type="text" value="02/2012" readonly>
+				<span class="prefix columns one end"><i class="icon-calendar"></i></span>
+			  </div>
+          </div>
+          <p>Attached to other element then field and using events to work with the date values.</p>
+          <div class="panel">
+            
+            
+			<div class="alert alert-box" id="alert">
+				<strong>Oh snap!</strong>
+			  </div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Start date&nbsp;<a href="#" class="button small" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a></th>
+						<th>End date&nbsp;<a href="#" class="button small" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="startDate">2012-02-20</td>
+						<td id="endDate">2012-02-25</td>
+					</tr>
+				</tbody>
+			</table>
+          </div>
+          <hr>
+          <h2>Using foundation-datepicker.js</h2>
+          <p>Call the datepicker via javascript:</p>
+          <pre class="prettyprint linenums">$('.datepicker').fdatepicker()</pre>
+          <h3>Options</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 100px;">Name</th>
+               <th style="width: 50px;">type</th>
+               <th style="width: 100px;">default</th>
+               <th>description</th>
+             </tr>
+            </thead>
+            <tbody>
+              <tr>
+               <td>format</td>
+               <td>string</td>
+               <td>'mm/dd/yyyy'</td>
+               <td>the date format, combination of  d, dd, m, mm, yy, yyy.</td>
+             </tr>
+              <tr>
+               <td>weekStart</td>
+               <td>integer</td>
+               <td>0</td>
+               <td>day of the week start. 0 for Sunday -  6 for Saturday</td>
+             </tr>
+              <tr>
+               <td>viewMode</td>
+               <td>string|integer</td>
+               <td>0 = 'days'</td>
+               <td>set the start view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years</td>
+             </tr>
+              <tr>
+               <td>minViewMode</td>
+               <td>string|integer</td>
+               <td>0 = 'days'</td>
+               <td>set a limit for view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years</td>
+             </tr>
+            </tbody>
+          </table>
+
+          <h3>Markup</h3>
+          <p>Format a component.</p>
+<pre class="prettyprint linenums">
+&lt;div class=&quot;input-append date&quot; id=&quot;dp3&quot; data-date=&quot;12-02-2012&quot; data-date-format=&quot;dd-mm-yyyy&quot;&gt;
+  &lt;input class=&quot;span2&quot; size=&quot;16&quot; type=&quot;text&quot; value=&quot;12-02-2012&quot;&gt;
+  &lt;span class=&quot;add-on&quot;&gt;&lt;i class=&quot;icon-th&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+          <h3>Methods</h3>
+          <h4>.fdatepicker(options)</h4>
+          <p>Initializes an datepicker.</p>
+          <h4>.fdatepicker('show')</h4>
+          <p>Show the datepicker.</p>
+          <h4>.fdatepicker('hide')</h4>
+          <p>Hide the datepicker.</p>
+          <h4>.fdatepicker('place')</h4>
+          <p>Updates the date picker's position relative to the element</p>
+          <h4>.fdatepicker('setValue', value)</h4>
+          <p>Set a new value for the datepicker. It cand be a string in the specified format or a Date object.</p>
+		  
+		  
+          <h3>Events</h3>
+          <p>Datepicker class exposes a few events for manipulating the dates.</p>
+          <table class="table table-bordered table-striped">
+            <thead>
+             <tr>
+               <th style="width: 150px;">Event</th>
+               <th>Description</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <td>show</td>
+               <td>This event fires immediately when the date picker is displayed.</td>
+             </tr>
+             <tr>
+               <td>hide</td>
+               <td>This event is fired immediately when the date picker is hidden.</td>
+             </tr>
+             <tr>
+               <td>changeDate</td>
+               <td>This event is fired when the date is changed.</td>
+             </tr>
+            </tbody>
+          </table>
+<pre class="prettyprint linenums">
+$(&#039;#dp5&#039;).fdatepicker()
+  .on(&#039;changeDate&#039;, function(ev){
+    if (ev.date.valueOf() &lt; startDate.valueOf()){
+      ....
+    }
+  });
+</pre>
+        </div>
+      </div>
+    </section>
+    </div>
+
+	<script>
+		$(function(){
+			window.prettyPrint && prettyPrint();
+			$('#dp1').fdatepicker({
+				format: 'mm-dd-yyyy'
+			});
+			$('#dp2').fdatepicker();
+			$('#dp3').fdatepicker();
+			$('#dp3').fdatepicker();
+			$('#dpYears').fdatepicker();
+			$('#dpMonths').fdatepicker();
+			
+			
+			var startDate = new Date(2012,1,20);
+			var endDate = new Date(2012,1,25);
+			$('#dp4').fdatepicker()
+				.on('changeDate', function(ev){
+					if (ev.date.valueOf() > endDate.valueOf()){
+						$('#alert').show().find('strong').text('The start date can not be greater then the end date');
+					} else {
+						$('#alert').hide();
+						startDate = new Date(ev.date);
+						$('#startDate').text($('#dp4').data('date'));
+					}
+					$('#dp4').fdatepicker('hide');
+				});
+			$('#dp5').fdatepicker()
+				.on('changeDate', function(ev){
+					if (ev.date.valueOf() < startDate.valueOf()){
+						$('#alert').show().find('strong').text('The end date can not be less then the start date');
+					} else {
+						$('#alert').hide();
+						endDate = new Date(ev.date);
+						$('#endDate').text($('#dp5').data('date'));
+					}
+					$('#dp5').fdatepicker('hide');
+				});
+		});
+	</script>
+	
+<!-- 	<script src="js/scripts.js"></script> -->
+</body>
+</html>
