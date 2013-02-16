@@ -47,7 +47,7 @@
           <h3>About</h3>
           <p>Foundation jQuery datepicker plugin! 
           	<ul>
-	          	<li><a href="http://fdatepicker.peterbeno.com/">original author website</a></li>
+	          	<li><a href="http://foundation-datepicker.peterbeno.com/">project website</a></li>
 	          	<li><a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">forked project @github</a></li>
           	</ul>	
           </p>
@@ -67,6 +67,22 @@
 		  <div class="alert-box">
 		  	<h6>Warning!</h6> <br> This plugin is really fresh and even when it uses really robust, tested base (bootstrap-datepicker plugin), this is only early prototype, which was not properly tested - so please, if you find an error, report it to github. Thanks! :)
 		  </div>
+		  <p>
+		  <a href="https://twitter.com/share" class="twitter-share-button" data-via="benopeter">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		  
+		  <!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+		  </p>
         </div>
         <div class="nine columns">
           <h2>Example</h2>
@@ -78,12 +94,19 @@
           <div class="panel">
             <input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2" >
           </div>
+
           <p>As component.</p>
           <div class="panel">
 			  <div class="row date collapse" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
 				<input class="columns three" size="16" type="text" value="12-02-2012" readonly>
 				<span class="prefix columns one end"><i class="icon-calendar"></i></span>
 			  </div>
+          </div>
+          <div class="panel highlight">
+		      <p>With large margin</p>
+	          <div class="panel">
+	            <input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp-margin" >
+	          </div>
           </div>
           <p>Start with years viewMode.</p>
           <div class="panel">
@@ -230,6 +253,7 @@ $(&#039;#dp5&#039;).fdatepicker()
 			$('#dp2').fdatepicker({closeButton:true});
 			$('#dp3').fdatepicker();
 			$('#dp3').fdatepicker();
+			$('#dp-margin').fdatepicker();
 			$('#dpYears').fdatepicker();
 			$('#dpMonths').fdatepicker();
 			
@@ -260,6 +284,18 @@ $(&#039;#dp5&#039;).fdatepicker()
 				});
 		});
 	</script>
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30989810-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
