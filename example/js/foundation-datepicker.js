@@ -49,6 +49,9 @@
 		this.isInput = this.element.is('input');
 		this.component = this.element.is('.date') ? this.element.find('.prefix') : false;
 		this.hasInput = this.component && this.element.find('input').length;
+		
+		
+		this.onRender = options.onRender || function () {};
 		if(this.component && this.component.length === 0)
 			this.component = false;
 
@@ -138,6 +141,7 @@
 		this.setStartDate(options.startDate||this.element.data('date-startdate'));
 		this.setEndDate(options.endDate||this.element.data('date-enddate'));
 		this.setDaysOfWeekDisabled(options.daysOfWeekDisabled||this.element.data('date-days-of-week-disabled'));
+		
 		this.fillDow();
 		this.fillMonths();
 		this.update();
@@ -413,7 +417,7 @@
 						html.push('<td class="cw">'+ calWeek +'</td>');
 					}
 				}
-				clsName = '';
+				clsName = ' '+this.onRender(prevMonth)+' ';
 				if (prevMonth.getUTCFullYear() < year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() < month)) {
 					clsName += ' old';
 				} else if (prevMonth.getUTCFullYear() > year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() > month)) {
@@ -794,8 +798,11 @@
 		});
 	};
 
-	$.fn.fdatepicker.defaults = {
-	};
+    $.fn.fdatepicker.defaults = {
+        onRender: function(date) {
+            return '';
+        }
+    };
 	$.fn.fdatepicker.Constructor = Datepicker;
 	var dates = $.fn.fdatepicker.dates = {
 		en: {
