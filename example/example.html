@@ -32,11 +32,14 @@
 	<body>
 		<div class="container">
 			<header class="row">
-				 <h1 class="twelve columns subheader">Datepicker for Foundation <br><small>foundation-datepicker.js</small></h1>
+       <div class="small-12 columns">
+				 <h1>Datepicker for Foundation</h1>
+         <h2 class="subheader">foundation-datepicker.js</h2>
+       </div>
 
 			</header>
 			<div class="row">
-				<div class="three columns" id="sidebar-wrap">
+				<div class="small-3 columns" id="sidebar-wrap">
 					 <h3>About</h3>
 
 					<p>Foundation jQuery datepicker plugin!
@@ -97,7 +100,7 @@
 						</script>
 					</p>
 				</div>
-				<div class="nine columns">
+				<div class="small-9 columns">
 					 <h2>Example</h2>
 
 					<p>Attached to a field with the format specified via options.</p>
@@ -111,7 +114,7 @@
 					<p>As component.</p>
 					<div class="panel">
 						<div class="row date collapse" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-							<input class="columns three" size="16" type="text" value="12-02-2012" readonly>	<span class="prefix columns one end"><i class="icon-calendar"></i></span>
+							<input class="small-3 columns" size="16" type="text" value="12-02-2012" readonly>	<span class="prefix small-2 columns end"><i class="icon-calendar"></i></span>
 
 						</div>
 					</div>
@@ -124,14 +127,14 @@
 					<p>Start with years viewMode.</p>
 					<div class="panel">
 						<div class="row date collapse" id="dpYears" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-							<input class="columns three" size="16" type="text" value="12-02-2012" readonly>	<span class="prefix columns one end"><i class="icon-calendar"></i></span>
+							<input class="small-3 columns" size="16" type="text" value="12-02-2012" readonly>	<span class="prefix small-1 columns end"><i class="icon-calendar"></i></span>
 
 						</div>
 					</div>
 					<p>Limit the view mode to months</p>
 					<div class="panel">
 						<div class="row collape date" id="dpMonths" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
-							<input class="columns three" size="16" type="text" value="02/2012" readonly>	<span class="prefix columns one end"><i class="icon-calendar"></i></span>
+							<input class="small-3 columns" size="16" type="text" value="02/2012" readonly>	<span class="prefix small-1 columns end"><i class="icon-calendar"></i></span>
 
 						</div>
 					</div>
@@ -179,7 +182,7 @@
 					<hr>
 					 <h2>Using foundation-datepicker.js</h2>
 
-					<p>Call the datepicker via javascript:</p> <pre class="prettyprint linenums">$('.datepicker').fdatepicker()</pre>
+					<p>Call the datepicker via javascript:</p> <pre class="prettyprint linenums" style="padding-left:50px;">$('.datepicker').fdatepicker()</pre>
 
 					 <h3>Options</h3>
 
@@ -222,7 +225,7 @@
 					 <h3>Markup</h3>
 
 					<p>Format a component.</p>
-<pre class="prettyprint linenums">
+<pre class="prettyprint linenums"style="padding-left:50px;">
 &lt;div class=&quot;input-append date&quot; id=&quot;dp3&quot; data-date=&quot;12-02-2012&quot; data-date-format=&quot;dd-mm-yyyy&quot;&gt;
   &lt;input class=&quot;span2&quot; size=&quot;16&quot; type=&quot;text&quot; value=&quot;12-02-2012&quot;&gt;
   &lt;span class=&quot;add-on&quot;&gt;&lt;i class=&quot;icon-th&quot;&gt;&lt;/i&gt;&lt;/span&gt;
@@ -271,7 +274,7 @@
 							</tr>
 						</tbody>
 					</table>
-<pre class="prettyprint linenums">
+<pre class="prettyprint linenums"style="padding-left:50px;">
 $(&#039;#dp5&#039;).fdatepicker()
   .on(&#039;changeDate&#039;, function(ev){
     if (ev.date.valueOf() &lt; startDate.valueOf()){
