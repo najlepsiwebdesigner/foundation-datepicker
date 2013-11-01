@@ -347,11 +347,11 @@
 			if(fromArgs) this.setValue();
 
 			if (this.date < this.startDate) {
-				this.viewDate = new Date(this.startDate);
+				this.viewDate = new Date(this.startDate.valueOf());
 			} else if (this.date > this.endDate) {
-				this.viewDate = new Date(this.endDate);
+				this.viewDate = new Date(this.endDate.valueOf());
 			} else {
-				this.viewDate = new Date(this.date);
+				this.viewDate = new Date(this.date.valueOf());
 			}
 			this.fill();
 		},
@@ -381,7 +381,7 @@
 		},
 
 		fill: function() {
-			var d = new Date(this.viewDate),
+			var d = new Date(this.viewDate.valueOf()),
 				year = d.getUTCFullYear(),
 				month = d.getUTCMonth(),
 				startYear = this.startDate !== -Infinity ? this.startDate.getUTCFullYear() : -Infinity,
@@ -401,7 +401,7 @@
 				day = DPGlobal.getDaysInMonth(prevMonth.getUTCFullYear(), prevMonth.getUTCMonth());
 			prevMonth.setUTCDate(day);
 			prevMonth.setUTCDate(day - (prevMonth.getUTCDay() - this.weekStart + 7)%7);
-			var nextMonth = new Date(prevMonth);
+			var nextMonth = new Date(prevMonth.valueOf());
 			nextMonth.setUTCDate(nextMonth.getUTCDate() + 42);
 			nextMonth = nextMonth.valueOf();
 			var html = [];
@@ -480,7 +480,7 @@
 		},
 
 		updateNavArrows: function() {
-			var d = new Date(this.viewDate),
+			var d = new Date(this.viewDate.valueOf()),
 				year = d.getUTCFullYear(),
 				month = d.getUTCMonth();
 			switch (this.viewMode) {
@@ -699,9 +699,9 @@
 						newDate = this.moveMonth(this.date, dir);
 						newViewDate = this.moveMonth(this.viewDate, dir);
 					} else {
-						newDate = new Date(this.date);
+						newDate = new Date(this.date.valueOf());
 						newDate.setUTCDate(this.date.getUTCDate() + dir);
-						newViewDate = new Date(this.viewDate);
+						newViewDate = new Date(this.viewDate.valueOf());
 						newViewDate.setUTCDate(this.viewDate.getUTCDate() + dir);
 					}
 					if (this.dateWithinRange(newDate)){
@@ -724,9 +724,9 @@
 						newDate = this.moveMonth(this.date, dir);
 						newViewDate = this.moveMonth(this.viewDate, dir);
 					} else {
-						newDate = new Date(this.date);
+						newDate = new Date(this.date.valueOf());
 						newDate.setUTCDate(this.date.getUTCDate() + dir * 7);
-						newViewDate = new Date(this.viewDate);
+						newViewDate = new Date(this.viewDate.valueOf());
 						newViewDate.setUTCDate(this.viewDate.getUTCDate() + dir * 7);
 					}
 					if (this.dateWithinRange(newDate)){
