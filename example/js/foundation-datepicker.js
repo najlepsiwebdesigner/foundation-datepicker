@@ -326,8 +326,13 @@
 		  var textbox = this.component ? this.component : this.element;
 		  var offset = textbox.offset();
 		  var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
+		  var fullOffset = offset.top + height;
+		  // if the datepicker is going to be below the window, show it on top of the input
+		  if($(window).scrollTop() + $(window).height() > fullOffset){
+		  	fullOffset = offset.top - height - this.picker.height();
+		  }
 		  this.picker.css({
-		    top: offset.top + height,
+		    top: fullOffset,
 		    left: offset.left,
 		    zIndex: zIndex
 		  });
