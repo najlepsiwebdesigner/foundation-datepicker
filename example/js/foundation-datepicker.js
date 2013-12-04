@@ -326,9 +326,22 @@
 		  var textbox = this.component ? this.component : this.element;
 		  var offset = textbox.offset();
 		  var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
+		  var width = textbox.outerWidth() + parseInt(textbox.css('margin-left'));
+		  var fullOffsetTop = offset.top + height;
+		  var offsetLeft = offset.left;
+		  // if the datepicker is going to be below the window, show it on top of the input
+		  if((fullOffsetTop + this.picker.height()) >= $(window).scrollTop() + $(window).height()){
+		  	fullOffsetTop = offset.top - height - this.picker.height();
+		  }
+
+		  // if the datepicker is going to go past the right side of the window, we want
+		  // to set the right position so the datepicker lines up with the textbox
+		  if(offset.left + this.picker.width() >= $(window).width()){
+		  	offsetLeft = (offset.left + width)  - this.picker.width();
+		  }
 		  this.picker.css({
-		    top: offset.top + height,
-		    left: offset.left,
+		    top: fullOffsetTop,
+		    left: offsetLeft,
 		    zIndex: zIndex
 		  });
 		},
