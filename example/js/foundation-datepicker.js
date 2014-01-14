@@ -2,7 +2,7 @@
  * foundation-datepicker.js
  * Copyright 2013 Peter Beno, najlepsiwebdesigner@gmail.com, @benopeter
  * project website http://foundation-datepicker.peterbeno.com
- * 
+ *
  * original project:
  * 		bootstrap-datepicker.js
  * 		http://www.eyecon.ro/bootstrap-datepicker
@@ -49,8 +49,8 @@
 		this.isInput = this.element.is('input');
 		this.component = this.element.is('.date') ? this.element.find('.prefix, .postfix') : false;
 		this.hasInput = this.component && this.element.find('input').length;
-		
-		
+
+
 		this.onRender = options.onRender || function () {};
 		if(this.component && this.component.length === 0)
 			this.component = false;
@@ -83,7 +83,7 @@
 		if (this.isRTL){
 			this.picker.addClass('datepicker-rtl');
 			this.picker.find('.prev i, .next i')
-						.toggleClass('icon-arrow-left icon-arrow-right');
+						.toggleClass('icon-chevron-left icon-chevron-right').toggleClass('fa-chevron-left fa-chevron-right');
 		}
 		$(document).on('mousedown', function (e) {
 			// Clicked outside the datepicker, hide it
@@ -141,7 +141,7 @@
 		this.setStartDate(options.startDate||this.element.data('date-startdate'));
 		this.setEndDate(options.endDate||this.element.data('date-enddate'));
 		this.setDaysOfWeekDisabled(options.daysOfWeekDisabled||this.element.data('date-days-of-week-disabled'));
-		
+
 		this.fillDow();
 		this.fillMonths();
 		this.update();
@@ -317,7 +317,7 @@
 			this.update();
 			this.updateNavArrows();
 		},
-		
+
 		place: function(){
 		        if(this.isInline) return;
 		  var zIndex = parseInt(this.element.parents().filter(function() {
@@ -528,11 +528,11 @@
 		click: function(e) {
 			e.stopPropagation();
 			e.preventDefault();
-			
+
 			if ($(e.target).hasClass('datepicker-close')){
 				this.hide();
 			}
-			
+
 			var target = $(e.target).closest('span, td, th');
 			if (target.length == 1) {
 				switch(target[0].nodeName.toLowerCase()) {
@@ -994,16 +994,16 @@
 		},
 		headTemplate: '<thead>'+
 							'<tr>'+
-								'<th class="prev"><i class="icon-chevron-left"/></th>'+
+								'<th class="prev"><i class="icon-chevron-left fa fa-chevron-left"/></th>'+
 								'<th colspan="5" class="date-switch"></th>'+
-								'<th class="next"><i class="icon-chevron-right"/></th>'+
+								'<th class="next"><i class="icon-chevron-right fa fa-chevron-right"/></th>'+
 							'</tr>'+
 						'</thead>',
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
 		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
 	};
 	DPGlobal.template = '<div class="datepicker">'+
-							
+
 							'<div class="datepicker-days">'+
 								'<table class=" table-condensed">'+
 									DPGlobal.headTemplate+
@@ -1025,7 +1025,7 @@
 									DPGlobal.footTemplate+
 								'</table>'+
 							'</div>'+
-							'<a class="button datepicker-close small alert right" style="width:auto;"><i class="icon-remove"></i></a>'+
+							'<a class="button datepicker-close small alert right" style="width:auto;"><i class="icon-remove fa fa-times"></i></a>'+
 						'</div>';
 
 	$.fn.fdatepicker.DPGlobal = DPGlobal;
