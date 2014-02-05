@@ -108,7 +108,7 @@ Start by downloading the files from https://github.com/najlepsiwebdesigner/found
 
 When working with plugin demo packages I find it easiest to make a reference copy of the example.html file and then start by removing everything but the most basic example. This way you're not dredging through heaps of code, and there's far fewer points of failure which may confuse you.
 
-So leaving everything in the <head> as it is, and leaving all the javascript code inside the first <script> tag as is (your console will tell you if there's an error and there is no point in duplicating work) you can safely remove the last <script> tag which contains a tracking script for page views and all the boilerplate html until all you are left with is
+So leaving everything in the <head> as it is, and leaving all the javascript code inside the first <script> tag as is (your console will tell you if theres an error and there is no point in duplicating work) you can safely remove the last <script> tag which contains a tracking script for page views and all the boilerplate html until all you are left with is
 
 <p>Attached to a field with the format specified via options.</p>
 <div class="panel">
@@ -123,7 +123,7 @@ $(function () {
     });
 });
 
-Here we can see the id on the input matches the DOM element selector to which the fdatepicker plugin is called upon using the format option. I'm not in America so the first thing I could do would be to change format: 'dd-mm-yyyy' and correct the dates for my region. Also because I plan to use this for a simple javascript based hotel booking system I can also remove the value attribute from the input element.
+Here we can see the id on the input matches the DOM element selector to which the fdatepicker plugin is called upon using the format option. Im not in America so the first thing I could do would be to change format: 'dd-mm-yyyy' and correct the dates for my region. Also because I plan to use this for a simple javascript based hotel booking system I can also remove the value attribute from the input element.
 
 Most of the other example options are not relevant to our project so we can safely skip to the disabling form fields section as this will be the bare minimum functionality our users will expect to see from this feature.
 
