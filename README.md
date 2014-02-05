@@ -66,11 +66,11 @@ Can be expanded into more verbose code for clarity of understanding
 	var nowTemp = new Date(); 
 	// Assign the current date to a variable using the native javascript Date object
 
-    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    // Using the data cached in the nowTemp variable which defaults to the settings on your system you can use the methods included in the Date object to define a date for the region of deployment
+    	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    	// Using the data cached in the nowTemp variable which defaults to the settings on your system you can use the methods included in the Date object to define a date for the region of deployment
 
  
-    var checkin = $('#dpd1').fdatepicker({ // This calls the datepicker plugin for your input
+	var checkin = $('#dpd1').fdatepicker({ // This calls the datepicker plugin for your input
         onRender: function (date) { 
         // This assigns the onRender function as a property of the fdatepicker object literal and allows it to accept a date value (line 626 from _setDate mehod | date: this.date)
             if (date.valueOf() & now.valueOf()){ 
@@ -108,7 +108,7 @@ Start by downloading the files from https://github.com/najlepsiwebdesigner/found
 
 When working with plugin demo packages I find it easiest to make a reference copy of the example.html file and then start by removing everything but the most basic example. This way you're not dredging through heaps of code, and there's far fewer points of failure which may confuse you.
 
-So leaving everything in the <head> as it is, and leaving all the javascript code inside the first <script> tag as is (your console will tell you if theres an error and there is no point in duplicating work) you can safely remove the last <script> tag which contains a tracking script for page views and all the boilerplate html until all you are left with is
+So leaving everything in the head as it is, and leaving all the javascript code inside the first script tag as is (your console will tell you if theres an error and there is no point in duplicating work) you can safely remove the last script tag which contains a tracking script for page views and all the boilerplate html until all you are left with is
 
 <p>Attached to a field with the format specified via options.</p>
 <div class="panel">
@@ -129,13 +129,12 @@ Most of the other example options are not relevant to our project so we can safe
 
 So after careful evaluation we find out original look at the docs contained a few mistakes caused by the incorrect rendering of ascii elements on the page. The correct expanded code looks like
 
-$(function () {
-				console.log('this');
-				var nowTemp = new Date(); 
+	$(function () {
+	var nowTemp = new Date(); 
 	// Assign the current date to a variable using the native javascript Date object
 
-    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    // Using the data cached in the nowTemp which defaults to the settings on your system you can use the methods included in the Date object to define a date for the region of deployment
+    	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    	// Using the data cached in the nowTemp which defaults to the settings on your system you can use the methods included in the Date object to define a date for the region of deployment
 
  
     var checkin = $('#dp4').fdatepicker({ // This calls the datepicker plugin for your input
