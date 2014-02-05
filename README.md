@@ -123,7 +123,7 @@ $(function () {
     });
 });
 
-Here we can see the id on the input matches the DOM element selector to which the fdatepicker plugin is called upon using the format option. Im not in America so the first thing I could do would be to change format: 'dd-mm-yyyy' and correct the dates for my region. Also because I plan to use this for a simple javascript based hotel booking system I can also remove the value attribute from the input element.
+Here we can see the id on the input matches the DOM element selector to which the fdatepicker plugin is called upon using the format option. Im not in America so the first thing I could do would be to change format: dd-mm-yyyy and correct the dates for my region. Also because I plan to use this for a simple javascript based hotel booking system I can also remove the value attribute from the input element.
 
 Most of the other example options are not relevant to our project so we can safely skip to the disabling form fields section as this will be the bare minimum functionality our users will expect to see from this feature.
 
