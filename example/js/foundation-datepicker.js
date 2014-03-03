@@ -83,7 +83,7 @@
 		if (this.isRTL){
 			this.picker.addClass('datepicker-rtl');
 			this.picker.find('.prev i, .next i')
-						.toggleClass('icon-chevron-left icon-chevron-right').toggleClass('fa-chevron-left fa-chevron-right');
+						.toggleClass('fa fa-chevron-left fa-chevron-right').toggleClass('fa-chevron-left fa-chevron-right');
 		}
 		$(document).on('mousedown', function (e) {
 			// Clicked outside the datepicker, hide it
@@ -1010,9 +1010,9 @@
 		},
 		headTemplate: '<thead>'+
 							'<tr>'+
-								'<th class="prev"><i class="icon-chevron-left fa fa-chevron-left"/></th>'+
+								'<th class="prev"><i class="fa fa-chevron-left fa-chevron-left"/></th>'+
 								'<th colspan="5" class="date-switch"></th>'+
-								'<th class="next"><i class="icon-chevron-right fa fa-chevron-right"/></th>'+
+								'<th class="next"><i class="fa fa-chevron-right fa-chevron-right"/></th>'+
 							'</tr>'+
 						'</thead>',
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
@@ -1041,7 +1041,7 @@
 									DPGlobal.footTemplate+
 								'</table>'+
 							'</div>'+
-							'<a class="button datepicker-close small alert right" style="width:auto;"><i class="icon-remove fa fa-times"></i></a>'+
+							'<a class="button datepicker-close small alert right" style="width:auto;"><i class="fa fa-remove fa-times"></i></a>'+
 						'</div>';
 
 	$.fn.fdatepicker.DPGlobal = DPGlobal;
