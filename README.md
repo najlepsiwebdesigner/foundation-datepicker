@@ -18,7 +18,7 @@ http://foundation-datepicker.peterbeno.com/example/example.html
 
 2. copy the files
     3. **/example/js/foundation-datepicker.js**
-    4.  **/example/css/foundation-datepicker.css**
+    4.  **/example/stylesheets/foundation-datepicker.css**
         somewhere into your project 
 
 3. &lt;link&gt; and &lt;script&gt; them into your page 
