@@ -529,7 +529,7 @@
 			e.stopPropagation();
 			e.preventDefault();
 
-			if ($(e.target).hasClass('datepicker-close')){
+			if ($(e.target).hasClass('datepicker-close') || $(e.target).parent().hasClass('datepicker-close')){
 				this.hide();
 			}
 
