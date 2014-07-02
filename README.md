@@ -10,6 +10,11 @@ For more information, please see included example, or visit http://foundation-da
 
 How to include this in your project:
 
+Install via Bower
+-------------------
+bower install foundation-datepicker
+
+
 Manual Installation
 -------------------
 
