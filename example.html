@@ -7,7 +7,7 @@
 		<meta name="author" content="Peter Beno, najlepsiwebdesigner@gmail.com">
 		<!-- CDN -->
 		<script src="http://code.jquery.com/jquery.min.js"></script>
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 		<link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -15,9 +15,9 @@
 		<!-- Set the viewport width to device width for mobile -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- Included CSS Files (Compressed) -->
-		<link rel="stylesheet" href="../foundation/stylesheets/foundation.min.css">
-		<link rel="stylesheet" href="../foundation/stylesheets/app.css">
-		<script src="../foundation/javascripts/modernizr.foundation.js"></script>
+		<link rel="stylesheet" href="foundation/stylesheets/foundation.min.css">
+		<link rel="stylesheet" href="foundation/stylesheets/app.css">
+		<script src="foundation/javascripts/modernizr.foundation.js"></script>
 		<!-- foundation end -->
 		<!-- foundation datepicker start -->
 		<script src="js/foundation-datepicker.js"></script>
@@ -123,13 +123,6 @@
 							<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp-margin">
 						</div>
 					</div>
-					<p>Start with years viewMode.</p>
-					<div class="panel">
-						<div class="row date collapse" id="dpYears" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-							<input class="small-3 columns" size="16" type="text" value="12-02-2012" readonly>	<span class="prefix small-1 columns end"><i class="fa fa-calendar"></i></span>
-
-						</div>
-					</div>
 					<p>Limit the view mode to months</p>
 					<div class="panel">
 						<div class="row collape date" id="dpMonths" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
@@ -179,7 +172,7 @@
 					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
 					<hr>
 					<hr>
-					 <h2>Using foundation-datepicker.js</h2>
+					<h2>Using foundation-datepicker.js</h2>
 
 					<p>Call the datepicker via javascript:</p> <pre class="prettyprint linenums" style="padding-left:50px;">$('.datepicker').fdatepicker()</pre>
 
@@ -298,7 +291,6 @@ $(&#039;#dp5&#039;).fdatepicker()
 				$('#dp3').fdatepicker();
 				$('#dp3').fdatepicker();
 				$('#dp-margin').fdatepicker();
-				$('#dpYears').fdatepicker();
 				$('#dpMonths').fdatepicker();
 				var startDate = new Date(2012, 1, 20);
 				var endDate = new Date(2012, 1, 25);

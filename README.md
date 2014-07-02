@@ -1,4 +1,4 @@
-foundation-datepicker
+Foundation Datepicker
 =====================
 
 **Feel free to contribute! Fork, modify, and send me a pull request, I'll try my best to merge it as soon, as possible.**
@@ -14,12 +14,12 @@ Manual Installation
 -------------------
 
 1. download & unzip source from GitHub repository:
-http://foundation-datepicker.peterbeno.com/example/example.html
+http://foundation-datepicker.peterbeno.com/example.html
 
 2. copy the files
-    3. **/example/js/foundation-datepicker.js**
-    4.  **/example/stylesheets/foundation-datepicker.css**
-        somewhere into your project 
+    3. **/js/foundation-datepicker.js**
+    4. **/stylesheets/foundation-datepicker.css**
+       somewhere into your project 
 
 3. &lt;link&gt; and &lt;script&gt; them into your page 
 
