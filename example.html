@@ -327,7 +327,7 @@ $(&#039;#dp5&#039;).fdatepicker()
 					if (ev.date.valueOf() > checkout.date.valueOf()) {
 						var newDate = new Date(ev.date)
 						newDate.setDate(newDate.getDate() + 1);
-						checkout.setValue(newDate);
+						checkout.update(newDate);
 					}
 					checkin.hide();
 					$('#dpd2')[0].focus();
