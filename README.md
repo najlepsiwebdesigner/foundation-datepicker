@@ -24,12 +24,6 @@ http://foundation-datepicker.peterbeno.com/example.html
 2. copy the files
     3. **/js/foundation-datepicker.js**
     4. **/stylesheets/foundation-datepicker.css**
-       somewhere into your project 
+       somewhere into your project
 
-3. &lt;link&gt; and &lt;script&gt; them into your page 
-
-4. to see the arrows and icons, please include **font-awesome**:
-
-    &lt;link href=&quot;http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css&quot; rel=&quot;stylesheet&quot;&gt;
-	
-
+3. &lt;link&gt; and &lt;script&gt; them into your page
