@@ -39,6 +39,7 @@
 		var that = this;
 
 		this.element = $(element);
+		this.autoShow = options.autoShow || false;
 		this.closeButton = options.closeButton;
 		this.language = options.language||this.element.data('date-language')||"en";
 		this.language = this.language in dates ? this.language : this.language.split('-')[0]; //Check if "de-DE" style date is available, if not language should fallback to 2 letter code eg "de"
@@ -161,7 +162,7 @@
 			if (this.isInput) { // single input
 				this._events = [
 					[this.element, {
-						focus: $.proxy(this.show, this),
+						focus: (this.autoShow)? $.proxy(this.show, this):function(){},
 						keyup: $.proxy(this.update, this),
 						keydown: $.proxy(this.keydown, this)
 					}]
@@ -171,7 +172,7 @@
 				this._events = [
 					// For components that are not readonly, allow keyboard nav
 					[this.element.find('input'), {
-						focus: $.proxy(this.show, this),
+						focus: (this.autoShow)? $.proxy(this.show, this):function(){},
 						keyup: $.proxy(this.update, this),
 						keydown: $.proxy(this.keydown, this)
 					}],
