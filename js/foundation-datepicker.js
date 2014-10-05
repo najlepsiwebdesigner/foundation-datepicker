@@ -1081,15 +1081,23 @@
 							'</tr>'+
 						'</thead>',
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
-		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
+		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>',
+		headTemplateDays: '<thead>'+
+							'<tr>'+
+								'<th class="prev"><i class="fa fa-chevron-left fi-arrow-left"/></th>'+
+								'<th colspan="5" class="date-switch"></th>'+
+								'<th class="next"><i class="fa fa-chevron-right fi-arrow-right"/></th>'+
+							'</tr>'+
+						  '</thead>',
+		footTemplateDays: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
 	};
 	DPGlobal.template = '<div class="datepicker">'+
 
 							'<div class="datepicker-days">'+
 								'<table class=" table-condensed">'+
-									DPGlobal.headTemplate+
+									DPGlobal.headTemplateDays+
 									'<tbody></tbody>'+
-									DPGlobal.footTemplate+
+									DPGlobal.footTemplateDays+
 								'</table>'+
 							'</div>'+
 							'<div class="datepicker-months">'+
