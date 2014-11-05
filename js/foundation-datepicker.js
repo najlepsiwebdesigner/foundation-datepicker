@@ -140,7 +140,7 @@
 		this.endDate = Infinity;
 		this.daysOfWeekDisabled = [];
 		this.setStartDate(options.startDate||this.element.data('date-startdate'));
-		this.setEndDate(options.endDate||this.element.data('date-enddate'));
+		this.setEndDate(options.endDate||this.element.data('datepla-enddate'));
 		this.setDaysOfWeekDisabled(options.daysOfWeekDisabled||this.element.data('date-days-of-week-disabled'));
 
 		this.fillDow();
@@ -331,8 +331,8 @@
 		  var fullOffsetTop = offset.top + height;
 		  var offsetLeft = offset.left;
 		  // if the datepicker is going to be below the window, show it on top of the input
-		  if((fullOffsetTop + this.picker.height()) >= $(window).scrollTop() + $(window).height()){
-		  	fullOffsetTop = offset.top - height - this.picker.height();
+		  if((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()){
+		  	fullOffsetTop = offset.top - this.picker.outerHeight();
 		  }
 
 		  // if the datepicker is going to go past the right side of the window, we want
