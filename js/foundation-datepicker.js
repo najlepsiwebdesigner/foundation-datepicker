@@ -140,7 +140,7 @@
 		this.endDate = Infinity;
 		this.daysOfWeekDisabled = [];
 		this.setStartDate(options.startDate||this.element.data('date-startdate'));
-		this.setEndDate(options.endDate||this.element.data('datepla-enddate'));
+		this.setEndDate(options.endDate||this.element.data('date-enddate'));
 		this.setDaysOfWeekDisabled(options.daysOfWeekDisabled||this.element.data('date-days-of-week-disabled'));
 
 		this.fillDow();
