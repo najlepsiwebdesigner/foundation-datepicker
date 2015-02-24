@@ -74,6 +74,8 @@
 							});
 		if (this.closeButton){
 			this.picker.find('a.datepicker-close').show();
+		} else {
+			this.picker.find('a.datepicker-close').hide();
 		}
 
 		if(this.isInline) {
