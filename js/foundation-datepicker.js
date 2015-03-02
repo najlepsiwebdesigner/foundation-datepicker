@@ -333,8 +333,8 @@
 		  var fullOffsetTop = offset.top + height;
 		  var offsetLeft = offset.left;
 		  // if the datepicker is going to be below the window, show it on top of the input
-		  if((fullOffsetTop + this.picker.height()) >= $(window).scrollTop() + $(window).height()){
-		  	fullOffsetTop = offset.top - height - this.picker.height();
+		  if((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()){
+		  	fullOffsetTop = offset.top - this.picker.outerHeight();
 		  }
 
 		  // if the datepicker is going to go past the right side of the window, we want
