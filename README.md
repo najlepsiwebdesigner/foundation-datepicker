@@ -34,8 +34,7 @@ http://foundation-datepicker.peterbeno.com/example.html
 Language translations
 -------------------
 
-Inside foundation-datepicker.js (aproximately on line 45)
-you can pass argument to constructor to choose language used:
+You can pass argument to constructor to choose language used:
 ```
 $('.fdatepicker').fdatepicker({
         language: 'de'

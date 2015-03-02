@@ -42,7 +42,7 @@
         this.element = $(element);
         this.autoShow = options.autoShow || true;
         this.closeButton = options.closeButton;
-        this.language = options.language || this.element.data('date-language') || "gr";
+        this.language = options.language || this.element.data('date-language') || "en";
         this.language = this.language in dates ? this.language : this.language.split('-')[0]; //Check if "de-DE" style date is available, if not language should fallback to 2 letter code eg "de"
         this.language = this.language in dates ? this.language : "en";
         this.isRTL = dates[this.language].rtl || false;
