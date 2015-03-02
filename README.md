@@ -33,6 +33,7 @@ http://foundation-datepicker.peterbeno.com/example.html
 	
 Language translations
 -------------------
+
 You can pass argument to constructor to choose language used:
 ```
 $('.fdatepicker').fdatepicker({
