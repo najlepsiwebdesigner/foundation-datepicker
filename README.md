@@ -3,10 +3,15 @@ Foundation Datepicker
 
 **Feel free to contribute! Fork, modify, and send me a pull request, I'll try my best to merge it as soon, as possible.**
 
-
 Foundation datepicker jQuery plugin, based on bootstrap-datepicker project found at https://github.com/eternicode/bootstrap-datepicker.
 
 For more information, please see included example, or visit http://foundation-datepicker.peterbeno.com
+
+Foundation version support
+-------------------
+Foundation 5 is fully supported. For Foundation 4 version, check out last compatible version:
+https://github.com/najlepsiwebdesigner/foundation-datepicker/releases/tag/1.2.0
+
 
 How to include this in your project:
 
