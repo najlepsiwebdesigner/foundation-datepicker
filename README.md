@@ -44,6 +44,23 @@ $('.fdatepicker').fdatepicker({
         language: 'de'
     });
 ```
+
+Available languages are:
+
+- English (en) - default
+- French (fr) 
+- Polish (pl)
+- Spanish (es)
+- Portugese (pt)
+- Portugese Brasil (pt_br)
+- Italian (it)
+- German (de)
+- Romanian (ro)
+- Hungarian (hu)
+- Russian (ru)
+- Czech (cz)
+- Dutch (nl)
+- Greek (el)
 	
 Version without Font Awesome
 -------------------
