@@ -66,3 +66,8 @@ Version without Font Awesome
 -------------------
 Can be found in separate branch:
 https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/no-font-awesome
+
+
+A note on forking:
+-------------------
+By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the MIT License.
