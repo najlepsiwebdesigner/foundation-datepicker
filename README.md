@@ -61,6 +61,7 @@ Available languages are:
 - Czech (cz)
 - Dutch (nl)
 - Greek (el)
+- Ukrainian (uk)
 	
 Version without Font Awesome
 -------------------
@@ -70,4 +71,4 @@ https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/no-font-awesom
 
 A note on forking:
 -------------------
-By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the MIT License.
+By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the Apache License.
