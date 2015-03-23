@@ -17,7 +17,7 @@ How to include this in your project:
 
 Install via Bower
 -------------------
-bower install foundation-datepicker
+`bower install foundation-datepicker`
 
 Manual Installation
 -------------------
@@ -34,7 +34,7 @@ http://foundation-datepicker.peterbeno.com/example.html
 
 4. to see the arrows and icons, please include **font-awesome**:
 
-    &lt;link href=&quot;http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css&quot; rel=&quot;stylesheet&quot;&gt;
+    `<link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">`
 	
 Language translations
 -------------------
