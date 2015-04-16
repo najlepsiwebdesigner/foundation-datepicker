@@ -34,6 +34,8 @@
 
 
 		this.onRender = options.onRender || function () {};
+		this.onHover = options.onHover || function (e, d) {};
+		
 		if(this.component && this.component.length === 0)
 			this.component = false;
 
@@ -597,6 +599,42 @@
 				}
 			}
 		},
+		mouseover: function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if ($(e.target).hasClass('datepicker-close') || $(e.target).parent().hasClass('datepicker-close')){
+				this.hide();
+			}
+
+			var target = $(e.target).closest('span, td, th');
+			if (target.length == 1) {
+				switch(target[0].nodeName.toLowerCase()) {
+					case 'td':
+						if (target.is('.day') && !target.is('.disabled')){
+							var day = parseInt(target.text(), 10)||1;
+							var year = this.viewDate.getUTCFullYear(),
+								month = this.viewDate.getUTCMonth();
+							if (target.is('.old')) {
+								if (month === 0) {
+									month = 11;
+									year -= 1;
+								} else {
+									month -= 1;
+								}
+							} else if (target.is('.new')) {
+								if (month == 11) {
+									month = 0;
+									year += 1;
+								} else {
+									month += 1;
+								}
+							}
+							this.onHover(target, UTCDate(year, month, day,0,0,0,0));
+						}
+						break;
+				}
+			}
+		},
 
 		_setDate: function(date, which){
 			if (!which || which == 'date')
@@ -798,6 +836,8 @@
 	$.fn.fdatepicker.defaults = {
 		onRender: function(date) {
 			return '';
+		},
+		onHover: function(ele, date){
 		}
 	};
 	$.fn.fdatepicker.Constructor = Datepicker;
