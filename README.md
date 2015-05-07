@@ -62,6 +62,7 @@ Available languages are:
 - Dutch (nl)
 - Greek (el)
 - Ukrainian (uk)
+- Norwegian (no)
 	
 Version without Font Awesome
 -------------------
