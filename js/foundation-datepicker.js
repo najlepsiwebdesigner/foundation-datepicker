@@ -921,7 +921,15 @@
 			months: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
 			monthsShort: ["Сiч", "Лют", "Бер", "Квiт", "Трав", "Черв", "Лип", "Серп", "Вер", "Жовт", "Лист", "Груд"],
 			today: "Сьогодні"
-		}
+		},
+        no: {
+            days: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"],
+            daysShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"],
+            daysMin: ["Sø", "Ma", "Ti", "On", "To", "Fr", "Lø", "Sø"],
+            months: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+            monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"],
+            today: "I dag"
+        }
 	};
 
 	var DPGlobal = {
