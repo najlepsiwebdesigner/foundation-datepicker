@@ -1,26 +1,7 @@
 /* =========================================================
  * foundation-datepicker.js
- * Copyright 2013 Peter Beno, najlepsiwebdesigner@gmail.com, @benopeter
+ * Copyright 2015 Peter Beno, najlepsiwebdesigner@gmail.com, @benopeter
  * project website http://foundation-datepicker.peterbeno.com
- *
- * original project:
- * 		bootstrap-datepicker.js
- * 		http://www.eyecon.ro/bootstrap-datepicker
- * 		=========================================================
- * 		Copyright 2012 Stefan Petre
- * 		Improvements by Andrew Rowls
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  * ========================================================= */
 
 !function( $ ) {
@@ -74,6 +55,8 @@
 							});
 		if (this.closeButton){
 			this.picker.find('a.datepicker-close').show();
+		} else {
+			this.picker.find('a.datepicker-close').hide();
 		}
 
 		if(this.isInline) {
@@ -320,31 +303,31 @@
 		},
 
 		place: function(){
-		        if(this.isInline) return;
-		  var zIndex = parseInt(this.element.parents().filter(function() {
-		          return $(this).css('z-index') != 'auto';
-		        }).first().css('z-index'))+10;
-		  var textbox = this.component ? this.component : this.element;
-		  var offset = textbox.offset();
-		  var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
-		  var width = textbox.outerWidth() + parseInt(textbox.css('margin-left'));
-		  var fullOffsetTop = offset.top + height;
-		  var offsetLeft = offset.left;
-		  // if the datepicker is going to be below the window, show it on top of the input
-		  if((fullOffsetTop + this.picker.height()) >= $(window).scrollTop() + $(window).height()){
-		  	fullOffsetTop = offset.top - height - this.picker.height();
-		  }
+				if(this.isInline) return;
+			var zIndex = parseInt(this.element.parents().filter(function() {
+					return $(this).css('z-index') != 'auto';
+				}).first().css('z-index'))+10;
+			var textbox = this.component ? this.component : this.element;
+			var offset = textbox.offset();
+			var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
+			var width = textbox.outerWidth() + parseInt(textbox.css('margin-left'));
+			var fullOffsetTop = offset.top + height;
+			var offsetLeft = offset.left;
+			// if the datepicker is going to be below the window, show it on top of the input
+			if((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()){
+			fullOffsetTop = offset.top - this.picker.outerHeight();
+			}
 
-		  // if the datepicker is going to go past the right side of the window, we want
-		  // to set the right position so the datepicker lines up with the textbox
-		  if(offset.left + this.picker.width() >= $(window).width()){
-		  	offsetLeft = (offset.left + width)  - this.picker.width();
-		  }
-		  this.picker.css({
-		    top: fullOffsetTop,
-		    left: offsetLeft,
-		    zIndex: zIndex
-		  });
+			// if the datepicker is going to go past the right side of the window, we want
+			// to set the right position so the datepicker lines up with the textbox
+			if(offset.left + this.picker.width() >= $(window).width()){
+			offsetLeft = (offset.left + width)  - this.picker.width();
+			}
+			this.picker.css({
+			top: fullOffsetTop,
+			left: offsetLeft,
+			zIndex: zIndex
+			});
 		},
 
 		update: function(){
@@ -812,11 +795,11 @@
 		});
 	};
 
-    $.fn.fdatepicker.defaults = {
-        onRender: function(date) {
-            return '';
-        }
-    };
+	$.fn.fdatepicker.defaults = {
+		onRender: function(date) {
+			return '';
+		}
+	};
 	$.fn.fdatepicker.Constructor = Datepicker;
 	var dates = $.fn.fdatepicker.dates = {
 		en: {
@@ -852,44 +835,52 @@
 			today: "Hoy"
 		},
 		pt: {
-		    days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
-		    daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
-		    daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sá", "Do"],
-		    months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-		    monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
-		    today: "Hoje"
+			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
+			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+			daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sá", "Do"],
+			months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+			today: "Hoje"
+		},
+		pt_br: {
+			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
+			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+			daysMin: ["D", "S", "T", "Q", "Q", "S", "S", "D"],
+			months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+			today: "Hoje"
 		},
 		it: {
-		    days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"],
-		    daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Veb", "Sab", "Dom"],
-		    daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa", "Do"],
-		    months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
-		    monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
-		    today: "Oggi"
+			days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"],
+			daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Veb", "Sab", "Dom"],
+			daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa", "Do"],
+			months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+			monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+			today: "Oggi"
 		},
 		de: {
-		    days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
-		    daysShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
-		    daysMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
-		    months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
-		    monthsShort: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
-		    today: "Heute"
+			days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+			daysShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+			daysMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+			months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+			monthsShort: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+			today: "Heute"
 		},
 		ro: {
-		    days: ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"],
-		    daysShort: ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sam", "Dum"],
-		    daysMin: ["Du", "Lu", "Ma", "Mi", "Jo", "Vi", "Sa", "Du"],
-		    months: ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
-		    monthsShort: ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Noi", "Dec"],
-		    today: "Astazi"
+			days: ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"],
+			daysShort: ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sam", "Dum"],
+			daysMin: ["Du", "Lu", "Ma", "Mi", "Jo", "Vi", "Sa", "Du"],
+			months: ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
+			monthsShort: ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Noi", "Dec"],
+			today: "Astazi"
 		},
 		hu: {
-		    days: ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"],
-		    daysShort: ["Vas", "Hét", "Kedd", "Sze", "Csü", "Pén", "Szo", "Vas"],
-		    daysMin: ["Va", "Hé", "Ke", "Sz", "Cs", "Pé", "Sz", "Va"],
-		    months: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
-		    monthsShort: ["Jan", "Feb", "Már", "Ápr", "Máj", "Jún", "Júl", "Aug", "Szep", "Okt", "Nov", "Dec"],
-		    today: "Ma"
+			days: ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"],
+			daysShort: ["Vas", "Hét", "Kedd", "Sze", "Csü", "Pén", "Szo", "Vas"],
+			daysMin: ["Va", "Hé", "Ke", "Sz", "Cs", "Pé", "Sz", "Va"],
+			months: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+			monthsShort: ["Jan", "Feb", "Már", "Ápr", "Máj", "Jún", "Júl", "Aug", "Szep", "Okt", "Nov", "Dec"],
+			today: "Ma"
 		},
 		ru: {
 			days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
@@ -897,7 +888,7 @@
 			daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
 			months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
 			monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-			today: "Сегодня",
+			today: "Сегодня"
 		},
 		cz: {
 			days: ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle"],
@@ -906,7 +897,39 @@
 			months: ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
 			monthsShort: ["Led", "Úno", "Bře", "Dub", "Kvě", "Čer", "Čnc", "Srp", "Zář", "Říj", "Lis", "Pro"],
 			today: "Dnes"
-		}
+		},
+		nl: {
+			days: ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"],
+			daysShort: ["Zon", "Maa", "Din", "Woe", "Don", "Vri", "Zat", "Zon"],
+			daysMin: ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"],
+			months: ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+			monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
+			today: "Vandaag"
+		},
+		el: {
+			days: ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"],
+			daysShort: ["Κυρ", "Δευ", "Τρί", "Τετ", "Πέμ", "Παρ", "Σάβ", "Κυρ"],
+			daysMin: ["Κυ", "Δε", "Τρ", "Τε", "Πέ", "Πα", "Σά", "Κυ"],
+			months: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
+			monthsShort: ["Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαϊ", "Ιου", "Ιου", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ"],
+			today: "Σήμερα"
+		},
+		uk: {
+			days: ["Понедiлок ", "Вiвторок ", "Середа ", "Четвер ", "П'ятниця ", "Субота ", "Недiля"],
+			daysShort: ["Пнд", "Втр", "Срд", "Чтв", "Птн", "Сбт", "Ндл"],
+			daysMin: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"],
+			months: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+			monthsShort: ["Сiч", "Лют", "Бер", "Квiт", "Трав", "Черв", "Лип", "Серп", "Вер", "Жовт", "Лист", "Груд"],
+			today: "Сьогодні"
+		},
+        no: {
+            days: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"],
+            daysShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"],
+            daysMin: ["Sø", "Ma", "Ti", "On", "To", "Fr", "Lø", "Sø"],
+            months: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+            monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"],
+            today: "I dag"
+        }
 	};
 
 	var DPGlobal = {
@@ -1065,15 +1088,23 @@
 							'</tr>'+
 						'</thead>',
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
-		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
+		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>',
+		headTemplateDays: '<thead>'+
+							'<tr>'+
+								'<th class="prev"><i class="fa fa-chevron-left fi-arrow-left"/></th>'+
+								'<th colspan="5" class="date-switch"></th>'+
+								'<th class="next"><i class="fa fa-chevron-right fi-arrow-right"/></th>'+
+							'</tr>'+
+							'</thead>',
+		footTemplateDays: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
 	};
 	DPGlobal.template = '<div class="datepicker">'+
 
 							'<div class="datepicker-days">'+
 								'<table class=" table-condensed">'+
-									DPGlobal.headTemplate+
+									DPGlobal.headTemplateDays+
 									'<tbody></tbody>'+
-									DPGlobal.footTemplate+
+									DPGlobal.footTemplateDays+
 								'</table>'+
 							'</div>'+
 							'<div class="datepicker-months">'+
@@ -1090,7 +1121,7 @@
 									DPGlobal.footTemplate+
 								'</table>'+
 							'</div>'+
-							'<a class="button datepicker-close small alert right" style="width:auto;"><i class="fa fa-remove fa-times fi-x"></i></a>'+
+							'<a class="button datepicker-close tiny alert right" style="width:auto;"><i class="fa fa-remove fa-times fi-x"></i></a>'+
 						'</div>';
 
 	$.fn.fdatepicker.DPGlobal = DPGlobal;
