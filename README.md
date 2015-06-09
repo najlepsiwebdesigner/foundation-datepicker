@@ -63,6 +63,7 @@ Available languages are:
 - Greek (el)
 - Ukrainian (uk)
 - Norwegian (no)
+- Turkish (tr)
 	
 Version without Font Awesome
 -------------------
