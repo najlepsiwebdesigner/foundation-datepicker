@@ -64,6 +64,7 @@ Available languages are:
 - Ukrainian (uk)
 - Norwegian (no)
 - Turkish (tr)
+- Swedish (sv)
 	
 Version without Font Awesome
 -------------------
