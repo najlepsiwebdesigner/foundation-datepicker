@@ -31,6 +31,7 @@
 		this.isInput = this.element.is('input');
 		this.component = this.element.is('.date') ? this.element.find('.prefix, .postfix') : false;
 		this.hasInput = this.component && this.element.find('input').length;
+		this.disableDblClickSelection = options.disableDblClickSelection;
 
 
 		this.onRender = options.onRender || function () {};
@@ -174,6 +175,21 @@
 					}]
 				];
 			}
+
+			console.log(this.disableDblClickSelection)
+
+			if (this.disableDblClickSelection) {
+				this._events[this._events.length] = [
+					this.element, {
+						dblclick: function (e) {
+							e.preventDefault();
+							e.stopPropagation();
+							$(this).blur()
+						}
+					}
+				];
+			}
+
 			for (var i=0, el, ev; i<this._events.length; i++){
 				el = this._events[i][0];
 				ev = this._events[i][1];
