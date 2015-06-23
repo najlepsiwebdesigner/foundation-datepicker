@@ -20,7 +20,7 @@
 		var that = this;
 
 		this.element = $(element);
-		this.autoShow = options.autoShow || true;
+		this.autoShow = (typeof options.autoShow === "undefined")? true: options.autoShow ;
 		this.closeButton = options.closeButton;
 		this.language = options.language||this.element.data('date-language')||"en";
 		this.language = this.language in dates ? this.language : this.language.split('-')[0]; //Check if "de-DE" style date is available, if not language should fallback to 2 letter code eg "de"
