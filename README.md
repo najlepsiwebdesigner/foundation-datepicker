@@ -15,9 +15,10 @@ https://github.com/najlepsiwebdesigner/foundation-datepicker/releases/tag/1.2.0
 
 How to include this in your project:
 
-Install via Bower
+Install via Bower or NPM
 -------------------
 `bower install foundation-datepicker`
+`npm install foundation-datepicker`
 
 Manual Installation
 -------------------
