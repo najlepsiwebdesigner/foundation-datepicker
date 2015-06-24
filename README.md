@@ -18,6 +18,7 @@ How to include this in your project:
 Install via Bower or NPM
 -------------------
 `bower install foundation-datepicker`
+
 `npm install foundation-datepicker`
 
 Manual Installation
