@@ -34,6 +34,16 @@
 		this.hasInput = this.component && this.element.find('input').length;
 		this.disableDblClickSelection = options.disableDblClickSelection;
 
+		if (options.leftIconClass) {
+			DPGlobal.leftIconClass = options.leftIconClass;
+		}
+		if (options.rightIconClass) {
+			DPGlobal.rightIconClass = options.rightIconClass;
+		}
+		if (options.closeIconClass) {
+			DPGlobal.closeIconClass = options.closeIconClass;
+		}
+
 
 		this.onRender = options.onRender || function () {};
 		if(this.component && this.component.length === 0)
@@ -49,7 +59,7 @@
 		}
 
 
-		this.picker = $(DPGlobal.template)
+		this.picker = $(DPGlobal.template())
 							.appendTo(this.isInline ? this.element : this.appendTo)
 							.on({
 								click: $.proxy(this.click, this),
@@ -1113,49 +1123,59 @@
 			}
 			return date.join('');
 		},
-		headTemplate: '<thead>'+
-							'<tr>'+
-								'<th class="prev"><i class="fa fa-chevron-left fi-arrow-left"/></th>'+
-								'<th colspan="5" class="date-switch"></th>'+
-								'<th class="next"><i class="fa fa-chevron-right fi-arrow-right"/></th>'+
-							'</tr>'+
-						'</thead>',
+
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
 		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>',
-		headTemplateDays: '<thead>'+
-							'<tr>'+
-								'<th class="prev"><i class="fa fa-chevron-left fi-arrow-left"/></th>'+
-								'<th colspan="5" class="date-switch"></th>'+
-								'<th class="next"><i class="fa fa-chevron-right fi-arrow-right"/></th>'+
-							'</tr>'+
-							'</thead>',
 		footTemplateDays: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
+		closeIconClass:'fa fa-remove fa-times fi-x',
+		rightIconClass:'fa fa-chevron-right fi-arrow-right',
+		leftIconClass:'fa fa-chevron-left fi-arrow-left'
 	};
-	DPGlobal.template = '<div class="datepicker">'+
+	DPGlobal.headTemplate = function() {
+		return '<thead>' +
+					'<tr>' +
+						'<th class="prev"><i class="' + DPGlobal.leftIconClass + '"/></th>' +
+						'<th colspan="5" class="date-switch"></th>' +
+						'<th class="next"><i class="' + DPGlobal.rightIconClass + '"/></th>' +
+					'</tr>' +
+				'</thead>';
+	};
 
-							'<div class="datepicker-days">'+
-								'<table class=" table-condensed">'+
-									DPGlobal.headTemplateDays+
-									'<tbody></tbody>'+
-									DPGlobal.footTemplateDays+
-								'</table>'+
-							'</div>'+
-							'<div class="datepicker-months">'+
-								'<table class="table-condensed">'+
-									DPGlobal.headTemplate+
-									DPGlobal.contTemplate+
-									DPGlobal.footTemplate+
-								'</table>'+
-							'</div>'+
-							'<div class="datepicker-years">'+
-								'<table class="table-condensed">'+
-									DPGlobal.headTemplate+
-									DPGlobal.contTemplate+
-									DPGlobal.footTemplate+
-								'</table>'+
-							'</div>'+
-							'<a class="button datepicker-close tiny alert right" style="width:auto;"><i class="fa fa-remove fa-times fi-x"></i></a>'+
-						'</div>';
+	DPGlobal.headTemplateDays = function() {
+		return '<thead>' +
+					'<tr>' +
+						'<th class="prev"><i class="' + DPGlobal.leftIconClass + '"/></th>' +
+						'<th colspan="5" class="date-switch"></th>' +
+						'<th class="next"><i class="' + DPGlobal.rightIconClass + '"/></th>' +
+					'</tr>' +
+				'</thead>';
+	};
+	DPGlobal.template = function() {
+		return '<div class="datepicker">' +
+					'<div class="datepicker-days">' +
+						'<table class=" table-condensed">' +
+							DPGlobal.headTemplateDays() +
+							'<tbody></tbody>' +
+							DPGlobal.footTemplateDays +
+						'</table>' +
+					'</div>' +
+					'<div class="datepicker-months">' +
+						'<table class="table-condensed">' +
+							DPGlobal.headTemplate() +
+							DPGlobal.contTemplate +
+							DPGlobal.footTemplate +
+							'</table>' +
+							'</div>' +
+							'<div class="datepicker-years">' +
+							'<table class="table-condensed">' +
+							DPGlobal.headTemplate() +
+							DPGlobal.contTemplate +
+							DPGlobal.footTemplate +
+						'</table>' +
+					'</div>' +
+					'<a class="button datepicker-close tiny alert right" style="width:auto;"><i class="' + DPGlobal.closeIconClass + '"></i></a>' +
+				'</div>';
+	};
 
 	$.fn.fdatepicker.DPGlobal = DPGlobal;
 
