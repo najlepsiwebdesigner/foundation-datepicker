@@ -1126,7 +1126,7 @@
 
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
 		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>',
-		footTemplateDays: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
+		footTemplateDays: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>',
 		closeIconClass:'fa fa-remove fa-times fi-x',
 		rightIconClass:'fa fa-chevron-right fi-arrow-right',
 		leftIconClass:'fa fa-chevron-left fi-arrow-left'
