@@ -55,24 +55,25 @@ $('.fdatepicker').fdatepicker({
 
 Available languages are:
 
-- English (en) - default
-- French (fr)
-- Polish (pl)
-- Spanish (es)
-- Portugese (pt)
-- Portugese Brasil (pt_br)
-- Italian (it)
-- German (de)
-- Romanian (ro)
-- Hungarian (hu)
-- Russian (ru)
 - Czech (cz)
 - Dutch (nl)
+- English (en) - default
+- French (fr)
+- German (de)
 - Greek (el)
-- Ukrainian (uk)
+- Hungarian (hu)
+- Italian (it)
 - Norwegian (no)
-- Turkish (tr)
+- Polish (pl)
+- Portugese (pt)
+- Portugese Brasil (pt_br)
+- Romanian (ro)
+- Russian (ru)
 - Slovak (sk)
+- Spanish (es)
+- Turkish (tr)
+- Ukrainian (uk)
+
 
 Icons
 ------------------
