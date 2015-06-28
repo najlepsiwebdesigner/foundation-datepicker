@@ -5,25 +5,24 @@
 		<title>Foundation datepicker</title>
 		<meta name="description" content="Port of bootstrap datepicker to Zurb Foundation framework">
 		<meta name="author" content="Peter Beno, najlepsiwebdesigner@gmail.com">
-		<!-- CDN -->
-		<script src="http://code.jquery.com/jquery.min.js"></script>
-		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 		<link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-		<!-- foundation start -->
-		<!-- Set the viewport width to device width for mobile -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- Included CSS Files (Compressed) -->
 		<link rel="stylesheet" href="foundation/css/foundation.min.css">
-<!-- 		<link rel="stylesheet" href="foundation/css/app.css"> -->
-		<script src="foundation/js/vendor/custom.modernizr.js"></script>
-		<!-- foundation end -->
+		<link rel="stylesheet" href="foundation/fonts/foundation-icons.css">
+
 		<!-- foundation datepicker start -->
-		<script src="js/foundation-datepicker.js"></script>
-		<link rel="stylesheet" href="stylesheets/foundation-datepicker.css">
+			<!-- DEPS -->
+				<script src="http://code.jquery.com/jquery.min.js"></script>
+				<!-- CDN - you can use font awesome or fonudation icon via this, or use your own version: -->
+					<!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+					<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+			<!-- DATEPICKER FILES -->
+			<script src="js/foundation-datepicker.min.js"></script>
+			<link rel="stylesheet" href="css/foundation-datepicker.min.css">
 		<!-- foundation datepicker end -->
-		<link rel="stylesheet" href="stylesheets/example.css">
+
+		<link rel="stylesheet" href="css/example.css">
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -34,8 +33,8 @@
        <div class="small-12 columns">
 				 <h1>Datepicker for Foundation</h1>
          <h2 class="subheader">foundation-datepicker.js</h2>
+				<br><br>
        </div>
-
 			</header>
 			<div class="row">
 				<div class="small-3 columns" id="sidebar-wrap">
@@ -47,11 +46,11 @@
 								<a href="http://foundation-datepicker.peterbeno.com/">project website</a>
 							</li>
 							<li>
-								<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">forked project @github</a>
+								<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">project @github</a>
 							</li>
 						</ul>
 					</p>
-					<p>Based on best available datepicker in this galaxy - bootstrap-datepicker:
+					<p>Based on:
 						<ul>
 							<li>
 								<a href="http://www.eyecon.ro/bootstrap-datepicker/">website</a>
@@ -61,16 +60,8 @@
 							</li>
 						</ul>
 					</p>
-					 <h4>Description:</h4>
-
-					<ul>
-						<li>can be used as a component</li>
-						<li>formats: dd, d, mm, m, yyyy, yy</li>
-						<li>separators: -, /, .</li>
-					</ul>
 					<div class="alert-box">
-						<h6>Warning!</h6> 
-						<br>This plugin uses really robust, tested base bootstrap-datepicker plugin, projects are now not in sync. This datepicker is based on old version of bootstrap-datepicker, but it works well. If you find an error, please report it to github. Thanks! :)</div>
+					If you find an error, please report it to github. Thanks! :)</div>
 					<p>
 						<a href="https://twitter.com/share" class="twitter-share-button" data-via="benopeter">Tweet</a>
 						<script>
@@ -79,7 +70,7 @@
 								if (!d.getElementById(id)) {
 									js = d.createElement(s);
 									js.id = id;
-									js.src = "//platform.twitter.com/widgets.js";
+									js.src = "http://platform.twitter.com/widgets.js";
 									fjs.parentNode.insertBefore(js, fjs);
 								}
 							}(document, "script", "twitter-wjs");
@@ -355,6 +346,7 @@ $(&#039;#dp5&#039;).fdatepicker()
 				s.parentNode.insertBefore(ga, s);
 			})();
 		</script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 	</body>
 
 </html>

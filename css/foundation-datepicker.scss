@@ -1,0 +1,209 @@
+//colors
+$white: #fff;
+$color_celeste_approx: #ccc;
+$black_20: rgba(0, 0, 0, .2);
+$color_mine_shaft_approx: #333;
+$color_curious_blue_approx: #2ba6cb;
+$color_mountain_mist_approx: #999;
+$color_gallery_approx: #eee;
+
+//fonts
+$font_0: "Open Sans";
+$font_1: "sans-serif";
+
+//@extend-elements
+//original selectors
+//.datepicker td, .datepicker th
+%extend_1 {
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	border: 0;
+	font-size: 12px;
+	padding: 4px 8px;
+	background: $white;
+	cursor: pointer;
+}
+
+
+.datepicker {
+	display: none;
+	position: absolute;
+	padding: 4px;
+	margin-top: 1px;
+	direction: ltr;
+	&.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		float: left;
+		display: none;
+		min-width: 160px;
+		list-style: none;
+		background-color: $white;
+		border: 1px solid $black_20;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+		border-radius: 5px;
+		-webkit-box-shadow: 0 5px 10px $black_20;
+		-moz-box-shadow: 0 5px 10px $black_20;
+		//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 5px 10px $black_20;
+		-webkit-background-clip: padding-box;
+		-moz-background-clip: padding;
+		//Instead of the line below you could use @includebackground-clip($clip)
+		background-clip: padding-box;
+		*border-right-width: 2px;
+		*border-bottom-width: 2px;
+		color: $color_mine_shaft_approx;
+		font-family: $font_0, $font_1;
+		font-size: 13px;
+		line-height: 18px;
+		th {
+			padding: 4px 5px;
+		}
+		td {
+			padding: 4px 5px;
+		}
+	}
+	table {
+		border: 0;
+		margin: 0;
+		tr td span {
+			display: block;
+			width: 23%;
+			height: 54px;
+			line-height: 54px;
+			float: left;
+			margin: 1%;
+			cursor: pointer;
+		}
+	}
+	td {
+		@extend %extend_1;
+		&.active {
+			&.day {
+				background: $color_curious_blue_approx;
+			}
+			&.year {
+				background: $color_curious_blue_approx;
+			}
+		}
+		&.old {
+			color: $color_mountain_mist_approx;
+		}
+		&.new {
+			color: $color_mountain_mist_approx;
+		}
+		span.active {
+			background: $color_curious_blue_approx;
+		}
+		&.day.disabled {
+			color: $color_gallery_approx;
+		}
+	}
+	th {
+		@extend %extend_1;
+		&.active {
+			&.day {
+				background: $color_curious_blue_approx;
+			}
+			&.year {
+				background: $color_curious_blue_approx;
+			}
+		}
+		&.date-switch {
+			width: 145px;
+		}
+		span.active {
+			background: $color_curious_blue_approx;
+		}
+	}
+	.cw {
+		font-size: 10px;
+		width: 12px;
+		padding: 0 2px 0 5px;
+		vertical-align: middle;
+	}
+	&.days div.datepicker-days {
+		display: block;
+	}
+	&.months div.datepicker-months {
+		display: block;
+	}
+	&.years div.datepicker-years {
+		display: block;
+	}
+	thead tr:first-child th {
+		cursor: pointer;
+		&.cw {
+			cursor: default;
+			background-color: transparent;
+		}
+	}
+	tfoot tr:first-child th {
+		cursor: pointer;
+	}
+}
+.datepicker-inline {
+	width: 220px;
+}
+.datepicker-rtl {
+	direction: rtl;
+	table tr td span {
+		float: right;
+	}
+}
+.datepicker-dropdown {
+	top: 0;
+	left: 0;
+	&:before {
+		content: '';
+		display: inline-block;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-bottom: 7px solid $color_celeste_approx;
+		border-bottom-color: $black_20;
+		position: absolute;
+		top: -7px;
+		left: 6px;
+	}
+	&:after {
+		content: '';
+		display: inline-block;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-bottom: 6px solid $white;
+		position: absolute;
+		top: -6px;
+		left: 7px;
+	}
+}
+.datepicker>div {
+	display: none;
+}
+.datepicker-dropdown::before {
+	display: none;
+}
+.datepicker-dropdown::after {
+	display: none;
+}
+.datepicker-close {
+	position: absolute;
+	top: -30px;
+	right: 0;
+	width: 15px;
+	height: 30px;
+	padding: 0;
+	display: none;
+}
+.table-striped .datepicker table tr {
+	td {
+		background-color: transparent;
+	}
+	th {
+		background-color: transparent;
+	}
+}

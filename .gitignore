@@ -1,2 +1,4 @@
 *.DS_Store
 index.php
+node_modules
+.sass-cache

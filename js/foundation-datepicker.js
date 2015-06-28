@@ -177,8 +177,6 @@
 				];
 			}
 
-			console.log(this.disableDblClickSelection)
-
 			if (this.disableDblClickSelection) {
 				this._events[this._events.length] = [
 					this.element, {
@@ -826,6 +824,14 @@
 			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			today: "Today"
+		},
+		sk: {
+			days: ["Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota", "Nedeľa"],
+			daysShort: ["Neď", "Pon", "Utr", "Str", "Štv", "Pia", "Sob", "Ned"],
+			daysMin: ["Ne", "Po", "Ut", "St", "Št", "Pi", "So", "Ne"],
+			months: ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December"],
+			monthsShort: ["Jan", "Feb", "Mar", "Apr", "Máj", "Jún", "Júl", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			today: "Dnes"
 		},
 		tr: {
 			days: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
