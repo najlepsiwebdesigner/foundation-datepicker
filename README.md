@@ -21,6 +21,8 @@ Install via Bower or NPM
 
 `npm install foundation-datepicker`
 
+after running continue with step 3 from manual instalation
+
 Manual Installation
 -------------------
 
@@ -34,7 +36,7 @@ http://foundation-datepicker.peterbeno.com/example.html
 
 3. &lt;link&gt; and &lt;script&gt; them into your page
 
-4. to see the arrows and icons, please include **font-awesome** of **foundation icons**:
+4. to see the arrows and icons, please include **font-awesome** or **foundation icons**:
 
   http://zurb.com/playground/foundation-icons
 
