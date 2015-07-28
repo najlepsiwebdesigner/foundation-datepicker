@@ -99,4 +99,4 @@ By forking this project you hereby grant permission for any commits to your fork
 
 Issues
 -------------------
-Before you submit a new issue, please check closed issues (here)[https://github.com/najlepsiwebdesigner/foundation-datepicker/issues?q=is%3Aissue+is%3Aclosed], maybe your problem was solved already. Thanks!
+Before you submit a new issue, please check closed (maybe also open) issues [here](https://github.com/najlepsiwebdesigner/foundation-datepicker/issues?q=is%3Aissue+is%3Aclosed), maybe your problem was solved already. Thanks!
