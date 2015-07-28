@@ -21,19 +21,16 @@ Install via Bower or NPM
 
 `npm install foundation-datepicker`
 
-after running continue with step 3 from manual instalation
+after running continue with step 3 from manual instalation. Files you should use are mentioned in step 2.
 
-Manual Installation
+Manual Installation and Setup
 -------------------
 
 1. download & unzip source from GitHub repository:
 http://foundation-datepicker.peterbeno.com/example.html
 
-2. copy the files
-    3. **/js/foundation-datepicker.js**
-    4. **/stylesheets/foundation-datepicker.css**
-       somewhere into your project
-
+2. copy the files `/js/foundation-datepicker.js` and `/stylesheets/foundation-datepicker.css`
+    somewhere into your project. Minified versions are also available.
 3. &lt;link&gt; and &lt;script&gt; them into your page
 
 4. to see the arrows and icons, please include **font-awesome** or **foundation icons**:
