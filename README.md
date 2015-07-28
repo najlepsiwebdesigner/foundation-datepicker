@@ -96,3 +96,7 @@ Grunt is used.
 A note on forking:
 -------------------
 By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the Apache License.
+
+Issues
+-------------------
+Before you submit a new issue, please check closed issues (here)[https://github.com/najlepsiwebdesigner/foundation-datepicker/issues?q=is%3Aissue+is%3Aclosed], maybe your problem was solved already. Thanks!
