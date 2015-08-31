@@ -54,7 +54,7 @@ $('.fdatepicker').fdatepicker({
 
 Available languages are:
 
-- Czech (cz)
+- Czech (cs)
 - Dutch (nl)
 - English (en) - default
 - French (fr)
@@ -87,7 +87,9 @@ https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/no-font-awesom
 Build system
 ------------------
 Grunt is used.
-`grunt build` compiles scss & minifies js and css
+`grunt build` compiles scss & minifies js and css.
+Before running, you must install local grunt and npm deps via:
+`npm install`
 
 
 A note on forking:

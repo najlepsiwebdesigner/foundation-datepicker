@@ -921,7 +921,7 @@
 			monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
 			today: "Сегодня"
 		},
-		cz: {
+		cs: {
 			days: ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle"],
 			daysShort: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
 			daysMin: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
