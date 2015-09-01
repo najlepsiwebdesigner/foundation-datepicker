@@ -1,13 +1,3 @@
-.datepicker td, .datepicker th {
-  text-align: center;
-  width: 20px;
-  height: 20px;
-  border: 0;
-  font-size: 12px;
-  padding: 4px 8px;
-  background: #fff;
-  cursor: pointer; }
-
 .datepicker {
   display: none;
   position: absolute;
@@ -37,7 +27,6 @@
     *border-right-width: 2px;
     *border-bottom-width: 2px;
     color: #333;
-    font-family: "Open Sans", "sans-serif";
     font-size: 13px;
     line-height: 18px; }
     .datepicker.dropdown-menu th {
@@ -55,26 +44,38 @@
       float: left;
       margin: 1%;
       cursor: pointer; }
-  .datepicker td.active.day {
-    background: #2ba6cb; }
-  .datepicker td.active.year {
-    background: #2ba6cb; }
-  .datepicker td.old {
-    color: #999; }
-  .datepicker td.new {
-    color: #999; }
-  .datepicker td span.active {
-    background: #2ba6cb; }
-  .datepicker td.day.disabled {
-    color: #eee; }
-  .datepicker th.active.day {
-    background: #2ba6cb; }
-  .datepicker th.active.year {
-    background: #2ba6cb; }
-  .datepicker th.date-switch {
-    width: 145px; }
-  .datepicker th span.active {
-    background: #2ba6cb; }
+  .datepicker td {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    font-size: 12px;
+    padding: 4px 8px;
+    background: #fff;
+    cursor: pointer; }
+    .datepicker td.active.day, .datepicker td.active.year {
+      background: #2ba6cb; }
+    .datepicker td.old, .datepicker td.new {
+      color: #999; }
+    .datepicker td span.active {
+      background: #2ba6cb; }
+    .datepicker td.day.disabled {
+      color: #eee; }
+  .datepicker th {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    font-size: 12px;
+    padding: 4px 8px;
+    background: #fff;
+    cursor: pointer; }
+    .datepicker th.active.day, .datepicker th.active.year {
+      background: #2ba6cb; }
+    .datepicker th.date-switch {
+      width: 145px; }
+    .datepicker th span.active {
+      background: #2ba6cb; }
   .datepicker .cw {
     font-size: 10px;
     width: 12px;
@@ -111,7 +112,7 @@
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-bottom: 7px solid #ccc;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
+    border-bottom-color: 1px solid rgba(0, 0, 0, 0.2);
     position: absolute;
     top: -7px;
     left: 6px; }
@@ -125,12 +126,8 @@
     top: -6px;
     left: 7px; }
 
-.datepicker > div {
-  display: none; }
-
-.datepicker-dropdown::before {
-  display: none; }
-
+.datepicker > div,
+.datepicker-dropdown::before,
 .datepicker-dropdown::after {
   display: none; }
 
@@ -143,8 +140,7 @@
   padding: 0;
   display: none; }
 
-.table-striped .datepicker table tr td {
-  background-color: transparent; }
+.table-striped .datepicker table tr td,
 .table-striped .datepicker table tr th {
   background-color: transparent; }
 
