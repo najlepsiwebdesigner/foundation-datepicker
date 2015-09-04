@@ -35,7 +35,8 @@
       padding: 4px 5px; }
   .datepicker table {
     border: 0;
-    margin: 0; }
+    margin: 0;
+    width: auto; }
     .datepicker table tr td span {
       display: block;
       width: 23%;
