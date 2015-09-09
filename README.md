@@ -91,6 +91,12 @@ Grunt is used.
 Before running, you must install local grunt and npm deps via:
 `npm install`
 
+Angular
+------------------
+For integration with Angular, please see https://github.com/najlepsiwebdesigner/foundation-datepicker/issues/55#issuecomment-138681504
+
+Foundation datepicker is jQuery plugin, so you have to use also jQuery.
+
 
 A note on forking:
 -------------------
