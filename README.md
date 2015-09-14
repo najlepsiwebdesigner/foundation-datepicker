@@ -72,6 +72,8 @@ Available languages are:
 - Spanish (es)
 - Turkish (tr)
 - Ukrainian (uk)
+- Chinese Simplified (zh-CN)
+- Chinese Traditional (zh-TW)
 
 
 Icons
