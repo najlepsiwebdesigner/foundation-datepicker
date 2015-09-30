@@ -54,9 +54,9 @@ $('.fdatepicker').fdatepicker({
 
 Available languages are:
 
+- English (en) - default
 - Czech (cs)
 - Dutch (nl)
-- English (en) - default
 - French (fr)
 - German (de)
 - Greek (el)
@@ -74,6 +74,7 @@ Available languages are:
 - Ukrainian (uk)
 - Chinese Simplified (zh-CN)
 - Chinese Traditional (zh-TW)
+- Japanese (ja)
 
 
 Icons

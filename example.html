@@ -10,165 +10,50 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="foundation/css/foundation.min.css">
 		<link rel="stylesheet" href="foundation/fonts/foundation-icons.css">
-
 		<!-- foundation datepicker start -->
 			<!-- DEPS -->
-				<script src="http://code.jquery.com/jquery.min.js"></script>
-				<!-- CDN - you can use font awesome or fonudation icon via this, or use your own version: -->
-					<!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
-					<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+			<script src="http://code.jquery.com/jquery.min.js"></script>
+			<!-- CDN - you can use font awesome or fonudation icon via this, or use your own version: -->
+			<!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 			<!-- DATEPICKER FILES -->
 			<script src="js/foundation-datepicker.min.js"></script>
 			<link rel="stylesheet" href="css/foundation-datepicker.min.css">
 		<!-- foundation datepicker end -->
-
 		<link rel="stylesheet" href="css/example.css">
 		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
 	<body>
 		<div class="container">
 			<header class="row">
-       <div class="small-12 columns">
-				 <h1>Datepicker for Foundation</h1>
-         <h2 class="subheader">foundation-datepicker.js</h2>
-				<br><br>
-       </div>
+				<div class="small-12 columns">
+					<h1>foundation-datepicker.js</h1>
+					<h2 class="subheader">Datepicker for Zurb Foundation</h2>
+				</div>
 			</header>
+			<br><br>
 			<div class="row">
 				<div class="small-3 columns" id="sidebar-wrap">
-					 <h3>About</h3>
-
-					<p>Foundation jQuery datepicker plugin!
-						<ul>
-							<li>
-								<a href="http://foundation-datepicker.peterbeno.com/">project website</a>
-							</li>
-							<li>
-								<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">project @github</a>
-							</li>
-						</ul>
-					</p>
-					<p>Based on:
-						<ul>
-							<li>
-								<a href="http://www.eyecon.ro/bootstrap-datepicker/">website</a>
-							</li>
-							<li>
-								<a href="https://github.com/eternicode/bootstrap-datepicker">github</a>
-							</li>
-						</ul>
-					</p>
-					<div class="alert-box">
-					If you find an error, please report it to github. Thanks! :)</div>
-					<p>
-						<a href="https://twitter.com/share" class="twitter-share-button" data-via="benopeter">Tweet</a>
-						<script>
-							! function (d, s, id) {
-								var js, fjs = d.getElementsByTagName(s)[0];
-								if (!d.getElementById(id)) {
-									js = d.createElement(s);
-									js.id = id;
-									js.src = "http://platform.twitter.com/widgets.js";
-									fjs.parentNode.insertBefore(js, fjs);
-								}
-							}(document, "script", "twitter-wjs");
-						</script>
-						<!-- Place this tag where you want the +1 button to render. -->
-						<div class="g-plusone" data-annotation="inline" data-width="300"></div>
-						<!-- Place this tag after the last +1 button tag. -->
-						<script type="text/javascript">
-							(function () {
-								var po = document.createElement('script');
-								po.type = 'text/javascript';
-								po.async = true;
-								po.src = 'https://apis.google.com/js/plusone.js';
-								var s = document.getElementsByTagName('script')[0];
-								s.parentNode.insertBefore(po, s);
-							})();
-						</script>
-					</p>
+					<br>
+					<ul>
+						<li>
+							<a href="http://foundation-datepicker.peterbeno.com/">Online example</a>
+						</li>
+						<li>
+							<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">Github</a>
+						</li>
+					</ul>
+					Based on fantastic<a href="https://github.com/eternicode/bootstrap-datepicker"> bootstrap-datepicker plugin.</a><br><br>
 				</div>
 				<div class="small-9 columns">
-					 <h2>Example</h2>
-
-					<p>Attached to a field with the format specified via options.</p>
-					<div class="panel">
-						<input type="text" class="span2" value="02-16-2012" id="dp1">
-					</div>
-					<p>Attached to a field with the format specified via data tag and close button enabled.</p>
-					<div class="panel">
-						<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2">
-					</div>
-					<p>As component.</p>
-					<div class="panel">
-						<div class="row date collapse" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-							<input class="small-3 columns" size="16" type="text" value="12-02-2012" readonly>	<span class="prefix small-2 columns end"><i class="fa fa-calendar"></i></span>
-
-						</div>
-					</div>
-					<div class="panel highlight">
-						<p>With large margin</p>
-						<div class="panel">
-							<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp-margin">
-						</div>
-					</div>
-					<p>Limit the view mode to months</p>
-					<div class="panel">
-						<div class="row collape date" id="dpMonths" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
-							<input class="small-3 columns" size="16" type="text" value="02/2012" readonly>	<span class="prefix small-1 columns end"><i class="fa fa-calendar"></i></span>
-
-						</div>
-					</div>
-					<p>Attached to other element then field and using events to work with the date values.</p>
-					<div class="panel">
-						<div class="alert alert-box" id="alert">	<strong>Oh snap!</strong>
-
-						</div>
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Start date&nbsp;
-										<a href="#" class="button small" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a>
-									</th>
-									<th>End date&nbsp;
-										<a href="#" class="button small" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a>
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td id="startDate">2012-02-20</td>
-									<td id="endDate">2012-02-25</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<p>Disabling dates in the past and dependent disabling.</p>
-					<div class="panel">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Check in:
-										<input type="text" class="span2" value="" id="dpd1">
-									</th>
-									<th>Check out:
-										<input type="text" class="span2" value="" id="dpd2">
-									</th>
-								</tr>
-							</thead>
-						</table>
-					</div>
-					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
-					<hr>
-					<hr>
-					<h2>Using foundation-datepicker.js</h2>
-
-					<p>Call the datepicker via javascript:</p> <pre class="prettyprint linenums" style="padding-left:50px;">$('.fdatepicker').fdatepicker()</pre>
-
-					 <h3>Options</h3>
-
+					
+					<h3>Minimal setup</h3>
+					<p>Include dependancies and call the datepicker via javascript:</p>
+					<pre class="prettyprint linenums" style="padding-left:10px;">$('.fdatepicker').fdatepicker()</pre>
+					<br>
+					<h3>Options</h3>
 					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
@@ -184,6 +69,12 @@
 								<td>string</td>
 								<td>'mm/dd/yyyy'</td>
 								<td>the date format, combination of d, dd, m, mm, yy, yyyy.</td>
+							</tr>
+							<tr>
+								<td>language</td>
+								<td>string</td>
+								<td>'ja'</td>
+								<td>two-char iso shortcut of language you want to use</td>
 							</tr>
 							<tr>
 								<td>weekStart</td>
@@ -205,35 +96,49 @@
 							</tr>
 						</tbody>
 					</table>
-					 <h3>Markup</h3>
-
-					<p>Format a component.</p>
-<pre class="prettyprint linenums"style="padding-left:50px;">
-&lt;div class=&quot;input-append date&quot; id=&quot;dp3&quot; data-date=&quot;12-02-2012&quot; data-date-format=&quot;dd-mm-yyyy&quot;&gt;
-  &lt;input class=&quot;span2&quot; size=&quot;16&quot; type=&quot;text&quot; value=&quot;12-02-2012&quot;&gt;
-  &lt;span class=&quot;add-on&quot;&gt;&lt;i class=&quot;fa fa-th&quot;&gt;&lt;/i&gt;&lt;/span&gt;
-&lt;/div&gt;
+					<h3>Languages</h3>
+					<p>To set language, pass "language" parameter to the constructor:
+					<pre class="prettyprint linenums" style="padding-left:10px;">$('.fdatepicker').fdatepicker({
+  language: 'de'
+});
 </pre>
+					</p>
+					Datepicker is available in following languages:
+					<ul>
+						<li>English (en) - default</li>
+						<li>Czech (cs)</li>
+						<li>Dutch (nl)</li>
+						<li>French (fr)</li>
+						<li>German (de)</li>
+						<li>Greek (el)</li>
+						<li>Hungarian (hu)</li>
+						<li>Italian (it)</li>
+						<li>Norwegian (no)</li>
+						<li>Polish (pl)</li>
+						<li>Portugese (pt)</li>
+						<li>Portugese Brasil (pt_br)</li>
+						<li>Romanian (ro)</li>
+						<li>Russian (ru)</li>
+						<li>Slovak (sk)</li>
+						<li>Spanish (es)</li>
+						<li>Turkish (tr)</li>
+						<li>Ukrainian (uk)</li>
+						<li>Chinese Simplified (zh-CN)</li>
+						<li>Chinese Traditional (zh-TW)</li>
+						<li>Japanese (ja)</li>
+					</ul>
+					<h3>Methods</h3>
+					<dl>
+						<dt>.fdatepicker(options)</dt><dd>Initializes a datepicker.</dd>
+						<dt>.fdatepicker('show')</dt><dd>Show the datepicker.</dd>
+						<dt>.fdatepicker('hide')</dt><dd>Hide the datepicker.</dd>
+						<dt>.fdatepicker('place')</dt><dd>Updates the date picker's position relative to the element</dd>
+						<dt>.fdatepicker('update', value)</dt><dd>Updates the date picker's value. It can be a string in the specified format or a Date object.</dd>
+						<dt></dt><dd></dd>
+						<dt></dt><dd></dd>
+					</dl>
 
-					 <h3>Methods</h3>
-
-					 <h4>.fdatepicker(options)</h4>
-
-					<p>Initializes a datepicker.</p>
-					 <h4>.fdatepicker('show')</h4>
-
-					<p>Show the datepicker.</p>
-					 <h4>.fdatepicker('hide')</h4>
-
-					<p>Hide the datepicker.</p>
-					 <h4>.fdatepicker('place')</h4>
-
-					<p>Updates the date picker's position relative to the element</p>
-					 <h4>.fdatepicker('update', value)</h4>
-
-					<p>Updates the date picker's value. It can be a string in the specified format or a Date object.</p>
-					 <h3>Events</h3>
-
+					<h3>Events</h3>
 					<p>Datepicker class exposes a few events for manipulating the dates.</p>
 					<table class="table table-bordered table-striped">
 						<thead>
@@ -257,15 +162,70 @@
 							</tr>
 						</tbody>
 					</table>
-<pre class="prettyprint linenums"style="padding-left:50px;">
-$(&#039;#dp5&#039;).fdatepicker()
-  .on(&#039;changeDate&#039;, function(ev){
-    if (ev.date.valueOf() &lt; startDate.valueOf()){
-      ....
-    }
-  });
-</pre>
 
+
+					<h3>Examples</h3>
+					<p>Attached to a field with the format specified via options.</p>
+					<input type="text" class="span2" value="02-16-2012" id="dp1">
+
+					<hr>
+
+					<p>Attached to a field with the format specified via data tag and close button enabled.</p>
+					<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2">
+
+					<hr>
+
+					<p>Limit the view mode to months</p>
+					<div class="row collapse date" id="dpMonths" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months" style="max-width:200px;">
+						<div class="small-2 columns">	
+							<span class="prefix"><i class="fi-calendar"></i></span>
+						</div>
+						<div class="small-10 columns">
+							<input size="16" type="text" value="02/2012" readonly>	
+						</div>
+					</div>
+
+					<hr>
+
+					<p>Attached to other element then field and using events to work with the date values.</p>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Start date&nbsp;
+									<a href="#" class="button tiny" id="dp4" data-date-format="yyyy-mm-dd" data-date="2012-02-20">Change</a>
+								</th>
+								<th>End date&nbsp;
+									<a href="#" class="button tiny" id="dp5" data-date-format="yyyy-mm-dd" data-date="2012-02-25">Change</a>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td id="startDate">2012-02-20</td>
+								<td id="endDate">2012-02-25</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="alert alert-box"  style="display:none;" id="alert">	<strong>Oh snap!</strong>
+					</div>
+
+					<hr>
+
+					
+					<p>Disabling dates in the past and dependent disabling.</p>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Check in:
+									<input type="text" class="span2" value="" id="dpd1">
+								</th>
+								<th>Check out:
+									<input type="text" class="span2" value="" id="dpd2">
+								</th>
+							</tr>
+						</thead>
+					</table>
+					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
 				</div>
 			</div>
 			</section>
@@ -348,5 +308,4 @@ $(&#039;#dp5&#039;).fdatepicker()
 		</script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 	</body>
-
 </html>

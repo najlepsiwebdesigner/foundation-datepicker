@@ -401,9 +401,10 @@
 				endYear = this.endDate !== Infinity ? this.endDate.getUTCFullYear() : Infinity,
 				endMonth = this.endDate !== Infinity ? this.endDate.getUTCMonth() : Infinity,
 				currentDate = this.date && this.date.valueOf(),
-				today = new Date();
+				today = new Date(),
+				titleFormat = dates[this.language].titleFormat || dates['en'].titleFormat;
 			this.picker.find('.datepicker-days thead th.date-switch')
-						.text(dates[this.language].months[month]+' '+year);
+						.text(DPGlobal.formatDate(new UTCDate(year, month), titleFormat, this.language));
 			this.picker.find('tfoot th.today')
 						.text(dates[this.language].today)
 						.toggle(this.todayBtn !== false);
@@ -817,15 +818,16 @@
 	};
 	$.fn.fdatepicker.Constructor = Datepicker;
 	var dates = $.fn.fdatepicker.dates = {
-		en: {
+		'en': {
 			days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 			daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
 			daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
 			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-			today: "Today"
+			today: "Today",
+			titleFormat: "MM yyyy"
 		},
-		sk: {
+		'sk': {
 			days: ["Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota", "Nedeľa"],
 			daysShort: ["Neď", "Pon", "Utr", "Str", "Štv", "Pia", "Sob", "Ned"],
 			daysMin: ["Ne", "Po", "Ut", "St", "Št", "Pi", "So", "Ne"],
@@ -833,7 +835,7 @@
 			monthsShort: ["Jan", "Feb", "Mar", "Apr", "Máj", "Jún", "Júl", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			today: "Dnes"
 		},
-		tr: {
+		'tr': {
 			days: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
 			daysShort: ["Pzr", "Pzt", "Sal", "Çarş", "Perş", "Cum", "Cmt", "Pzr"],
 			daysMin: ["Pz", "Pt", "Sa", "Ça", "Pe", "Cu", "Ct", "Pz"],
@@ -841,7 +843,7 @@
 			monthsShort: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"],
 			today: "Bugün"
 		},
-		fr: {
+		'fr': {
 			days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
 			daysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
 			daysMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"],
@@ -849,7 +851,7 @@
 			monthsShort: ["Jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Dec"],
 			today: "Aujourd'hui"
 		},
-		pl: {
+		'pl': {
 			days: ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"],
 			daysShort: ["Nie", "Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nie"],
 			daysMin: ["Nd", "Po", "Wt", "Śr", "Czw", "Pt", "So", "Nd"],
@@ -857,7 +859,7 @@
 			monthsShort: ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paź", "Lit", "Gru"],
 			today: "Dzisiaj"
 		},
-		es: {
+		'es': {
 			days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
 			daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
 			daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
@@ -865,7 +867,7 @@
 			monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
 			today: "Hoy"
 		},
-		pt: {
+		'pt': {
 			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
 			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
 			daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sá", "Do"],
@@ -873,7 +875,7 @@
 			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
 			today: "Hoje"
 		},
-		pt_br: {
+		'pt_br': {
 			days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
 			daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
 			daysMin: ["D", "S", "T", "Q", "Q", "S", "S", "D"],
@@ -881,7 +883,7 @@
 			monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
 			today: "Hoje"
 		},
-		it: {
+		'it': {
 			days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"],
 			daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Veb", "Sab", "Dom"],
 			daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa", "Do"],
@@ -889,7 +891,7 @@
 			monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
 			today: "Oggi"
 		},
-		de: {
+		'de': {
 			days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
 			daysShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
 			daysMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
@@ -897,7 +899,7 @@
 			monthsShort: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
 			today: "Heute"
 		},
-		ro: {
+		'ro': {
 			days: ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"],
 			daysShort: ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sam", "Dum"],
 			daysMin: ["Du", "Lu", "Ma", "Mi", "Jo", "Vi", "Sa", "Du"],
@@ -905,7 +907,7 @@
 			monthsShort: ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Noi", "Dec"],
 			today: "Astazi"
 		},
-		hu: {
+		'hu': {
 			days: ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"],
 			daysShort: ["Vas", "Hét", "Kedd", "Sze", "Csü", "Pén", "Szo", "Vas"],
 			daysMin: ["Va", "Hé", "Ke", "Sz", "Cs", "Pé", "Sz", "Va"],
@@ -913,7 +915,7 @@
 			monthsShort: ["Jan", "Feb", "Már", "Ápr", "Máj", "Jún", "Júl", "Aug", "Szep", "Okt", "Nov", "Dec"],
 			today: "Ma"
 		},
-		ru: {
+		'ru': {
 			days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
 			daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб", "Вск"],
 			daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
@@ -921,7 +923,7 @@
 			monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
 			today: "Сегодня"
 		},
-		cs: {
+		'cs': {
 			days: ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle"],
 			daysShort: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
 			daysMin: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
@@ -929,7 +931,7 @@
 			monthsShort: ["Led", "Úno", "Bře", "Dub", "Kvě", "Čer", "Čnc", "Srp", "Zář", "Říj", "Lis", "Pro"],
 			today: "Dnes"
 		},
-		nl: {
+		'nl': {
 			days: ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"],
 			daysShort: ["Zon", "Maa", "Din", "Woe", "Don", "Vri", "Zat", "Zon"],
 			daysMin: ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"],
@@ -937,7 +939,7 @@
 			monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
 			today: "Vandaag"
 		},
-		el: {
+		'el': {
 			days: ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"],
 			daysShort: ["Κυρ", "Δευ", "Τρί", "Τετ", "Πέμ", "Παρ", "Σάβ", "Κυρ"],
 			daysMin: ["Κυ", "Δε", "Τρ", "Τε", "Πέ", "Πα", "Σά", "Κυ"],
@@ -945,7 +947,7 @@
 			monthsShort: ["Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαϊ", "Ιου", "Ιου", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ"],
 			today: "Σήμερα"
 		},
-		uk: {
+		'uk': {
 			days: ["Понедiлок ", "Вiвторок ", "Середа ", "Четвер ", "П'ятниця ", "Субота ", "Недiля"],
 			daysShort: ["Пнд", "Втр", "Срд", "Чтв", "Птн", "Сбт", "Ндл"],
 			daysMin: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"],
@@ -953,22 +955,22 @@
 			monthsShort: ["Сiч", "Лют", "Бер", "Квiт", "Трав", "Черв", "Лип", "Серп", "Вер", "Жовт", "Лист", "Груд"],
 			today: "Сьогодні"
 		},
-	        no: {
-	            days: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"],
-	            daysShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"],
-	            daysMin: ["Sø", "Ma", "Ti", "On", "To", "Fr", "Lø", "Sø"],
-	            months: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
-	            monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"],
-	            today: "I dag"
-	        },
-		sv: {
-	            days: ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"],
-	            daysShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],
-	            daysMin: ["Sö", "Må", "Ti", "On", "To", "Fr", "Lö", "Sö"],
-	            months: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
-	            monthsShort: ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
-	            today: "Idag"
-	        },
+		'no': {
+			days: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"],
+			daysShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"],
+			daysMin: ["Sø", "Ma", "Ti", "On", "To", "Fr", "Lø", "Sø"],
+			months: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+			monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"],
+			today: "I dag"
+		},
+		'sv': {
+				days: ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"],
+				daysShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],
+				daysMin: ["Sö", "Må", "Ti", "On", "To", "Fr", "Lö", "Sö"],
+				months: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+				monthsShort: ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
+				today: "Idag"
+			},
 		'zh-CN': {
 			days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
 			daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
@@ -984,6 +986,16 @@
 			months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
 			monthsShort:  ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
 			today: '今天'
+		},
+		'ja': {
+			days: ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
+			daysShort: ["日", "月", "火", "水", "木", "金", "土"],
+			daysMin: ["日", "月", "火", "水", "木", "金", "土"],
+			months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+			monthsShort: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+			today: "今日",
+			format: "yyyy/mm/dd",
+			titleFormat: "yyyy年 MM月"
 		}
 	};
 
@@ -1114,6 +1126,12 @@
 			return date;
 		},
 		formatDate: function(date, format, language){
+			if (!date)
+				return '';
+			if (typeof format === 'string')
+				format = DPGlobal.parseFormat(format);
+			if (format.toDisplay)
+				return format.toDisplay(date, format, language);
 			var val = {
 				d: date.getUTCDate(),
 				D: dates[language].daysShort[date.getUTCDay()],
@@ -1126,9 +1144,9 @@
 			};
 			val.dd = (val.d < 10 ? '0' : '') + val.d;
 			val.mm = (val.m < 10 ? '0' : '') + val.m;
-			var date = [],
-				seps = $.extend([], format.separators);
-			for (var i=0, cnt = format.parts.length; i < cnt; i++) {
+			date = [];
+			var seps = $.extend([], format.separators);
+			for (var i=0, cnt = format.parts.length; i <= cnt; i++){
 				if (seps.length)
 					date.push(seps.shift());
 				date.push(val[format.parts[i]]);
