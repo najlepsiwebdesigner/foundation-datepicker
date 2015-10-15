@@ -3,9 +3,7 @@ Foundation Datepicker
 
 **Feel free to contribute! Fork, modify, and send me a pull request, I'll try my best to merge it as soon, as possible.**
 
-Foundation datepicker jQuery plugin, based on bootstrap-datepicker project found at https://github.com/eternicode/bootstrap-datepicker.
-
-For more information, please see included example, or visit http://foundation-datepicker.peterbeno.com
+Examples and API documentation available at http://foundation-datepicker.peterbeno.com
 
 Foundation version support
 -------------------
@@ -98,12 +96,12 @@ Angular
 ------------------
 For integration with Angular, please see https://github.com/najlepsiwebdesigner/foundation-datepicker/issues/55#issuecomment-138681504
 
-Foundation datepicker is jQuery plugin, so you have to use also jQuery.
+Foundation datepicker is jQuery plugin, so you **have to** use jQuery.
 
 
 A note on forking:
 -------------------
-By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the Apache License.
+**By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the Apache License.**
 
 Issues
 -------------------
