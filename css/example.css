@@ -1,1 +1,59 @@
-body{padding-bottom:40px}ol.linenums{list-style-position:outside!important;font-size:14px!important;list-style-type:decimal!important;background:#fff!important}ol.linenums li{list-style-type:decimal!important;width:500px}#dp-margin{margin:50px 0}pre.prettyprint{border:1px solid #ccc;border-left:5px solid #2ba6cb;width:auto;background:#fff!important;padding:5px 20px;text-shadow:0 1px 0 #fff}pre.prettyprint ol li{white-space:pre-wrap;word-break:break-all;word-wrap:break-word}#sidebar-wrap{background:#13a7c7;color:#fff;}#sidebar-wrap a{color:#000;text-decoration: underline;}#sidebar-wrap ul{margin-left:20px}input[disabled],select[disabled],textarea[disabled],input[readonly],select[readonly],textarea[readonly]{cursor:not-allowed;background-color:#eee}
+body {
+    padding-bottom: 40px
+}
+h1 {
+	color:#fff;
+	font-size:38px;
+	font-weight:300;
+	margin:12px 0px;
+}
+h2 {
+	font-size:27px;
+	color:#aaa;
+}
+ol.linenums {
+    list-style-position: outside!important;
+    font-size: 14px!important;
+    list-style-type: decimal!important;
+    background: #fff!important
+}
+ol.linenums li {
+    list-style-type: decimal!important;
+    width: 500px
+}
+#dp-margin {
+    margin: 50px 0
+}
+pre.prettyprint {
+    border: 1px solid #ccc;
+    border-left: 5px solid #2ba6cb;
+    width: auto;
+    background: #fff!important;
+    padding: 5px 20px;
+    text-shadow: 0 1px 0 #fff
+}
+pre.prettyprint ol li {
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word
+}
+#sidebar-wrap {
+    background: #13a7c7;
+    color: #fff;
+}
+#sidebar-wrap a {
+    color: #000;
+    text-decoration: underline;
+}
+#sidebar-wrap ul {
+    margin-left: 20px
+}
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+    cursor: not-allowed;
+    background-color: #eee
+}
