@@ -3,7 +3,7 @@ Foundation Datepicker
 
 **Feel free to contribute! Fork, modify, and send me a pull request, I'll try my best to merge it as soon, as possible.**
 
-Examples and API documentation available at http://foundation-datepicker.peterbeno.com
+Examples and documentation available at http://foundation-datepicker.peterbeno.com
 
 Foundation version support
 -------------------
@@ -43,36 +43,24 @@ http://foundation-datepicker.peterbeno.com/example.html
 
 Language translations
 -------------------
-You can pass argument to constructor to choose language used:
+Foundation datepicker uses external files to store translation data. 
+To use language, you have to include correct file from **js/locales** directory, then correctly initalize fdatepicker with iso code of language included. 
+
+Example of using slovak language:
 ```
+<!-- somewhere in header -->
+<script src="js/foundation-datepicker.js"></script>
+<script src="js/locales/foundation-datepicker.sk.js"></script>
+<!-- ... -->
+<script>
 $('.fdatepicker').fdatepicker({
-  language: 'de'
+  language: 'sk'
 });
+</script>
 ```
 
-Available languages are:
+33 languages are available. For complete list, see **js/locales** directory.
 
-- English (en) - default
-- Czech (cs)
-- Dutch (nl)
-- French (fr)
-- German (de)
-- Greek (el)
-- Hungarian (hu)
-- Italian (it)
-- Norwegian (no)
-- Polish (pl)
-- Portugese (pt)
-- Portugese Brasil (pt_br)
-- Romanian (ro)
-- Russian (ru)
-- Slovak (sk)
-- Spanish (es)
-- Turkish (tr)
-- Ukrainian (uk)
-- Chinese Simplified (zh-CN)
-- Chinese Traditional (zh-TW)
-- Japanese (ja)
 
 
 Icons
@@ -97,6 +85,109 @@ Angular
 For integration with Angular, please see https://github.com/najlepsiwebdesigner/foundation-datepicker/issues/55#issuecomment-138681504
 
 Foundation datepicker is jQuery plugin, so you **have to** use jQuery.
+
+
+Methods
+------------------
+<table>
+	<tr>
+		<th>Method</th><th>Description</th>
+	</tr>
+	<tr>
+		<td>.fdatepicker(options)</td><td>Initializes a datepicker.</td>
+	</tr>
+	<tr>
+		<td>.fdatepicker('show')</td><td>Show the datepicker.</td>
+	</tr>
+	<tr>
+		<td>.fdatepicker('hide')</td><td>Hide the datepicker.</td>
+	</tr>
+	<tr>
+		<td>.fdatepicker('place')</td><td>Updates the date picker's position relative to the element</td>
+	</tr>
+	<tr>
+		<td>.fdatepicker('update', value)</td><td>Updates the date picker's value. It can be a string in the specified format or a Date object.</td>
+	</tr>
+</table>
+
+Options
+------------------
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th style="width: 100px;">Name</th>
+			<th style="width: 50px;">type</th>
+			<th style="width: 100px;">default</th>
+			<th>description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>format</td>
+			<td>string</td>
+			<td>'mm/dd/yyyy'</td>
+			<td>the date format, combination of d, dd, m, mm, yy, yyyy, hh, ii.</td>
+		</tr>
+		<tr>
+			<td>language</td>
+			<td>string</td>
+			<td>'en'</td>
+			<td>two-char iso shortcut of language you want to use</td>
+		</tr>
+		<tr>
+			<td>weekStart</td>
+			<td>integer</td>
+			<td>0</td>
+			<td>day of the week start. 0 for Sunday - 6 for Saturday</td>
+		</tr>
+		<tr>
+			<td>startView</td>
+			<td>string|integer</td>
+			<td>month</td>
+			<td>set the start view mode. Accepts: 'decade' = 4, 'year' = 3, 'month' = 2, 'day' = 1, 'hour' = 0</td>
+		</tr>
+		<tr>
+			<td>minView|maxView</td>
+			<td>string|integer</td>
+			<td></td>
+			<td>set a limit for view mode. Accepts: 'decade' = 4, 'year' = 3, 'month' = 2, 'day' = 1, 'hour' = 0</td>
+		</tr>
+		<tr>
+			<td>pickTime</td>
+			<td>boolean</td>
+			<td>false</td>
+			<td>enables hour and minute selection views, equivalent of minView = 0, else minView = 2</td>
+		</tr>
+	</tbody>
+</table>
+
+Events
+-------------------
+<table>
+	<thead>
+		<tr>
+			<th style="width: 150px;">Event</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>show</td>
+			<td>This event fires immediately when the date picker is displayed.</td>
+		</tr>
+		<tr>
+			<td>hide</td>
+			<td>This event is fired immediately when the date picker is hidden.</td>
+		</tr>
+		<tr>
+			<td>changeDate</td>
+			<td>This event is fired when the date is changed.</td>
+		</tr>
+		<tr>
+			<td>outOfRange</td>
+			<td>This event is fired when user tries to select disabled date.</td>
+	</tbody>
+</table>
 
 
 A note on forking:

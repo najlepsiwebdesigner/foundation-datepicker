@@ -17,7 +17,7 @@
 			<!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
 			<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 			<!-- DATEPICKER FILES -->
-			<script src="js/foundation-datepicker.js"></script>
+			<script src="js/foundation-datepicker.min.js"></script>
 			<link rel="stylesheet" href="css/foundation-datepicker.min.css">
 		<!-- foundation datepicker end -->
 		<link rel="stylesheet" href="css/example.css">
@@ -38,120 +38,7 @@
 				
 				<div class="small-9 columns">
 					
-					<h3>Minimal setup</h3>
-					<p>Include dependancies and call the datepicker via javascript:</p>
-					<pre class="prettyprint linenums" style="padding-left:10px;">$('.fdatepicker').fdatepicker()</pre>
-					<br>
-					<h3>Options</h3>
-					<table class="table table-bordered table-striped">
-						<thead>
-							<tr>
-								<th style="width: 100px;">Name</th>
-								<th style="width: 50px;">type</th>
-								<th style="width: 100px;">default</th>
-								<th>description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>format</td>
-								<td>string</td>
-								<td>'mm/dd/yyyy'</td>
-								<td>the date format, combination of d, dd, m, mm, yy, yyyy.</td>
-							</tr>
-							<tr>
-								<td>language</td>
-								<td>string</td>
-								<td>'ja'</td>
-								<td>two-char iso shortcut of language you want to use</td>
-							</tr>
-							<tr>
-								<td>weekStart</td>
-								<td>integer</td>
-								<td>0</td>
-								<td>day of the week start. 0 for Sunday - 6 for Saturday</td>
-							</tr>
-							<tr>
-								<td>viewMode</td>
-								<td>string|integer</td>
-								<td>0 = 'days'</td>
-								<td>set the start view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years</td>
-							</tr>
-							<tr>
-								<td>minViewMode</td>
-								<td>string|integer</td>
-								<td>0 = 'days'</td>
-								<td>set a limit for view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years</td>
-							</tr>
-						</tbody>
-					</table>
-					<h3>Languages</h3>
-					<p>To set language, pass "language" parameter to the constructor:
-					<pre class="prettyprint linenums" style="padding-left:10px;">$('.fdatepicker').fdatepicker({
-  language: 'de'
-});
-</pre>
-					</p>
-					Datepicker is available in following languages:
-					<ul>
-						<li>English (en) - default</li>
-						<li>Czech (cs)</li>
-						<li>Dutch (nl)</li>
-						<li>French (fr)</li>
-						<li>German (de)</li>
-						<li>Greek (el)</li>
-						<li>Hungarian (hu)</li>
-						<li>Italian (it)</li>
-						<li>Norwegian (no)</li>
-						<li>Polish (pl)</li>
-						<li>Portugese (pt)</li>
-						<li>Portugese Brasil (pt_br)</li>
-						<li>Romanian (ro)</li>
-						<li>Russian (ru)</li>
-						<li>Slovak (sk)</li>
-						<li>Spanish (es)</li>
-						<li>Turkish (tr)</li>
-						<li>Ukrainian (uk)</li>
-						<li>Chinese Simplified (zh-CN)</li>
-						<li>Chinese Traditional (zh-TW)</li>
-						<li>Japanese (ja)</li>
-					</ul>
-					<h3>Methods</h3>
-					<dl>
-						<dt>.fdatepicker(options)</dt><dd>Initializes a datepicker.</dd>
-						<dt>.fdatepicker('show')</dt><dd>Show the datepicker.</dd>
-						<dt>.fdatepicker('hide')</dt><dd>Hide the datepicker.</dd>
-						<dt>.fdatepicker('place')</dt><dd>Updates the date picker's position relative to the element</dd>
-						<dt>.fdatepicker('update', value)</dt><dd>Updates the date picker's value. It can be a string in the specified format or a Date object.</dd>
-						<dt></dt><dd></dd>
-						<dt></dt><dd></dd>
-					</dl>
-
-					<h3>Events</h3>
-					<p>Datepicker class exposes a few events for manipulating the dates.</p>
-					<table class="table table-bordered table-striped">
-						<thead>
-							<tr>
-								<th style="width: 150px;">Event</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>show</td>
-								<td>This event fires immediately when the date picker is displayed.</td>
-							</tr>
-							<tr>
-								<td>hide</td>
-								<td>This event is fired immediately when the date picker is hidden.</td>
-							</tr>
-							<tr>
-								<td>changeDate</td>
-								<td>This event is fired when the date is changed.</td>
-							</tr>
-						</tbody>
-					</table>
-
+					
 
 					<h3>Examples</h3>
 					<p>Attached to a field with the format specified via options.</p>
@@ -215,6 +102,8 @@
 						</thead>
 					</table>
 					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
+
+					
 				</div>
 				<div class="small-3 columns" id="sidebar-wrap">
 					<br>
