@@ -37,10 +37,6 @@ pre.prettyprint ol li {
     word-break: break-all;
     word-wrap: break-word
 }
-#sidebar-wrap {
-    background: #13a7c7;
-    color: #fff;
-}
 #sidebar-wrap a {
     color: #000;
     text-decoration: underline;
@@ -56,4 +52,13 @@ select[readonly],
 textarea[readonly] {
     cursor: not-allowed;
     background-color: #eee
+}
+[data-magellan-expedition] {
+    background:#000 !important;
+
+    
+}
+[data-magellan-expedition] a {
+    color:#fff !important;
+    text-align:left;
 }

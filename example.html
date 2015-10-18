@@ -17,40 +17,80 @@
 			<!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
 			<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 			<!-- DATEPICKER FILES -->
-			<script src="js/foundation-datepicker.min.js"></script>
+			<script src="js/foundation-datepicker.js"></script>
+			<script src="js/locales/foundation-datepicker.vi.js"></script>
+			
 			<link rel="stylesheet" href="css/foundation-datepicker.min.css">
 		<!-- foundation datepicker end -->
 		<link rel="stylesheet" href="css/example.css">
+
+		<script src="foundation/js/foundation.min.js"></script>
+		<script src="foundation/js/foundation/foundation.magellan.js"></script>
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
 	<body>
-		<div class="container"  style="background:#000;">
+	
+		<div class="container"  style="background:#13a7c7;">
 			<header class="row">
 				<div class="small-12 columns">
 					<h1>Foundation-datepicker.js</h1>
 				</div>
 			</header>
+			</div>
 		</div>
+		<div class="container" style="background:#000;">
+			<div class="row">
+				<div class="small-12 columns" >
+		<div data-magellan-expedition="fixed" >
+		  <dl class="sub-nav">
+		    <dd data-magellan-arrival="basic-example"><a href="#basic-example">Basic example</a></dd>
+		    <dd data-magellan-arrival="advanced-example"><a href="#advanced-example">Data tags & close button</a></dd>
+		    <dd data-magellan-arrival="time-example"><a href="#time-example">Time picker</a></dd>
+		    <dd data-magellan-arrival="limited-example"><a href="#limited-example">Limited picker</a></dd>
+		    <dd data-magellan-arrival="no-inputs-example"><a href="#no-inputs-example">Without inputs</a></dd>
+		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent pickers</a></dd>
+		  </dl>
+		</div>	
+
+				</div>
+			</div>
+		</div>
+<br><br>
+
+
 		<div class="container">
+
 			<div class="row">
 				
 				<div class="small-9 columns">
 					
 					
 
-					<h3>Examples</h3>
-					<p>Attached to a field with the format specified via options.</p>
-					<input type="text" class="span2" value="02-12-1989 17:12" id="dp1">
 
+					<h4 data-magellan-destination="basic-example">Basic</h4>
+					<a name="basic-example"></a>
+					<p>Attached to a field with the format specified via options.</p>
+					<input type="text" class="span2" value="02-12-1989" id="dp1">
 					<hr>
 
+
+
+					<h4 data-magellan-destination="advanced-example">Close button and data tags</h4>
+					<a name="advanced-example"></a>
 					<p>Attached to a field with the format specified via data tag and close button enabled.</p>
 					<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2">
-
 					<hr>
 
+					<h4 data-magellan-destination="time-example">Time picker</h4>
+					<a name="time-example"></a>
+					<p>With time picking enabled and vietnamese language used.</p>
+					<input type="text" class="span2" value="02-12-1989 12:05" id="dpt">
+					<hr>
+
+					<h4 data-magellan-destination="limited-example">Limited picker</h4>
+					<a name="limited-example"></a>
 					<p>Limit the view mode to months</p>
 					<div class="row collapse date" id="dpMonths" data-date="102/2012" data-format="mm/yyyy" data-start-view="year" data-min-view="year" style="max-width:200px;">
 						<div class="small-2 columns">	
@@ -60,9 +100,10 @@
 							<input size="16" type="text" value="02/2012" readonly>	
 						</div>
 					</div>
-
 					<hr>
 
+					<h4 data-magellan-destination="no-inputs-example">No inputs</h4>
+					<a name="no-inputs-example"></a>
 					<p>Attached to other element then field and using events to work with the date values.</p>
 					<table class="table">
 						<thead>
@@ -84,10 +125,10 @@
 					</table>
 					<div class="alert alert-box"  style="display:none;" id="alert">	<strong>Oh snap!</strong>
 					</div>
-
 					<hr>
 
-					
+					<h4 data-magellan-destination="deps-example">Dependent pickers</h4>
+					<a name="deps-example"></a>					
 					<p>Disabling dates in the past and dependent disabling.</p>
 					<table class="table">
 						<thead>
@@ -135,8 +176,6 @@
 					<script>
 					(adsbygoogle = window.adsbygoogle || []).push({});
 					</script>					
-
-
 				</div>
 			</div>
 			</section>
@@ -144,12 +183,30 @@
 		</div>
 		<script>
 			$(function () {
+
+
+
+
+$(document).foundation({
+"magellan-expedition": {
+  active_class: 'active', // specify the class used for active sections
+  threshold: 0, // how many pixels until the magellan bar sticks, 0 = auto
+  destination_threshold: 20, // pixels from the top of destination for it to be considered active
+  throttle_delay: 50, // calculation throttling to increase framerate
+  fixed_top: 0, // top distance in pixels assigend to the fixed element on scroll
+  offset_by_height: true // whether to offset the destination by the expedition height. Usually you want this to be true, unless your expedition is on the side.
+}
+});
+
+
+
+
+
+
 				window.prettyPrint && prettyPrint();
 				$('#dp1').fdatepicker({
-					// format: 'mm-dd-yyyy hh:ii',
 					format: 'mm-dd-yyyy',
-					disableDblClickSelection: true,
-					pickTime: false
+					disableDblClickSelection: true
 				});
 
 
@@ -157,6 +214,14 @@
 					closeButton: true
 				});
 				$('#dp3').fdatepicker();
+
+
+				$('#dpt').fdatepicker({
+					format: 'mm-dd-yyyy hh:ii',
+					disableDblClickSelection: true,
+					language: 'vi',
+					pickTime: true
+				});
 
 				// datepicker limited to months
 				$('#dpMonths').fdatepicker();
