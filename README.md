@@ -59,7 +59,7 @@ $('.fdatepicker').fdatepicker({
 </script>
 ```
 
-33 languages are available. For complete list, see **js/locales** directory.
+65 languages are available, thanks community and bootstrap-datepicker project. For complete list, see **js/locales** directory.
 
 
 
@@ -72,6 +72,12 @@ Datepicker uses three icons. It works with foundation font and font awesome out-
 
 *Version without Font Awesome* (behind master) can be found in separate branch:
 https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/no-font-awesome
+
+to use foundation icon font, include:<br>
+`<link rel="stylesheet" href="foundation/fonts/foundation-icons.css">`
+
+to use font-awesome, use include:<br>
+`<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">`
 
 Build system
 ------------------
