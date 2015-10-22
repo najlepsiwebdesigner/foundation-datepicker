@@ -1,7 +1,7 @@
 Foundation Datepicker
 =====================
 
-**Feel free to contribute! Fork, modify, and send me a pull request, I'll try my best to merge it as soon, as possible.**
+**Feel free to contribute! Fork, modify, and send me a pull request.**
 
 Examples and documentation available at http://foundation-datepicker.peterbeno.com
 
