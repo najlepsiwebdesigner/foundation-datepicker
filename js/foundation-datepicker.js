@@ -713,7 +713,6 @@
                     case 'span':
                         if (!target.is('.disabled')) {
                             if (target.is('.month')) {
-
                               if (this.minView === 3) {
                                 var month = target.parent().find('span').index(target) || 0;
                                 var year = this.viewDate.getUTCFullYear(),
@@ -724,7 +723,7 @@
                                 this._setDate(UTCDate(year, month, day, hours, minutes, seconds, 0));
                               } else {
                                 this.viewDate.setUTCDate(1);
-                                var month = target.parent().find('span').index(target) || 0;
+                                var month = target.parent().find('span').index(target);
                                 this.viewDate.setUTCMonth(month);
                                 this.element.trigger({
                                     type: 'changeMonth',
