@@ -713,13 +713,13 @@
                     case 'span':
                         if (!target.is('.disabled')) {
                             if (target.is('.month')) {
-                                this.viewDate.setUTCDate(1);
-                                var month = target.parent().find('span').index(target);
-                                this.viewDate.setUTCMonth(month);
-                                this.element.trigger({
-                                    type: 'changeMonth',
-                                    date: this.viewDate
-                                });
+                                var month = target.parent().find('span').index(target) || 0;
+                                var year = this.viewDate.getUTCFullYear(),
+                                    day = 1,
+                                    hours = this.viewDate.getUTCHours(),
+                                    minutes = this.viewDate.getUTCMinutes(),
+                                    seconds = this.viewDate.getUTCSeconds();
+                                this._setDate(UTCDate(year, month, day, hours, minutes, seconds, 0));
                             } else if (target.is('.year')) {
                                 this.viewDate.setUTCDate(1);
                                 var year = parseInt(target.text(), 10) || 0;
