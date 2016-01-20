@@ -731,6 +731,15 @@
                                 });
                               }
                             } else if (target.is('.year')) {
+                              if (this.minView === 4) {
+                                var year = parseInt(target.text(), 10) || 0;
+                                var month = 0,
+                                    day = 1,
+                                    hours = this.viewDate.getUTCHours(),
+                                    minutes = this.viewDate.getUTCMinutes(),
+                                    seconds = this.viewDate.getUTCSeconds();
+                                this._setDate(UTCDate(year, month, day, hours, minutes, seconds, 0));
+                              } else {
                                 this.viewDate.setUTCDate(1);
                                 var year = parseInt(target.text(), 10) || 0;
                                 this.viewDate.setUTCFullYear(year);
@@ -738,6 +747,7 @@
                                     type: 'changeYear',
                                     date: this.viewDate
                                 });
+                              }
                             } else if (target.is('.hour')) {
                                 var hours = parseInt(target.text(), 10) || 0;
                                 var year = this.viewDate.getUTCFullYear(),
