@@ -16,7 +16,9 @@
 
     var Datepicker = function(element, options) {
         var that = this;
-
+        if ('initialDate' in options) {
+            DPGlobal.initialDate = options.initialDate
+        }
         this.element = $(element);
         this.autoShow = options.autoShow || true;
         this.appendTo = options.appendTo || 'body';
@@ -1043,7 +1045,14 @@
         }
     };
 
-    $.fn.fdatepicker = function(option) {
+    $.fn.fdatepicker = function(option, date) {
+        if ("setDate" === option) {
+            if (date instanceof Date) {
+                console.log("Updating date with " + date)
+                DPGlobal.initalDate = date;
+            }
+            return this;
+        }
         var args = Array.apply(null, arguments);
         args.shift();
         return this.each(function() {
@@ -1078,6 +1087,7 @@
     };
 
     var DPGlobal = {
+        initialDate: new Date(),
         modes: [{
             clsName: 'minutes',
             navFnc: 'Hours',
@@ -1157,7 +1167,7 @@
                 return UTCDate(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
             }
             var parts = date && date.match(this.nonpunctuation) || [],
-                date = new Date(),
+                date = this.initialDate,
                 parsed = {},
                 setters_order = ['hh', 'h', 'ii', 'i', 'ss', 's', 'yyyy', 'yy', 'M', 'MM', 'm', 'mm', 'd', 'dd'],
                 setters_map = {
