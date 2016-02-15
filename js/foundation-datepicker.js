@@ -39,6 +39,7 @@
         this.linkFormat = DPGlobal.parseFormat(options.linkFormat || this.element.data('link-format') || 'yyyy-mm-dd hh:ii:ss');
         this.minuteStep = options.minuteStep || this.element.data('minute-step') || 5;
         this.pickerPosition = options.pickerPosition || this.element.data('picker-position') || 'bottom-right';
+        this.initialDate = options.initialDate || null;
 
         this._attachEvents();
 
@@ -377,13 +378,19 @@
             if (arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
                 date = arguments[0];
                 fromArgs = true;
-            } else {
+            } 
+            else if (this.initialDate != null) {
+                date = this.initialDate
+            }
+            else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             }
 
+
+
             this.date = DPGlobal.parseDate(date, this.format, this.language);
 
-            if (fromArgs) this.setValue();
+            if (fromArgs || this.initialDate != null) this.setValue();
 
             if (this.date < this.startDate) {
                 this.viewDate = new Date(this.startDate.valueOf());

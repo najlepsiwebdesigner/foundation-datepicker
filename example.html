@@ -35,7 +35,7 @@
 		<div class="container"  style="background:#13a7c7;">
 			<header class="row">
 				<div class="small-12 columns">
-					<h1>Foundation-datepicker.js <span style="color:#000">Examples</span></h1>
+					<h1>Foundation-datepicker.js <span style="color:#000;font-size:60%;">Examples &amp; Docs</span></h1>
 				</div>
 			</header>
 			</div>
@@ -46,11 +46,12 @@
 		<div data-magellan-expedition="fixed" >
 		  <dl class="sub-nav">
 		    <dd data-magellan-arrival="basic-example"><a href="#basic-example">Basic example</a></dd>
-		    <dd data-magellan-arrival="advanced-example"><a href="#advanced-example">Data tags & close button</a></dd>
-		    <dd data-magellan-arrival="time-example"><a href="#time-example">Time picker</a></dd>
+		    <dd data-magellan-arrival="advanced-example"><a href="#advanced-example">Data tags</a></dd>
+		    <dd data-magellan-arrival="time-example"><a href="#time-example">Timepicker</a></dd>
 		    <dd data-magellan-arrival="limited-example"><a href="#limited-example">Limited picker</a></dd>
 		    <dd data-magellan-arrival="no-inputs-example"><a href="#no-inputs-example">Without inputs</a></dd>
-		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent pickers</a></dd>
+		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent</a></dd>
+		    <dd data-magellan-arrival="docs"><a href="#docs">Docs</a></dd>
 		  </dl>
 		</div>	
 
@@ -71,15 +72,15 @@
 
 					<h4 data-magellan-destination="basic-example">Basic</h4>
 					<a name="basic-example"></a>
-					<p>Attached to a field with the format specified via options.</p>
-					<input type="text" class="span2" value="02-12-1989" id="dp1">
+					<p>Attached to a field with the format specified via options. Initial date is set with initialDate option or with value attribute on the input tag.</p>
+					<input type="text" class="span2" id="dp1">
 					<hr>
 
 
 
 					<h4 data-magellan-destination="advanced-example">Close button and data tags</h4>
 					<a name="advanced-example"></a>
-					<p>Attached to a field with the format specified via data tag and close button enabled.</p>
+					<p>Attached to a field with the format specified via data tag and close button enabled. See source of </p>
 					<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2">
 					<hr>
 
@@ -144,24 +145,22 @@
 					</table>
 					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
 
-
-<article class="markdown-body"><h1>
-<a id="user-content-foundation-datepicker" class="anchor" href="#foundation-datepicker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Foundation Datepicker</h1>
+<br><br>
+<h1 id="docs">
+<a id="user-content-foundation-datepicker" class="anchor" href="#foundation-datepicker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docs</h1>
 
 <p><strong>Feel free to contribute! Fork, modify, and send me a pull request.</strong></p>
 
-<p>Examples and documentation available at <a href="http://foundation-datepicker.peterbeno.com">http://foundation-datepicker.peterbeno.com</a></p>
+<h4>
+<a id="user-content-foundation-version-support" class="anchor" href="#foundation-version-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Foundation version support</h4>
 
-<h2>
-<a id="user-content-foundation-version-support" class="anchor" href="#foundation-version-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Foundation version support</h2>
-
-<p>Foundation 5 is fully supported. For Foundation 4 version, check out last compatible version:
+<p>Foundation 6 and 5 is fully supported. For Foundation 4 version, check out last compatible version:
 <a href="https://github.com/najlepsiwebdesigner/foundation-datepicker/releases/tag/1.2.0">https://github.com/najlepsiwebdesigner/foundation-datepicker/releases/tag/1.2.0</a></p>
 
 <p>How to include this in your project:</p>
 
-<h2>
-<a id="user-content-install-via-bower-or-npm" class="anchor" href="#install-via-bower-or-npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install via Bower or NPM</h2>
+<h4>
+<a id="user-content-install-via-bower-or-npm" class="anchor" href="#install-via-bower-or-npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install via Bower or NPM</h4>
 
 <p><code>bower install foundation-datepicker</code></p>
 
@@ -169,8 +168,8 @@
 
 <p>after running continue with step 3 from manual instalation. Files you should use are mentioned in step 2.</p>
 
-<h2>
-<a id="user-content-manual-installation-and-setup" class="anchor" href="#manual-installation-and-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Installation and Setup</h2>
+<h4>
+<a id="user-content-manual-installation-and-setup" class="anchor" href="#manual-installation-and-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Installation and Setup</h4>
 
 <ol>
 <li><p>download &amp; unzip source from GitHub repository:
@@ -191,8 +190,8 @@ somewhere into your project. Minified versions are also available.</p></li>
 </li>
 </ol>
 
-<h2>
-<a id="user-content-language-translations" class="anchor" href="#language-translations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language translations</h2>
+<h4>
+<a id="user-content-language-translations" class="anchor" href="#language-translations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language translations</h4>
 
 <p>Foundation datepicker uses external files to store translation data. 
 To use language, you have to include correct file from <strong>js/locales</strong> directory, then correctly initalize fdatepicker with iso code of language included. </p>
@@ -212,8 +211,8 @@ $('.fdatepicker').fdatepicker({
 
 <p>65 languages are available, thanks community and bootstrap-datepicker project. For complete list, see <strong>js/locales</strong> directory.</p>
 
-<h2>
-<a id="user-content-icons" class="anchor" href="#icons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Icons</h2>
+<h4>
+<a id="user-content-icons" class="anchor" href="#icons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Icons</h4>
 
 <p>Datepicker uses three icons. It works with foundation font and font awesome out-of-the box. If you dont want to use iconic font, you can customize buttons via classes:</p>
 
@@ -235,23 +234,23 @@ $('.fdatepicker').fdatepicker({
 <p>to use font-awesome, use include:<br>
 <code>&lt;link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;</code></p>
 
-<h2>
-<a id="user-content-build-system" class="anchor" href="#build-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build system</h2>
+<h4>
+<a id="user-content-build-system" class="anchor" href="#build-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build system</h4>
 
 <p>Grunt is used.
 <code>grunt build</code> compiles scss &amp; minifies js and css.
 Before running, you must install local grunt and npm deps via:
 <code>npm install</code></p>
 
-<h2>
-<a id="user-content-angular" class="anchor" href="#angular" aria-hidden="true"><span class="octicon octicon-link"></span></a>Angular</h2>
+<h4>
+<a id="user-content-angular" class="anchor" href="#angular" aria-hidden="true"><span class="octicon octicon-link"></span></a>Angular</h4>
 
 <p>For integration with Angular, please see <a href="https://github.com/najlepsiwebdesigner/foundation-datepicker/issues/55#issuecomment-138681504">https://github.com/najlepsiwebdesigner/foundation-datepicker/issues/55#issuecomment-138681504</a></p>
 
 <p>Foundation datepicker is jQuery plugin, so you <strong>have to</strong> use jQuery.</p>
 
-<h2>
-<a id="user-content-methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h2>
+<h4>
+<a id="user-content-methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h4>
 
 <table>
     <tbody><tr>
@@ -280,8 +279,8 @@ Before running, you must install local grunt and npm deps via:
     </tr>
 </tbody></table>
 
-<h2>
-<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+<h4>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h4>
 
 <table>
     <thead>
@@ -329,11 +328,17 @@ Before running, you must install local grunt and npm deps via:
             <td>false</td>
             <td>enables hour and minute selection views, equivalent of minView = 0, else minView = 2</td>
         </tr>
+        <tr>
+            <td>initialDate</td>
+            <td>date string</td>
+            <td>null</td>
+            <td>sets initial date. The same effect can be achieved with value attribute on input element.</td>
+        </tr>        
     </tbody>
 </table>
 
-<h2>
-<a id="user-content-events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h2>
+<h4>
+<a id="user-content-events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h4>
 
 <table>
     <thead>
@@ -362,16 +367,16 @@ Before running, you must install local grunt and npm deps via:
 </tbody>
 </table>
 
-<h2>
-<a id="user-content-a-note-on-forking" class="anchor" href="#a-note-on-forking" aria-hidden="true"><span class="octicon octicon-link"></span></a>A note on forking:</h2>
+<h4>
+<a id="user-content-a-note-on-forking" class="anchor" href="#a-note-on-forking" aria-hidden="true"><span class="octicon octicon-link"></span></a>A note on forking:</h4>
 
 <p><strong>By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the Apache License.</strong></p>
 
-<h2>
-<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h2>
+<h4>
+<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h4>
 
 <p>Before you submit a new issue, please check closed (maybe also open) issues <a href="https://github.com/najlepsiwebdesigner/foundation-datepicker/issues?q=is%3Aissue+is%3Aclosed">here</a>, maybe your problem was solved already. Thanks!</p>
-</article>
+
 
 
 					
@@ -427,6 +432,7 @@ $(document).foundation({
 
 				window.prettyPrint && prettyPrint();
 				$('#dp1').fdatepicker({
+					initialDate: '02-12-1989',
 					format: 'mm-dd-yyyy',
 					disableDblClickSelection: true
 				});
