@@ -111,7 +111,7 @@
         if (this.isRTL) {
             this.picker.addClass('datepicker-rtl');
             this.picker.find('.prev i, .next i')
-                .toggleClass('fa fa-chevron-left fa-chevron-right').toggleClass('fa-chevron-left fa-chevron-right');
+                .toggleClass('fa-chevron-left fa-chevron-right');
         }
         $(document).on('mousedown', function(e) {
             // Clicked outside the datepicker, hide it
