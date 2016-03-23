@@ -375,11 +375,12 @@
 
         update: function() {
             var date, fromArgs = false;
+            var currentVal = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             if (arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
                 date = arguments[0];
                 fromArgs = true;
             } 
-            else if (this.initialDate != null) {
+            else if (!currentVal && this.initialDate != null) { // If value is not set, set it to the initialDate 
                 date = this.initialDate
             }
             else {
