@@ -19,7 +19,7 @@
 			<!-- DATEPICKER FILES -->
 			<script src="js/foundation-datepicker.js"></script>
 			<script src="js/locales/foundation-datepicker.vi.js"></script>
-			
+
 			<link rel="stylesheet" href="css/foundation-datepicker.min.css">
 		<!-- foundation datepicker end -->
 		<link rel="stylesheet" href="css/example.css">
@@ -31,7 +31,7 @@
 		<![endif]-->
 	</head>
 	<body>
-	
+
 		<div class="container"  style="background:#13a7c7;">
 			<header class="row">
 				<div class="small-12 columns">
@@ -53,7 +53,7 @@
 		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent</a></dd>
 		    <dd data-magellan-arrival="docs"><a href="#docs">Docs</a></dd>
 		  </dl>
-		</div>	
+		</div>
 
 				</div>
 			</div>
@@ -64,10 +64,10 @@
 		<div class="container">
 
 			<div class="row">
-				
+
 				<div class="small-9 columns">
-					
-					
+
+
 
 
 					<h4 data-magellan-destination="basic-example">Basic</h4>
@@ -94,11 +94,11 @@
 					<a name="limited-example"></a>
 					<p>Limit the view mode to months</p>
 					<div class="row collapse date" id="dpMonths" data-date-format="mm/yyyy" data-start-view="year" data-min-view="year" style="max-width:200px;">
-						<div class="small-2 columns">	
+						<div class="small-2 columns">
 							<span class="prefix"><i class="fa fa-calendar"></i></span>
 						</div>
 						<div class="small-10 columns">
-							<input size="16" type="text" value="02/2012" readonly>	
+							<input size="16" type="text" value="02/2012" readonly>
 						</div>
 					</div>
 					<hr>
@@ -129,7 +129,7 @@
 					<hr>
 
 					<h4 data-magellan-destination="deps-example">Dependent pickers</h4>
-					<a name="deps-example"></a>					
+					<a name="deps-example"></a>
 					<p>Disabling dates in the past and dependent disabling.</p>
 					<table class="table">
 						<thead>
@@ -193,7 +193,7 @@ somewhere into your project. Minified versions are also available.</p></li>
 <h4>
 <a id="user-content-language-translations" class="anchor" href="#language-translations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language translations</h4>
 
-<p>Foundation datepicker uses external files to store translation data. 
+<p>Foundation datepicker uses external files to store translation data.
 To use language, you have to include correct file from <strong>js/locales</strong> directory, then correctly initalize fdatepicker with iso code of language included. </p>
 
 <p>Example of using slovak language:</p>
@@ -333,7 +333,19 @@ Before running, you must install local grunt and npm deps via:
             <td>date string</td>
             <td>null</td>
             <td>sets initial date. The same effect can be achieved with value attribute on input element.</td>
-        </tr>        
+        </tr>
+        <tr>
+	        <td>startDate</td>
+	        <td>date</td>
+	        <td>-Infinity</td>
+	        <td>disables all dates before given date</td>
+        </tr>
+        <tr>
+	        <td>endDate</td>
+	        <td>date</td>
+	        <td>Infinity</td>
+	        <td>disables all dates after given date</td>
+        </tr>
     </tbody>
 </table>
 
@@ -379,13 +391,13 @@ Before running, you must install local grunt and npm deps via:
 
 
 
-					
+
 				</div>
 				<div class="small-3 columns" id="sidebar-wrap">
 
 					<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker" style="font-size:35px;text-decoration:none;display:block" class="button small"><i class="fa fa-github-alt"></i> Github</a>
-					
-					
+
+
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="text-align:center;">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="WARN3JGTYSUP8">
@@ -403,7 +415,7 @@ Before running, you must install local grunt and npm deps via:
 					     data-ad-format="auto"></ins>
 					<script>
 					(adsbygoogle = window.adsbygoogle || []).push({});
-					</script>					
+					</script>
 				</div>
 			</div>
 			</section>
