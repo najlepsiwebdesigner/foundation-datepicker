@@ -375,11 +375,12 @@
 
         update: function() {
             var date, fromArgs = false;
+            var currentVal = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             if (arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
                 date = arguments[0];
                 fromArgs = true;
             } 
-            else if (this.initialDate != null) {
+            else if (!currentVal && this.initialDate != null) { // If value is not set, set it to the initialDate 
                 date = this.initialDate
             }
             else {
@@ -441,7 +442,7 @@
                 startMonth = this.startDate !== -Infinity ? this.startDate.getUTCMonth() : -Infinity,
                 endYear = this.endDate !== Infinity ? this.endDate.getUTCFullYear() : Infinity,
                 endMonth = this.endDate !== Infinity ? this.endDate.getUTCMonth() : Infinity,
-                currentDate = this.date && this.date.valueOf(),
+                currentDate = this.date && UTCDate(this.date.getUTCFullYear(), this.date.getUTCMonth(), this.date.getUTCDate()).valueOf(),
                 today = new Date(),
                 titleFormat = dates[this.language].titleFormat || dates['en'].titleFormat;
             // this.picker.find('.datepicker-days thead th.date-switch')
