@@ -59,15 +59,15 @@ $fdatepicker-inline-width: 220px !default;
 		-webkit-border-radius: $fdatepicker-ui-border-radius;
 		-moz-border-radius: $fdatepicker-ui-border-radius;
 		border-radius: $fdatepicker-ui-border-radius;
-		
+
 		-webkit-box-shadow: $fdatepicker-ui-shadow;
 		-moz-box-shadow: $fdatepicker-ui-shadow;
 		box-shadow: $fdatepicker-ui-shadow;
-		
+
 		-webkit-background-clip: padding-box;
 		-moz-background-clip: padding;
 		background-clip: padding-box;
-		
+
 		*border-right-width: 2px;
 		*border-bottom-width: 2px;
 		color: $fdatepicker-ui-text-color;
@@ -103,6 +103,9 @@ $fdatepicker-inline-width: 220px !default;
 		&.old , &.new { color: $fdatepicker-ui-old-new-color; }
 		span.active { background: $fdatepicker-ui-primary; }
 		&.day.disabled { color: $fdatepicker-ui-disabled; }
+		span.month.disabled, span.year.disabled {
+			color: $fdatepicker-ui-disabled;
+		}
 	}
 	th {
 		text-align: center;
@@ -166,7 +169,7 @@ $fdatepicker-inline-width: 220px !default;
 	}
 }
 .datepicker>div,
-.datepicker-dropdown::before, 
+.datepicker-dropdown::before,
 .datepicker-dropdown::after { display: none; }
 .datepicker-close {
 	position: absolute;
@@ -179,5 +182,5 @@ $fdatepicker-inline-width: 220px !default;
 }
 .table-striped .datepicker table tr td,
 .table-striped .datepicker table tr th {
-	background-color: transparent; 
+	background-color: transparent;
 }
