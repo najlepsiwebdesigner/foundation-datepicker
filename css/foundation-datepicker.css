@@ -62,6 +62,8 @@
       background: #2ba6cb; }
     .datepicker td.day.disabled {
       color: #eee; }
+    .datepicker td span.month.disabled, .datepicker td span.year.disabled {
+      color: #eee; }
   .datepicker th {
     text-align: center;
     width: 20px;
