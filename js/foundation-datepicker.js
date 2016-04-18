@@ -481,7 +481,12 @@
                         html.push('<td class="cw">' + calWeek + '</td>');
                     }
                 }
-                clsName = ' ' + this.onRender(prevMonth) + ' ';
+                if (this.viewMode === 2) {
+                    clsName = ' ' + this.onRender(prevMonth, this.viewMode) + ' ';
+                } else {
+                    clsName = '';
+                }
+
                 if (prevMonth.getUTCFullYear() < year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() < month)) {
                     clsName += ' old';
                 } else if (prevMonth.getUTCFullYear() > year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() > month)) {
@@ -512,7 +517,12 @@
             html = [];
             for (var i = 0; i < 24; i++) {
                 var actual = UTCDate(year, month, dayMonth, i);
-                clsName = '';
+                if (this.viewMode === 1) {
+                    clsName = ' ' + this.onRender(actual, this.viewMode) + ' ';
+                } else {
+                    clsName = '';
+                }
+
                 // We want the previous hour for the startDate
                 if ((actual.valueOf() + 3600000) < this.startDate || actual.valueOf() > this.endDate) {
                     clsName += ' disabled';
@@ -527,6 +537,11 @@
             for (var i = 0; i < 60; i += this.minuteStep) {
                 var actual = UTCDate(year, month, dayMonth, hours, i);
                 clsName = '';
+                if (this.viewMode === 0) {
+                    clsName = ' ' + this.onRender(actual, this.viewMode) + ' ';
+                } else {
+                    clsName = '';
+                }
                 if (actual.valueOf() < this.startDate || actual.valueOf() > this.endDate) {
                     clsName += ' disabled';
                 } else if (Math.floor(minutes / this.minuteStep) == Math.floor(i / this.minuteStep)) {
