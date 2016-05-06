@@ -18,7 +18,7 @@
         var that = this;
 
         this.element = $(element);
-        this.autoShow = options.autoShow || true;
+        this.autoShow = (options.autoShow == undefined ? true : options.autoShow);
         this.appendTo = options.appendTo || 'body';
         this.closeButton = options.closeButton;
         this.language = options.language || this.element.data('date-language') || "en";
