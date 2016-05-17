@@ -143,6 +143,10 @@
   padding: 0;
   display: none; }
 
+.datepicker-close .button .tiny .alert .right {
+  width: auto;
+}
+
 .table-striped .datepicker table tr td,
 .table-striped .datepicker table tr th {
   background-color: transparent; }
