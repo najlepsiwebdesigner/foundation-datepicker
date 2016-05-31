@@ -356,9 +356,14 @@
             var width = textbox.outerWidth() + parseInt(textbox.css('margin-left'));
             var fullOffsetTop = offset.top + height;
             var offsetLeft = offset.left;
+            this.picker.removeClass('datepicker-top datepicker-bottom');
             // if the datepicker is going to be below the window, show it on top of the input
             if ((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()) {
                 fullOffsetTop = offset.top - this.picker.outerHeight();
+                this.picker.addClass('datepicker-top');
+            }
+            else {
+                this.picker.addClass('datepicker-bottom');
             }
 
             // if the datepicker is going to go past the right side of the window, we want
