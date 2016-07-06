@@ -40,6 +40,7 @@
         this.minuteStep = options.minuteStep || this.element.data('minute-step') || 5;
         this.pickerPosition = options.pickerPosition || this.element.data('picker-position') || 'bottom-right';
         this.initialDate = options.initialDate || null;
+        this.headTemplate = options.headTemplate || null;
 
         this._attachEvents();
 
@@ -90,6 +91,9 @@
             this.forceParse = this.element.data('date-force-parse');
         }
 
+        if(options.headTemplate !== null) {
+            DPGlobal.template = DPGlobal.template.replace(/<thead>(.*?)<\/thead>/g, "<thead>" + options.headTemplate +"</thead>");
+        }
 
         this.picker = $(DPGlobal.template)
             .appendTo(this.isInline ? this.element : this.appendTo)
