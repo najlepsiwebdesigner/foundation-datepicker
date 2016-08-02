@@ -7,6 +7,7 @@
 		<meta name="author" content="Peter Beno, najlepsiwebdesigner@gmail.com">
 		<link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="foundation/css/foundation.min.css">
 		<!-- <link rel="stylesheet" href="foundation/fonts/foundation-icons.css"> -->
@@ -51,6 +52,7 @@
 		    <dd data-magellan-arrival="limited-example"><a href="#limited-example">Limited picker</a></dd>
 		    <dd data-magellan-arrival="no-inputs-example"><a href="#no-inputs-example">Without inputs</a></dd>
 		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent</a></dd>
+		    <dd data-magellan-arrival="iconfont-example"><a href="#iconfont-example">Icon fonts</a></dd>
 		    <dd data-magellan-arrival="docs"><a href="#docs">Docs</a></dd>
 		  </dl>
 		</div>
@@ -153,6 +155,15 @@
 						</thead>
 					</table>
 					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
+
+					<h4 data-magellan-destination="iconfont-example">Change icon font</h4>
+					<a name="iconfont-example"></a>
+					<p>Set another icons or icon font (Material Icons in this example)</p>
+					<input type="text" class="span2" id="dpi">
+					<hr>
+					<script src="https://gist.github.com/KonZee/b50fba4a52934ba22483bb1f527ad52d.js"></script>
+					<hr>
+
 
 <br><br>
 <h1 id="docs">
@@ -476,6 +487,13 @@ $(document).foundation({
 				// datepicker limited to months
 				$('#dpMonths').fdatepicker();
 
+				// Icon font datapicker
+				$('#dpi').fdatepicker({
+					leftArrow: '<i class="material-icons">keyboard_arrow_left</i>',
+					rightArrow: '<i class="material-icons">keyboard_arrow_right</i>',
+					closeButton: true,
+					closeIcon: '<i class="material-icons">close</i>',
+				});
 
 
 				// implementation of custom elements instead of inputs
