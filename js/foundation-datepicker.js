@@ -40,6 +40,9 @@
         this.minuteStep = options.minuteStep || this.element.data('minute-step') || 5;
         this.pickerPosition = options.pickerPosition || this.element.data('picker-position') || 'bottom-right';
         this.initialDate = options.initialDate || null;
+        this.leftArrow = options.leftArrow || '<i class="fa fa-chevron-left fi-arrow-left"/>';
+        this.rightArrow = options.rightArrow || '<i class="fa fa-chevron-right fi-arrow-right"/>';
+        this.closeIcon = options.closeIcon || '<i class="fa fa-remove fa-times fi-x"></i>';
 
         this._attachEvents();
 
@@ -91,7 +94,7 @@
         }
 
 
-        this.picker = $(DPGlobal.template)
+        this.picker = $(DPGlobal.template(this.leftArrow, this.rightArrow, this.closeIcon))
             .appendTo(this.isInline ? this.element : this.appendTo)
             .on({
                 click: $.proxy(this.click, this),
@@ -110,8 +113,11 @@
         }
         if (this.isRTL) {
             this.picker.addClass('datepicker-rtl');
-            this.picker.find('.prev i, .next i')
-                .toggleClass('fa-chevron-left fa-chevron-right');
+            this.picker.find('.date-switch').each(function(){
+              $(this).parent().prepend($(this).siblings('.next'));
+              $(this).parent().append($(this).siblings('.prev'));
+            })
+            this.picker.find('.prev, .next').toggleClass('prev next');
         }
         $(document).on('mousedown', function(e) {
             // Clicked outside the datepicker, hide it
@@ -1304,54 +1310,54 @@
 
             return viewMode;
         },
-        headTemplate: '<thead>' +
+        headTemplate: function(leftArrow, rightArrow) {return('<thead>' +
             '<tr>' +
-            '<th class="prev"><i class="fa fa-chevron-left fi-arrow-left"/></th>' +
+            '<th class="prev">' + leftArrow + '</th>' +
             '<th colspan="5" class="date-switch"></th>' +
-            '<th class="next"><i class="fa fa-chevron-right fi-arrow-right"/></th>' +
+            '<th class="next">' + rightArrow + '</th>' +
             '</tr>' +
-            '</thead>',
+            '</thead>')},
         contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
         footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
     };
-    DPGlobal.template = '<div class="datepicker">' +
+    DPGlobal.template = function(leftArrow, rightArrow, closeIcon) {return( '<div class="datepicker">' +
         '<div class="datepicker-minutes">' +
         '<table class=" table-condensed">' +
-        DPGlobal.headTemplate +
+        DPGlobal.headTemplate(leftArrow, rightArrow) +
         DPGlobal.contTemplate +
         DPGlobal.footTemplate +
         '</table>' +
         '</div>' +
         '<div class="datepicker-hours">' +
         '<table class=" table-condensed">' +
-        DPGlobal.headTemplate +
+        DPGlobal.headTemplate(leftArrow, rightArrow) +
         DPGlobal.contTemplate +
         DPGlobal.footTemplate +
         '</table>' +
         '</div>' +
         '<div class="datepicker-days">' +
         '<table class=" table-condensed">' +
-        DPGlobal.headTemplate +
+        DPGlobal.headTemplate(leftArrow, rightArrow) +
         '<tbody></tbody>' +
         DPGlobal.footTemplate +
         '</table>' +
         '</div>' +
         '<div class="datepicker-months">' +
         '<table class="table-condensed">' +
-        DPGlobal.headTemplate +
+        DPGlobal.headTemplate(leftArrow, rightArrow) +
         DPGlobal.contTemplate +
         DPGlobal.footTemplate +
         '</table>' +
         '</div>' +
         '<div class="datepicker-years">' +
         '<table class="table-condensed">' +
-        DPGlobal.headTemplate +
+        DPGlobal.headTemplate(leftArrow, rightArrow) +
         DPGlobal.contTemplate +
         DPGlobal.footTemplate +
         '</table>' +
         '</div>' +
-        '<a class="button datepicker-close tiny alert right" style="width:auto;"><i class="fa fa-remove fa-times fi-x"></i></a>' +
-        '</div>';
+        '<a class="button datepicker-close tiny alert right" style="width:auto;">' + closeIcon + '</a>' +
+        '</div>')};
 
     $.fn.fdatepicker.DPGlobal = DPGlobal;
 
