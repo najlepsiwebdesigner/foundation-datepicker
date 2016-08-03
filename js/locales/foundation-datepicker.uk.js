@@ -3,7 +3,7 @@
  * Andrey Vityuk <andrey [dot] vityuk [at] gmail.com>
  */
 ;(function($){
-	$.fn.datepicker.dates['uk'] = {
+	$.fn.fdatepicker.dates['uk'] = {
 		days: ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"],
 		daysShort: ["Нед", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб", "Нед"],
 		daysMin: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"],

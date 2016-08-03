@@ -7,19 +7,20 @@
 		<meta name="author" content="Peter Beno, najlepsiwebdesigner@gmail.com">
 		<link href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="foundation/css/foundation.min.css">
-		<link rel="stylesheet" href="foundation/fonts/foundation-icons.css">
+		<!-- <link rel="stylesheet" href="foundation/fonts/foundation-icons.css"> -->
 		<!-- foundation datepicker start -->
 			<!-- DEPS -->
-			<script src="http://code.jquery.com/jquery.min.js"></script>
+			<script src="foundation/js/vendor/jquery.js"></script>
 			<!-- CDN - you can use font awesome or fonudation icon via this, or use your own version: -->
-			<!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
-			<link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+			<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+			<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet"> -->
 			<!-- DATEPICKER FILES -->
 			<script src="js/foundation-datepicker.js"></script>
 			<script src="js/locales/foundation-datepicker.vi.js"></script>
-			
+
 			<link rel="stylesheet" href="css/foundation-datepicker.min.css">
 		<!-- foundation datepicker end -->
 		<link rel="stylesheet" href="css/example.css">
@@ -31,11 +32,11 @@
 		<![endif]-->
 	</head>
 	<body>
-	
+
 		<div class="container"  style="background:#13a7c7;">
 			<header class="row">
 				<div class="small-12 columns">
-					<h1>Foundation-datepicker.js</h1>
+					<h1>Foundation-datepicker.js <span style="color:#000;font-size:60%;">Examples &amp; Docs</span></h1>
 				</div>
 			</header>
 			</div>
@@ -46,13 +47,15 @@
 		<div data-magellan-expedition="fixed" >
 		  <dl class="sub-nav">
 		    <dd data-magellan-arrival="basic-example"><a href="#basic-example">Basic example</a></dd>
-		    <dd data-magellan-arrival="advanced-example"><a href="#advanced-example">Data tags & close button</a></dd>
-		    <dd data-magellan-arrival="time-example"><a href="#time-example">Time picker</a></dd>
+		    <dd data-magellan-arrival="advanced-example"><a href="#advanced-example">Data tags</a></dd>
+		    <dd data-magellan-arrival="time-example"><a href="#time-example">Timepicker</a></dd>
 		    <dd data-magellan-arrival="limited-example"><a href="#limited-example">Limited picker</a></dd>
 		    <dd data-magellan-arrival="no-inputs-example"><a href="#no-inputs-example">Without inputs</a></dd>
-		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent pickers</a></dd>
+		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent</a></dd>
+		    <dd data-magellan-arrival="iconfont-example"><a href="#iconfont-example">Icon fonts</a></dd>
+		    <dd data-magellan-arrival="docs"><a href="#docs">Docs</a></dd>
 		  </dl>
-		</div>	
+		</div>
 
 				</div>
 			</div>
@@ -63,24 +66,27 @@
 		<div class="container">
 
 			<div class="row">
-				
+
 				<div class="small-9 columns">
-					
-					
+
+
 
 
 					<h4 data-magellan-destination="basic-example">Basic</h4>
 					<a name="basic-example"></a>
-					<p>Attached to a field with the format specified via options.</p>
-					<input type="text" class="span2" value="02-12-1989" id="dp1">
+					<p>Attached to a field with the format specified via options. Initial date is set with initialDate option or with value attribute on the input tag.</p>
+					<input type="text" class="span2" id="dp1">
 					<hr>
-
+					<script src="https://gist.github.com/najlepsiwebdesigner/b71a309d6fe893486c6a.js"></script>
+					<hr>
 
 
 					<h4 data-magellan-destination="advanced-example">Close button and data tags</h4>
 					<a name="advanced-example"></a>
-					<p>Attached to a field with the format specified via data tag and close button enabled.</p>
+					<p>Attached to a field with the format specified via data tag and close button enabled. See source of </p>
 					<input type="text" class="span2" value="02/16/12" data-date-format="mm/dd/yy" id="dp2">
+					<hr>
+					<script src="https://gist.github.com/najlepsiwebdesigner/b94d0c1d908892d10444.js"></script>
 					<hr>
 
 					<h4 data-magellan-destination="time-example">Time picker</h4>
@@ -88,18 +94,22 @@
 					<p>With time picking enabled and vietnamese language used.</p>
 					<input type="text" class="span2" value="02-12-1989 12:05" id="dpt">
 					<hr>
+					<script src="https://gist.github.com/najlepsiwebdesigner/f921f23f5bf3e9286acf.js"></script>
+					<hr>
 
 					<h4 data-magellan-destination="limited-example">Limited picker</h4>
 					<a name="limited-example"></a>
 					<p>Limit the view mode to months</p>
-					<div class="row collapse date" id="dpMonths" data-date="102/2012" data-format="mm/yyyy" data-start-view="year" data-min-view="year" style="max-width:200px;">
-						<div class="small-2 columns">	
-							<span class="prefix"><i class="fi-calendar"></i></span>
+					<div class="row collapse date" id="dpMonths" data-date-format="mm/yyyy" data-start-view="year" data-min-view="year" style="max-width:200px;">
+						<div class="small-2 columns">
+							<span class="prefix"><i class="fa fa-calendar"></i></span>
 						</div>
 						<div class="small-10 columns">
-							<input size="16" type="text" value="02/2012" readonly>	
+							<input size="16" type="text" value="02/2012" readonly>
 						</div>
 					</div>
+					<hr>
+					<script src="https://gist.github.com/najlepsiwebdesigner/32fed5dc2fe2df9a5f6b.js"></script>
 					<hr>
 
 					<h4 data-magellan-destination="no-inputs-example">No inputs</h4>
@@ -126,9 +136,11 @@
 					<div class="alert alert-box"  style="display:none;" id="alert">	<strong>Oh snap!</strong>
 					</div>
 					<hr>
+					<script src="https://gist.github.com/najlepsiwebdesigner/f00af2b2dfbca6494d0a.js"></script>
+					<hr>
 
 					<h4 data-magellan-destination="deps-example">Dependent pickers</h4>
-					<a name="deps-example"></a>					
+					<a name="deps-example"></a>
 					<p>Disabling dates in the past and dependent disabling.</p>
 					<table class="table">
 						<thead>
@@ -144,21 +156,269 @@
 					</table>
 					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
 
-					
+					<h4 data-magellan-destination="iconfont-example">Change icon font</h4>
+					<a name="iconfont-example"></a>
+					<p>Set another icons or icon font (Material Icons in this example)</p>
+					<input type="text" class="span2" id="dpi">
+					<hr>
+					<script src="https://gist.github.com/KonZee/b50fba4a52934ba22483bb1f527ad52d.js"></script>
+					<hr>
+
+
+<br><br>
+<h1 id="docs">
+<a id="user-content-foundation-datepicker" class="anchor" href="#foundation-datepicker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docs</h1>
+
+<p><strong>Feel free to contribute! Fork, modify, and send me a pull request.</strong></p>
+
+<h4>
+<a id="user-content-foundation-version-support" class="anchor" href="#foundation-version-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Foundation version support</h4>
+
+<p>Foundation 6 and 5 is fully supported. For Foundation 4 version, check out last compatible version:
+<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker/releases/tag/1.2.0">https://github.com/najlepsiwebdesigner/foundation-datepicker/releases/tag/1.2.0</a></p>
+
+<p>How to include this in your project:</p>
+
+<h4>
+<a id="user-content-install-via-bower-or-npm" class="anchor" href="#install-via-bower-or-npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install via Bower or NPM</h4>
+
+<p><code>bower install foundation-datepicker</code></p>
+
+<p><code>npm install foundation-datepicker</code></p>
+
+<p>after running continue with step 3 from manual instalation. Files you should use are mentioned in step 2.</p>
+
+<h4>
+<a id="user-content-manual-installation-and-setup" class="anchor" href="#manual-installation-and-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Installation and Setup</h4>
+
+<ol>
+<li><p>download &amp; unzip source from GitHub repository:
+<a href="http://foundation-datepicker.peterbeno.com/example.html">http://foundation-datepicker.peterbeno.com/example.html</a></p></li>
+<li><p>copy the files <code>/js/foundation-datepicker.js</code> and <code>/stylesheets/foundation-datepicker.css</code>
+somewhere into your project. Minified versions are also available.</p></li>
+<li><p>&lt;link&gt; and &lt;script&gt; them into your page</p></li>
+<li>
+<p>to see the arrows and icons, please include <strong>font-awesome</strong> or <strong>foundation icons</strong>:</p>
+
+<p><a href="http://zurb.com/playground/foundation-icons">http://zurb.com/playground/foundation-icons</a></p>
+
+<p><code>&lt;link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet"&gt;</code></p>
+
+<p><a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a></p>
+
+<p><code>&lt;link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet"&gt;</code></p>
+</li>
+</ol>
+
+<h4>
+<a id="user-content-language-translations" class="anchor" href="#language-translations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language translations</h4>
+
+<p>Foundation datepicker uses external files to store translation data.
+To use language, you have to include correct file from <strong>js/locales</strong> directory, then correctly initalize fdatepicker with iso code of language included. </p>
+
+<p>Example of using slovak language:</p>
+
+<pre><code>&lt;!-- somewhere in header --&gt;
+&lt;script src="js/foundation-datepicker.js"&gt;&lt;/script&gt;
+&lt;script src="js/locales/foundation-datepicker.sk.js"&gt;&lt;/script&gt;
+&lt;!-- ... --&gt;
+&lt;script&gt;
+$('.fdatepicker').fdatepicker({
+  language: 'sk'
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>65 languages are available, thanks community and bootstrap-datepicker project. For complete list, see <strong>js/locales</strong> directory.</p>
+
+<h4>
+<a id="user-content-icons" class="anchor" href="#icons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Icons</h4>
+
+<p>Datepicker uses three icons. It works with foundation font and font awesome out-of-the box. If you dont want to use iconic font, you can customize buttons via classes:</p>
+
+<ul>
+<li>
+<code>fa-chevron-right fi-arrow-right</code> - right arrow</li>
+<li>
+<code>fa-remove fa-times fi-x</code> - close sign</li>
+<li>
+<code>fa fa-chevron-left fi-arrow-left</code> - left arrow</li>
+</ul>
+
+<p><em>Version without Font Awesome</em> (behind master) can be found in separate branch:
+<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/no-font-awesome">https://github.com/najlepsiwebdesigner/foundation-datepicker/tree/no-font-awesome</a></p>
+
+<p>to use foundation icon font, include:<br>
+<code>&lt;link rel="stylesheet" href="foundation/fonts/foundation-icons.css"&gt;</code></p>
+
+<p>to use font-awesome, use include:<br>
+<code>&lt;link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;</code></p>
+
+<h4>
+<a id="user-content-build-system" class="anchor" href="#build-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build system</h4>
+
+<p>Grunt is used.
+<code>grunt build</code> compiles scss &amp; minifies js and css.
+Before running, you must install local grunt and npm deps via:
+<code>npm install</code></p>
+
+<h4>
+<a id="user-content-angular" class="anchor" href="#angular" aria-hidden="true"><span class="octicon octicon-link"></span></a>Angular</h4>
+
+<p>For integration with Angular, please see <a href="https://github.com/najlepsiwebdesigner/foundation-datepicker/issues/55#issuecomment-138681504">https://github.com/najlepsiwebdesigner/foundation-datepicker/issues/55#issuecomment-138681504</a></p>
+
+<p>Foundation datepicker is jQuery plugin, so you <strong>have to</strong> use jQuery.</p>
+
+<h4>
+<a id="user-content-methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h4>
+
+<table>
+    <tbody><tr>
+        <th>Method</th>
+<th>Description</th>
+    </tr>
+    <tr>
+        <td>.fdatepicker(options)</td>
+<td>Initializes a datepicker.</td>
+    </tr>
+    <tr>
+        <td>.fdatepicker('show')</td>
+<td>Show the datepicker.</td>
+    </tr>
+    <tr>
+        <td>.fdatepicker('hide')</td>
+<td>Hide the datepicker.</td>
+    </tr>
+    <tr>
+        <td>.fdatepicker('place')</td>
+<td>Updates the date picker's position relative to the element</td>
+    </tr>
+    <tr>
+        <td>.fdatepicker('update', value)</td>
+<td>Updates the date picker's value. It can be a string in the specified format or a Date object.</td>
+    </tr>
+</tbody></table>
+
+<h4>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>type</th>
+            <th>default</th>
+            <th>description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>format</td>
+            <td>string</td>
+            <td>'mm/dd/yyyy'</td>
+            <td>the date format, combination of d, dd, m, mm, yy, yyyy, hh, ii.</td>
+        </tr>
+        <tr>
+            <td>language</td>
+            <td>string</td>
+            <td>'en'</td>
+            <td>two-char iso shortcut of language you want to use</td>
+        </tr>
+        <tr>
+            <td>weekStart</td>
+            <td>integer</td>
+            <td>0</td>
+            <td>day of the week start. 0 for Sunday - 6 for Saturday</td>
+        </tr>
+        <tr>
+            <td>startView</td>
+            <td>string|integer</td>
+            <td>month</td>
+            <td>set the start view mode. Accepts: 'decade' = 4, 'year' = 3, 'month' = 2, 'day' = 1, 'hour' = 0</td>
+        </tr>
+        <tr>
+            <td>minView|maxView</td>
+            <td>string|integer</td>
+            <td></td>
+            <td>set a limit for view mode. Accepts: 'decade' = 4, 'year' = 3, 'month' = 2, 'day' = 1, 'hour' = 0</td>
+        </tr>
+        <tr>
+            <td>pickTime</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>enables hour and minute selection views, equivalent of minView = 0, else minView = 2</td>
+        </tr>
+        <tr>
+            <td>initialDate</td>
+            <td>date string</td>
+            <td>null</td>
+            <td>sets initial date. The same effect can be achieved with value attribute on input element.</td>
+        </tr>
+        <tr>
+	        <td>startDate</td>
+	        <td>date</td>
+	        <td>-Infinity</td>
+	        <td>disables all dates before given date</td>
+        </tr>
+        <tr>
+	        <td>endDate</td>
+	        <td>date</td>
+	        <td>Infinity</td>
+	        <td>disables all dates after given date</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>
+<a id="user-content-events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>show</td>
+            <td>This event fires immediately when the date picker is displayed.</td>
+        </tr>
+        <tr>
+            <td>hide</td>
+            <td>This event is fired immediately when the date picker is hidden.</td>
+        </tr>
+        <tr>
+            <td>changeDate</td>
+            <td>This event is fired when the date is changed.</td>
+        </tr>
+        <tr>
+            <td>outOfRange</td>
+            <td>This event is fired when user tries to select disabled date.</td>
+    </tr>
+</tbody>
+</table>
+
+<h4>
+<a id="user-content-a-note-on-forking" class="anchor" href="#a-note-on-forking" aria-hidden="true"><span class="octicon octicon-link"></span></a>A note on forking:</h4>
+
+<p><strong>By forking this project you hereby grant permission for any commits to your fork to be merged back into this repository and, with attribution, be released under the terms of the Apache License.</strong></p>
+
+<h4>
+<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h4>
+
+<p>Before you submit a new issue, please check closed (maybe also open) issues <a href="https://github.com/najlepsiwebdesigner/foundation-datepicker/issues?q=is%3Aissue+is%3Aclosed">here</a>, maybe your problem was solved already. Thanks!</p>
+
+
+
+
 				</div>
 				<div class="small-3 columns" id="sidebar-wrap">
-					<br>
-					<ul>
-						<li>
-							<a href="http://foundation-datepicker.peterbeno.com/">Online example</a>
-						</li>
-						<li>
-							<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker">Github</a>
-						</li>
-					</ul>
-					Buy me a beer
-					<br>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+
+					<a href="https://github.com/najlepsiwebdesigner/foundation-datepicker" style="font-size:35px;text-decoration:none;display:block" class="button small"><i class="fa fa-github-alt"></i> Github</a>
+
+
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="text-align:center;">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="WARN3JGTYSUP8">
 					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
@@ -175,11 +435,10 @@
 					     data-ad-format="auto"></ins>
 					<script>
 					(adsbygoogle = window.adsbygoogle || []).push({});
-					</script>					
+					</script>
 				</div>
 			</div>
 			</section>
-
 		</div>
 		<script>
 			$(function () {
@@ -205,15 +464,17 @@ $(document).foundation({
 
 				window.prettyPrint && prettyPrint();
 				$('#dp1').fdatepicker({
+					initialDate: '02-12-1989',
 					format: 'mm-dd-yyyy',
 					disableDblClickSelection: true
+					// autoShow: false
 				});
 
 
 				$('#dp2').fdatepicker({
 					closeButton: true
 				});
-				$('#dp3').fdatepicker();
+				// $('#dp3').fdatepicker();
 
 
 				$('#dpt').fdatepicker({
@@ -226,6 +487,13 @@ $(document).foundation({
 				// datepicker limited to months
 				$('#dpMonths').fdatepicker();
 
+				// Icon font datapicker
+				$('#dpi').fdatepicker({
+					leftArrow: '<i class="material-icons">keyboard_arrow_left</i>',
+					rightArrow: '<i class="material-icons">keyboard_arrow_right</i>',
+					closeButton: true,
+					closeIcon: '<i class="material-icons">close</i>',
+				});
 
 
 				// implementation of custom elements instead of inputs
@@ -287,6 +555,22 @@ $(document).foundation({
 				}).data('datepicker');
 			});
 		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		<script type="text/javascript">
