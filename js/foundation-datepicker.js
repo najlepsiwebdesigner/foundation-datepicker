@@ -26,6 +26,7 @@
         this.language = this.language in dates ? this.language : "en";
         this.isRTL = dates[this.language].rtl || false;
         this.format = DPGlobal.parseFormat(options.format || this.element.data('date-format') || dates[this.language].format || 'mm/dd/yyyy');
+        this.formatText = options.format || this.element.data('date-format') || dates[this.language].format || 'mm/dd/yyyy';
         this.isInline = false;
         this.isInput = this.element.is('input');
         this.component = this.element.is('.date') ? this.element.find('.prefix, .postfix') : false;
@@ -44,8 +45,7 @@
         this.rightArrow = options.rightArrow || '<i class="fa fa-chevron-right fi-arrow-right"/>';
         this.closeIcon = options.closeIcon || '<i class="fa fa-remove fa-times fi-x"></i>';
 
-        this._attachEvents();
-
+        
 
         this.minView = 0;
         if ('minView' in options) {
@@ -173,6 +173,8 @@
         if (this.isInline) {
             this.show();
         }
+
+        this._attachEvents();
     };
 
     Datepicker.prototype = {
@@ -182,14 +184,23 @@
         _attachEvents: function() {
             this._detachEvents();
             if (this.isInput) { // single input
-                this._events = [
-                    [this.element, {
-                        focus: (this.autoShow) ? $.proxy(this.show, this) : function() {},
-                        keyup: $.proxy(this.update, this),
-                        keydown: $.proxy(this.keydown, this)
-                    }]
-                ];
-            } else if (this.component && this.hasInput) { // component: input + button
+                if (!this.keyboardNavigation) {
+                    this._events = [
+                        [this.element, {
+                            focus: (this.autoShow) ? $.proxy(this.show, this) : function() {}
+                        }]
+                    ];
+                } else {
+                    this._events = [
+                        [this.element, {
+                            focus: (this.autoShow) ? $.proxy(this.show, this) : function() {},
+                            keyup: $.proxy(this.update, this),
+                            keydown: $.proxy(this.keydown, this)
+                        }]
+                    ];
+                } 
+            }
+            else if (this.component && this.hasInput) { // component: input + button
                 this._events = [
                     // For components that are not readonly, allow keyboard nav
                     [this.element.find('input'), {
@@ -397,10 +408,18 @@
             else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             }
-
-
-
-            this.date = DPGlobal.parseDate(date, this.format, this.language);
+    
+            if (date.length > this.formatText.length) {
+                    $(this.picker).addClass('is-invalid')
+                    $(this.element).addClass('is-invalid-input')
+                    return;
+            } else {
+                $(this.picker).removeClass('is-invalid')
+                $(this.element).removeClass('is-invalid-input')
+                  
+            }
+        
+            this.date = DPGlobal.parseDate(date, this.format, this.language);  
 
             if (fromArgs || this.initialDate != null) this.setValue();
 
@@ -948,6 +967,10 @@
         },
 
         keydown: function(e) {
+            if (!this.keyboardNavigation) {
+                console.log('kekete');
+                return true;
+            }
             if (this.picker.is(':not(:visible)')) {
                 if (e.keyCode == 27) // allow escape to hide and re-show picker
                     this.show();
@@ -1134,6 +1157,7 @@
             if (!separators || !separators.length || !parts || parts.length === 0) {
                 throw new Error("Invalid date format.");
             }
+            this.formatText = format;
             return {
                 separators: separators,
                 parts: parts

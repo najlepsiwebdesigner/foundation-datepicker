@@ -366,6 +366,12 @@ Before running, you must install local grunt and npm deps via:
 	        <td>Infinity</td>
 	        <td>disables all dates after given date</td>
         </tr>
+        <tr>
+	        <td>keyboardNavigation</td>
+	        <td>boolean</td>
+	        <td>true</td>
+	        <td>with input fields, allows to navigate the datepicker with arrows. However, it disables navigation inside the input itself, too</td>
+        </tr>        
     </tbody>
 </table>
 
@@ -466,6 +472,7 @@ $(document).foundation({
 				$('#dp1').fdatepicker({
 					initialDate: '02-12-1989',
 					format: 'mm-dd-yyyy',
+					// keyboardNavigation: false,
 					disableDblClickSelection: true
 					// autoShow: false
 				});
