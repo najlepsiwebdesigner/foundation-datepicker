@@ -41,9 +41,10 @@
         this.minuteStep = options.minuteStep || this.element.data('minute-step') || 5;
         this.pickerPosition = options.pickerPosition || this.element.data('picker-position') || 'bottom-right';
         this.initialDate = options.initialDate || null;
-        this.leftArrow = options.leftArrow || '<i class="fa fa-chevron-left fi-arrow-left"/>';
-        this.rightArrow = options.rightArrow || '<i class="fa fa-chevron-right fi-arrow-right"/>';
-        this.closeIcon = options.closeIcon || '<i class="fa fa-remove fa-times fi-x"></i>';
+        this.faCSSprefix = options.faCSSprefix || 'fa';
+        this.leftArrow = options.leftArrow || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-chevron-left fi-arrow-left"/>';
+        this.rightArrow = options.rightArrow || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-chevron-right fi-arrow-right"/>';
+        this.closeIcon = options.closeIcon || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-remove ' + this.faCSSprefix + '-times fi-x"></i>';
 
         
 
@@ -113,11 +114,13 @@
         }
         if (this.isRTL) {
             this.picker.addClass('datepicker-rtl');
+
             this.picker.find('.date-switch').each(function(){
               $(this).parent().prepend($(this).siblings('.next'));
               $(this).parent().append($(this).siblings('.prev'));
             })
             this.picker.find('.prev, .next').toggleClass('prev next');
+
         }
         $(document).on('mousedown', function(e) {
             // Clicked outside the datepicker, hide it
