@@ -971,7 +971,6 @@
 
         keydown: function(e) {
             if (!this.keyboardNavigation) {
-                console.log('kekete');
                 return true;
             }
             if (this.picker.is(':not(:visible)')) {
