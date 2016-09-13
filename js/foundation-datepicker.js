@@ -200,7 +200,8 @@
                         [this.element, {
                             focus: (this.autoShow) ? $.proxy(this.show, this) : function() {},
                             keyup: $.proxy(this.update, this),
-                            keydown: $.proxy(this.keydown, this)
+                            keydown: $.proxy(this.keydown, this),
+                            click: (this.element.attr('readonly')) ? $.proxy(this.show, this) : function() {}
                         }]
                     ];
                 } 
