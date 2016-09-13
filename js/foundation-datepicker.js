@@ -391,12 +391,17 @@
             var fullOffsetTop = offset.top + height;
             var offsetLeft = offset.left;
             this.picker.removeClass('datepicker-top datepicker-bottom');
-            // if the datepicker is going to be below the window, show it on top of the input
-            if ((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()) {
+            // can we show it on top?
+            var canShowTop = ($(window).scrollTop() < offset.top - this.picker.outerHeight());
+            var canShowBottom = (fullOffsetTop + this.picker.outerHeight()) < $(window).scrollTop() + $(window).height();
+            // If the datepicker is going to be below the window, show it on top of the input if it fits
+            if (!canShowBottom && canShowTop) {
                 fullOffsetTop = offset.top - this.picker.outerHeight();
                 this.picker.addClass('datepicker-top');
             }
             else {
+                // Scroll up if we cannot show it on bottom or top (for mobile devices)
+                if (!canShowBottom) $(window).scrollTop(offset.top);
                 this.picker.addClass('datepicker-bottom');
             }
 
