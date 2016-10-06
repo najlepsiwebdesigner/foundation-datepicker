@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'css/foundation-datepicker.css': 'css/foundation-datepicker.scss'
+          'css/foundation-datepicker.css': 'scss/foundation-datepicker.scss'
         }
       }
     },
