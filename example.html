@@ -476,16 +476,16 @@ $(document).foundation({
 });
 
 
-
-
-
-
 				window.prettyPrint && prettyPrint();
 				$('#dp1').fdatepicker({
 					initialDate: '02-12-1989',
 					format: 'mm-dd-yyyy',
 					// keyboardNavigation: false,
-					disableDblClickSelection: true
+					disableDblClickSelection: true,
+					leftArrow:'<<',
+					rightArrow:'>>',
+					closeIcon:'X',
+					closeButton: true
 					// autoShow: false
 				});
 
