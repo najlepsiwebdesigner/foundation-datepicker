@@ -402,8 +402,8 @@
 
             // if the datepicker is going to go past the right side of the window, we want
             // to set the right position so the datepicker lines up with the textbox
-            if (offset.left + this.picker.width() >= $(window).width()) {
-                offsetLeft = (offset.left + width) - this.picker.width();
+            if (offset.left + this.picker.outerWidth() >= $(window).width()) {
+                offsetLeft = (offset.left + width) - this.picker.outerWidth();
             }
             this.picker.css({
                 top: fullOffsetTop,
