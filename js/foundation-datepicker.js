@@ -19,7 +19,7 @@
 
         this.element = $(element);
         this.autoShow = (options.autoShow == undefined ? true : options.autoShow);
-        this.appendTo = options.appendTo || 'body';
+        this.appendTo = $(options.appendTo || 'body');
         this.closeButton = options.closeButton;
         this.language = options.language || this.element.data('date-language') || "en";
         this.language = this.language in dates ? this.language : this.language.split('-')[0]; //Check if "de-DE" style date is available, if not language should fallback to 2 letter code eg "de"
@@ -386,14 +386,15 @@
             }).first().css('z-index')) + 10;
             var textbox = this.component ? this.component : this.element;
             var offset = textbox.offset();
+            var parentOffset = this.appendTo.offset();
             var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
             var width = textbox.outerWidth() + parseInt(textbox.css('margin-left'));
-            var fullOffsetTop = offset.top + height;
-            var offsetLeft = offset.left;
+            var fullOffsetTop = offset.top + height - parentOffset.top - parentOffset.top;
+            var fullOffsetLeft = offset.left - parentOffset.left;
             this.picker.removeClass('datepicker-top datepicker-bottom');
             // if the datepicker is going to be below the window, show it on top of the input
             if ((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()) {
-                fullOffsetTop = offset.top - this.picker.outerHeight();
+                fullOffsetTop = offset.top - this.picker.outerHeight() - parentOffset.top;
                 this.picker.addClass('datepicker-top');
             }
             else {
@@ -403,11 +404,11 @@
             // if the datepicker is going to go past the right side of the window, we want
             // to set the right position so the datepicker lines up with the textbox
             if (offset.left + this.picker.outerWidth() >= $(window).width()) {
-                offsetLeft = (offset.left + width) - this.picker.outerWidth();
+                fullOffsetLeft = (offset.left + width) - this.picker.outerWidth() - parentOffset.left;
             }
             this.picker.css({
                 top: fullOffsetTop,
-                left: offsetLeft,
+                left: fullOffsetLeft,
                 zIndex: zIndex
             });
         },
