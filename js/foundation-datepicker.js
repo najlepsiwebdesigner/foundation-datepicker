@@ -427,7 +427,7 @@
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             }
     
-            if (date.length > this.formatText.length) {
+            if (date && date.length > this.formatText.length) {
                     $(this.picker).addClass('is-invalid')
                     $(this.element).addClass('is-invalid-input')
                     return;
