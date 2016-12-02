@@ -73,7 +73,7 @@
         this.startViewMode = DPGlobal.convertViewMode(this.startViewMode);
         this.viewMode = this.startViewMode;
 
-        if (!('minView' in options) && !('maxView' in options) && !(this.element.data('min-view') && !(this.element.data('max-view')))) {
+        if (!('minView' in options) && !('maxView' in options) && !(this.element.data('min-view')) && !(this.element.data('max-view'))) {
             this.pickTime = false;
             if ('pickTime' in options) {
                 this.pickTime = options.pickTime;
