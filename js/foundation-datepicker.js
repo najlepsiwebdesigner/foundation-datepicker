@@ -123,6 +123,10 @@
 
         }
         $(document).on('mousedown', function(e) {
+            if (that.isInput && e.target === that.element[0]) {
+                return;
+            }
+
             // Clicked outside the datepicker, hide it
             if ($(e.target).closest('.datepicker.datepicker-inline, .datepicker.datepicker-dropdown').length === 0) {
                 that.hide();
