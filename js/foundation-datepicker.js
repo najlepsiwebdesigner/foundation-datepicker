@@ -1102,6 +1102,13 @@
             this.picker.find('>div').hide().filter('.datepicker-' + DPGlobal.modes[this.viewMode].clsName).css('display', 'block');
             this.updateNavArrows();
         },
+		
+		changeViewDate: function(date) {
+			this.date = date;
+			this.viewDate = date;
+			this.fill();
+		},
+		
         reset: function(e) {
             this._setDate(null, 'date');
         }
