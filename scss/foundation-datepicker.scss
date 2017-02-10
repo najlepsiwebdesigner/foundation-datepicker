@@ -27,6 +27,20 @@ $fdatepicker-inline-width: 220px !default;
 // $fdatepicker-ui-old-new-color: lighten($fdatepicker-ui-text-color, 20%);
 // $fdatepicker-inline-width: $f-dropdown-max-width;
 
+// foundation 6 compatible
+// $fdatepicker-ui-primary: $primary-color;
+// $fdatepicker-ui-bg: $menu-dropdown-bg-color;
+// $fdatepicker-ui-text-color: $body-font-color;
+// $fdatepicker-ui-disabled: rgba($primary-color, 0.7);
+// $fdatepicker-ui-before-color: $secondary-color;
+// $fdatepicker-ui-border-transparency: 0.2 !default;
+// $fdatepicker-ui-border: $dropdownmenu-border;
+// $fdatepicker-ui-shadow: none;
+// $fdatepicker-ui-border-radius: 0;
+// $fdatepicker-ui-before-color: lighten($fdatepicker-ui-text-color, 30%);
+// $fdatepicker-ui-old-new-color: lighten($fdatepicker-ui-text-color, 20%);
+// $fdatepicker-inline-width: 200px;
+
 @mixin datepicker() {
 	text-align: center;
 	width: 20px;
