@@ -389,7 +389,7 @@
             var parentOffset = this.appendTo.offset();
             var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
             var width = textbox.outerWidth() + parseInt(textbox.css('margin-left'));
-            var fullOffsetTop = offset.top + height - parentOffset.top - parentOffset.top;
+            var fullOffsetTop = offset.top + height - parentOffset.top;
             var fullOffsetLeft = offset.left - parentOffset.left;
             this.picker.removeClass('datepicker-top datepicker-bottom');
             // if the datepicker is going to be below the window, show it on top of the input
