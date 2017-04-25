@@ -393,7 +393,7 @@
             var fullOffsetLeft = offset.left - parentOffset.left;
             this.picker.removeClass('datepicker-top datepicker-bottom');
             // if the datepicker is going to be below the window, show it on top of the input
-            if ((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()) {
+            if ((offset.top + height + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()) {
                 fullOffsetTop = offset.top - this.picker.outerHeight() - parentOffset.top;
                 this.picker.addClass('datepicker-top');
             }
