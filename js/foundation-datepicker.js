@@ -429,6 +429,10 @@
             }
             else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
+
+                if (date.length > 12) {
+                  date = "Future's future" // Fix the bug that when the date is in the far future the picker crash
+                }
             }
     
             if (date && date.length > this.formatText.length) {
