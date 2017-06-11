@@ -1126,9 +1126,11 @@
             var $this = $(this),
                 data = $this.data('datepicker'),
                 options = typeof option == 'object' && option;
-            if (!data) {
+            if (!data)
                 $this.data('datepicker', (data = new Datepicker(this, $.extend({}, $.fn.fdatepicker.defaults, options))));
-            }
+            else
+                if(options.onRender && typeof options.onRender == 'function')
+                    $this.data().datepicker.onRender = options.onRender;
             if (typeof option == 'string' && typeof data[option] == 'function') {
                 data[option].apply(data, args);
             }
