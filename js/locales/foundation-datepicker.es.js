@@ -4,11 +4,11 @@
  */
 ;(function($){
 	$.fn.fdatepicker.dates['es'] = {
-		days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
-		daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
-		daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
-		months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-		monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
-		today: "Hoy"
+		days: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"],
+		daysShort: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb", "dom"],
+		daysMin: ["do", "lu", "ma", "mi", "ju", "vi", "sa", "do"],
+		months: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+		monthsShort: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
+		today: "hoy"
 	};
 }(jQuery));
