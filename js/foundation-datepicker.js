@@ -64,6 +64,11 @@
         }
         this.maxView = DPGlobal.convertViewMode(this.maxView);
 
+        this.nonMilitaryTime = false;
+        if('nonMilitaryTime' in options) {
+            this.nonMilitaryTime = options.nonMilitaryTime;
+        }
+
         this.startViewMode = 'month';
         if ('startView' in options) {
             this.startViewMode = options.startView;
@@ -577,7 +582,18 @@
                 } else if (hours == i) {
                     clsName += ' active';
                 }
-                html.push('<span class="hour' + clsName + '">' + i + ':00</span>');
+                if(this.nonMilitaryTime){
+                    var tts = (i%12);
+                    tts = (tts == 0 ? 12 : tts)
+                    var ampm = "AM"
+                    if(i>=12 && i<=23){
+                        ampm = "PM"
+                    }
+                    html.push('<span class="hour nonMilitaryTime' + clsName + '">' + tts + ':00 '+ ampm + '</span>');
+                }
+                else{
+                    html.push('<span class="hour' + clsName + '">' + i + ':00</span>');
+                }
             }
             this.picker.find('.datepicker-hours td').html(html.join(''));
 
@@ -590,7 +606,18 @@
                 } else if (Math.floor(minutes / this.minuteStep) == Math.floor(i / this.minuteStep)) {
                     clsName += ' active';
                 }
-                html.push('<span class="minute' + clsName + '">' + hours + ':' + (i < 10 ? '0' + i : i) + '</span>');
+                if(this.nonMilitaryTime){
+                    var tts = (hours%12);
+                    tts = (tts == 0 ? 12 : tts)
+                    var ampm = "AM"
+                    if(hours>=12 && hours<=23){
+                        ampm = "PM"
+                    }
+                    html.push('<span class="minute nonMilitaryTime' + clsName + '">' + tts + ':'+ (i < 10 ? '0' + i : i) +' '+ ampm + '</span>');
+                }
+                else{
+                    html.push('<span class="minute' + clsName + '">' + hours + ':' + (i < 10 ? '0' + i : i) + '</span>');
+                }
             }
             this.picker.find('.datepicker-minutes td').html(html.join(''));
 
@@ -815,7 +842,19 @@
                                 });
                               }
                             } else if (target.is('.hour')) {
-                                var hours = parseInt(target.text(), 10) || 0;
+                                var hours;
+                                if(this.nonMilitaryTime){
+                                    if (target.text().indexOf("AM") >= 0){
+                                        hours = parseInt(target.text(), 10) || 0;
+                                    }
+                                    else{
+                                        hours = (parseInt(target.text(), 10) + 12 || 0);
+                                    }
+                                }
+                                else{
+                                    hours = parseInt(target.text(), 10) || 0;
+                                }
+                                console.log(hours);
                                 var year = this.viewDate.getUTCFullYear(),
                                     month = this.viewDate.getUTCMonth(),
                                     day = this.viewDate.getUTCDate(),
@@ -824,6 +863,7 @@
                                 this._setDate(UTCDate(year, month, day, hours, minutes, seconds, 0));
                             } else if (target.is('.minute')) {
                                 var minutes = parseInt(target.text().substr(target.text().indexOf(':') + 1), 10) || 0;
+                                console.log(minutes);
                                 var year = this.viewDate.getUTCFullYear(),
                                     month = this.viewDate.getUTCMonth(),
                                     day = this.viewDate.getUTCDate(),
