@@ -854,7 +854,6 @@
                                 else{
                                     hours = parseInt(target.text(), 10) || 0;
                                 }
-                                console.log(hours);
                                 var year = this.viewDate.getUTCFullYear(),
                                     month = this.viewDate.getUTCMonth(),
                                     day = this.viewDate.getUTCDate(),
@@ -863,7 +862,6 @@
                                 this._setDate(UTCDate(year, month, day, hours, minutes, seconds, 0));
                             } else if (target.is('.minute')) {
                                 var minutes = parseInt(target.text().substr(target.text().indexOf(':') + 1), 10) || 0;
-                                console.log(minutes);
                                 var year = this.viewDate.getUTCFullYear(),
                                     month = this.viewDate.getUTCMonth(),
                                     day = this.viewDate.getUTCDate(),
