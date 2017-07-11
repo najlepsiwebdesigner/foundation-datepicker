@@ -5,33 +5,25 @@
   margin-top: 1px;
   direction: ltr; }
   .datepicker.dropdown-menu {
-    position: absolute;
+    z-index: 1000;
     top: 100%;
     left: 0;
-    z-index: 1000;
+    position: absolute;
     float: left;
     display: none;
+    color: #333;
+    font-size: 13px;
+    line-height: 18px;
     min-width: 160px;
     list-style: none;
     background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding;
     background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     *border-right-width: 2px;
-    *border-bottom-width: 2px;
-    color: #333;
-    font-size: 13px;
-    line-height: 18px; }
-    .datepicker.dropdown-menu th {
-      padding: 4px 5px; }
-    .datepicker.dropdown-menu td {
+    *border-bottom-width: 2px; }
+    .datepicker.dropdown-menu th, .datepicker.dropdown-menu td {
       padding: 4px 5px; }
   .datepicker table {
     border: 0;
@@ -58,11 +50,11 @@
       background: #2ba6cb; }
     .datepicker td.old, .datepicker td.new {
       color: #999; }
-    .datepicker td span.active {
+    .datepicker td.active, .datepicker td span.active {
+      color: #fff;
       background: #2ba6cb; }
-    .datepicker td.day.disabled {
-      color: #eee; }
-    .datepicker td span.month.disabled, .datepicker td span.year.disabled {
+    .datepicker td.disabled, .datepicker td span.disabled {
+      cursor: default;
       color: #eee; }
   .datepicker th {
     text-align: center;
@@ -146,5 +138,3 @@
 .table-striped .datepicker table tr td,
 .table-striped .datepicker table tr th {
   background-color: transparent; }
-
-/*# sourceMappingURL=foundation-datepicker.css.map */

@@ -21,7 +21,7 @@
 			<script src="js/foundation-datepicker.js"></script>
 			<script src="js/locales/foundation-datepicker.vi.js"></script>
 
-			<link rel="stylesheet" href="css/foundation-datepicker.min.css">
+			<link rel="stylesheet" href="css/foundation-datepicker.css">
 		<!-- foundation datepicker end -->
 		<link rel="stylesheet" href="css/example.css">
 
@@ -52,6 +52,7 @@
 		    <dd data-magellan-arrival="limited-example"><a href="#limited-example">Limited picker</a></dd>
 		    <dd data-magellan-arrival="no-inputs-example"><a href="#no-inputs-example">Without inputs</a></dd>
 		    <dd data-magellan-arrival="deps-example"><a href="#deps-example">Dependent</a></dd>
+		    <dd data-magellan-arrival="deps-2weeks-example"><a href="#deps-2weeks-example">Dependent 2 weeks</a></dd>
 		    <dd data-magellan-arrival="iconfont-example"><a href="#iconfont-example">Icon fonts</a></dd>
 		    <dd data-magellan-arrival="docs"><a href="#docs">Docs</a></dd>
 		  </dl>
@@ -155,6 +156,20 @@
 						</thead>
 					</table>
 					<script src="https://gist.github.com/najlepsiwebdesigner/4970984.js"></script>
+          <hr>
+
+          <h4 data-magellan-destination="deps-2weeks-example">Dependent pickers 2 Weeks</h4>
+          <a name="deps-2weeks-example"></a>
+          <p>Disabling dates in the past and dependent disabling.</p>
+          <select id="show_dp2w" class="span2">
+            <option value="0" selected="selected">Hide datepicker</option>
+            <option value="1">Show datepicker</option>
+          </select>
+          <input id="dp2w" type="text" class="span2" style="display: none;"
+            data-minute-step="15"
+          />
+          <script src="https://gist.github.com/Sarmaged/813a6de38debcf76075201d90b1d450e.js"></script>
+          <hr>
 
 					<h4 data-magellan-destination="iconfont-example">Change icon font</h4>
 					<a name="iconfont-example"></a>
@@ -541,13 +556,79 @@ $(document).foundation({
 					$('#dp5').fdatepicker('hide');
 				});
 
+        $(function () {
+        	var input = $('#dp2w');
+          var show_dp2w = $('#show_dp2w');
+          var minuteStep = ~~input.data('minute-step') || 5;
+          var secondsWatcher = null;
 
+          // [15, 30, 45, 0]
+          var arrStep = function(step){
+            var i = 0;
+            var sec = 60;
+            var x = sec / step;
+            var _arr = [];
+            while (i < x) {
+              i++;
+              var time = i * step;
+              _arr.push(time < sec ? time : 0)
+            }
+            return _arr;
+          }
 
+          var startDate = function (dd, hour) {
+            var inc = Math.floor(dd.getMinutes() / minuteStep) == (arrStep(minuteStep).length - 1) ? 1 : 0
+            dd.setHours(dd.getHours() + ( hour + inc ));
+            dd.setMinutes(arrStep(minuteStep)[Math.floor(dd.getMinutes() / minuteStep)]);
+            return dd;
+          }
+          var endDate = function (dd, day) {
+            dd.setDate(dd.getDate() + day)
+            dd.setHours(0); dd.setMinutes(0);
+            dd.setSeconds(0); dd.setMilliseconds(0);
+            return dd;
+          }
 
+          show_dp2w.on('change', function (event) {
+            if (~~this.value) {
+              var _startDate = startDate(new Date(), 1) // +1 Hour
+              var _endDate = endDate(new Date(), 13) // +13 Days
+              input.show().fdatepicker({
+                format: 'dd.mm.yyyy hh:ii',
+                startView: 2,
+                maxView: 2,
+                weekStart: 0,
+                pickTime: true,
+                minuteStep: minuteStep,
+                initialDate: _startDate,
+                startDate: _startDate,
+                endDate: _endDate,
+                keyboardNavigation: false,
+                disableDblClickSelection: true
+              }).on('changeDate', function () {
+                if(secondsWatcher) {
+                	clearInterval(secondsWatcher)
+                  secondsWatcher = null;
+                }
+  						});
 
+              input.fdatepicker('update', _startDate)
 
-
-
+            	secondsWatcher = setInterval(function () {
+                var initDate = new Date();
+                if(!initDate.getSeconds()) {
+                  input.fdatepicker('update', startDate(initDate, 1));
+  							}
+						  }, 1000)
+            } else {
+              if(secondsWatcher) {
+                clearInterval(secondsWatcher)
+                secondsWatcher = null;
+              }
+    					input.hide().val('');
+            }
+          });
+        });
 
 				// implementation of disabled form fields
 				var nowTemp = new Date();
@@ -591,7 +672,7 @@ $(document).foundation({
 
 
 
-
+<!--
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-30989810-2']);
@@ -604,7 +685,7 @@ $(document).foundation({
 				var s = document.getElementsByTagName('script')[0];
 				s.parentNode.insertBefore(ga, s);
 			})();
-		</script>
+		</script> -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
 	</body>
 </html>
