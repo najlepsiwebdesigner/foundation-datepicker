@@ -386,9 +386,13 @@
 
         place: function() {
             if (this.isInline) return;
-            var zIndex = parseInt(this.element.parents().filter(function() {
-                return $(this).css('z-index') != 'auto';
-            }).first().css('z-index')) + 10;
+            var zIndexes = [];
+            this.element.parents().map(function() {
+                if ($(this).css('z-index') != 'auto') {
+                    zIndexes.push(parseInt($(this).css('z-index')));
+                }
+            });
+            var zIndex = zIndexes.sort(function(a, b) { return a - b; }).pop() + 10;
             var textbox = this.component ? this.component : this.element;
             var offset = textbox.offset();
             var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
