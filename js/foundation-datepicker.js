@@ -46,7 +46,7 @@
         this.rightArrow = options.rightArrow || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-chevron-right fi-arrow-right"/>';
         this.closeIcon = options.closeIcon || '<i class="' + this.faCSSprefix + ' ' + this.faCSSprefix + '-remove ' + this.faCSSprefix + '-times fi-x"></i>';
 
-        
+
 
         this.minView = 0;
         if ('minView' in options) {
@@ -208,7 +208,7 @@
                             click: (this.element.attr('readonly')) ? $.proxy(this.show, this) : function() {}
                         }]
                     ];
-                } 
+                }
             }
             else if (this.component && this.hasInput) { // component: input + button
                 this._events = [
@@ -432,14 +432,14 @@
             if (arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
                 date = arguments[0];
                 fromArgs = true;
-            } 
-            else if (!currentVal && this.initialDate != null) { // If value is not set, set it to the initialDate 
+            }
+            else if (!currentVal && this.initialDate != null) { // If value is not set, set it to the initialDate
                 date = this.initialDate
             }
             else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             }
-    
+
             if (date && date.length > this.formatText.length) {
                     $(this.picker).addClass('is-invalid')
                     $(this.element).addClass('is-invalid-input')
@@ -447,10 +447,10 @@
             } else {
                 $(this.picker).removeClass('is-invalid')
                 $(this.element).removeClass('is-invalid-input')
-                  
+
             }
-        
-            this.date = DPGlobal.parseDate(date, this.format, this.language);  
+
+            this.date = DPGlobal.parseDate(date, this.format, this.language);
 
             if (fromArgs || this.initialDate != null) this.setValue();
 
@@ -558,7 +558,26 @@
                 if (currentDate && prevMonth.valueOf() == currentDate) {
                     clsName += ' active';
                 }
-                if (prevMonth.valueOf() < this.startDate || prevMonth.valueOf() > this.endDate ||
+
+                var _startDate = this.startDate
+                if (typeof this.startDate == 'object') {
+                  var _d = this.startDate;
+
+                  _startDate = new Date(
+                    _d.getFullYear(),
+                    _d.getMonth(),
+                    _d.getDate() - 1,
+                    _d.getHours(),
+                    _d.getMinutes(),
+                    _d.getSeconds(),
+                    _d.getMilliseconds()
+                  );
+                }
+                if (prevMonth.valueOf() < _startDate) {
+                  clsName += ' disabled';
+                }
+
+                if (prevMonth.valueOf() > this.endDate ||
                     $.inArray(prevMonth.getUTCDay(), this.daysOfWeekDisabled) !== -1 ||
                     $.inArray(prevMonth.valueOf(), this.datesDisabled) !== -1) {
                     clsName += ' disabled';
@@ -589,7 +608,23 @@
             for (var i = 0; i < 60; i += this.minuteStep) {
                 var actual = UTCDate(year, month, dayMonth, hours, i);
                 clsName = '';
-                if (actual.valueOf() < this.startDate || actual.valueOf() > this.endDate) {
+
+                var _startDate = this.startDate
+                if (typeof this.startDate == 'object') {
+                  var _d = this.startDate;
+
+                  _startDate = new Date(
+                    _d.getFullYear(),
+                    _d.getMonth(),
+                    _d.getDate(),
+                    _d.getHours(),
+                    _d.getMinutes() - this.minuteStep,
+                    _d.getSeconds(),
+                    _d.getMilliseconds()
+                  );
+                }
+
+                if (actual.valueOf() < _startDate || actual.valueOf() > this.endDate) {
                     clsName += ' disabled';
                 } else if (Math.floor(minutes / this.minuteStep) == Math.floor(i / this.minuteStep)) {
                     clsName += ' active';
@@ -1111,13 +1146,13 @@
             this.picker.find('>div').hide().filter('.datepicker-' + DPGlobal.modes[this.viewMode].clsName).css('display', 'block');
             this.updateNavArrows();
         },
-		
+
 		changeViewDate: function(date) {
 			this.date = date;
 			this.viewDate = date;
 			this.fill();
 		},
-		
+
         reset: function(e) {
             this._setDate(null, 'date');
         }

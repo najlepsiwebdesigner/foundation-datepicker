@@ -13,6 +13,8 @@ $fdatepicker-ui-old-new-color: #999 !default;
 $fdatepicker-ui-text-color: #333 !default;
 $fdatepicker-inline-width: 220px !default;
 
+$fdatepicker-ui-color-active: #fff !default;
+
 // uncomment if used with foundation 5 to get compatible defaults, thanks jamesstoneco
 // $fdatepicker-ui-primary: $primary-color;
 // $fdatepicker-ui-bg: $f-dropdown-bg;
@@ -59,36 +61,33 @@ $fdatepicker-inline-width: 220px !default;
 	margin-top: 1px;
 	direction: ltr;
 	&.dropdown-menu {
-		position: absolute;
+    z-index: 1000;
 		top: 100%;
 		left: 0;
-		z-index: 1000;
-		float: left;
-		display: none;
-		min-width: 160px;
+    position: absolute;
+
+    float: left;
+
+    display: none;
+
+    color: $fdatepicker-ui-text-color;
+    font-size: 13px;
+    line-height: 18px;
+
+    min-width: 160px;
 		list-style: none;
-		background-color: $fdatepicker-ui-bg;
-		border: $fdatepicker-ui-border;
 
-		-webkit-border-radius: $fdatepicker-ui-border-radius;
-		-moz-border-radius: $fdatepicker-ui-border-radius;
-		border-radius: $fdatepicker-ui-border-radius;
+    background-color: $fdatepicker-ui-bg;
+    background-clip: padding-box;
 
-		-webkit-box-shadow: $fdatepicker-ui-shadow;
-		-moz-box-shadow: $fdatepicker-ui-shadow;
-		box-shadow: $fdatepicker-ui-shadow;
+    border: $fdatepicker-ui-border;
+    border-radius: $fdatepicker-ui-border-radius;
+    box-shadow: $fdatepicker-ui-shadow;
 
-		-webkit-background-clip: padding-box;
-		-moz-background-clip: padding;
-		background-clip: padding-box;
-
-		*border-right-width: 2px;
+    *border-right-width: 2px;
 		*border-bottom-width: 2px;
-		color: $fdatepicker-ui-text-color;
-		font-size: 13px;
-		line-height: 18px;
-		th { padding: 4px 5px; }
-		td { padding: 4px 5px; }
+
+		th, td { padding: 4px 5px; }
 	}
 	table {
 		border: 0;
@@ -115,9 +114,12 @@ $fdatepicker-inline-width: 220px !default;
 		cursor: pointer;
 		&.active.day, &.active.year { background: $fdatepicker-ui-primary; }
 		&.old , &.new { color: $fdatepicker-ui-old-new-color; }
-		span.active { background: $fdatepicker-ui-primary; }
-		&.day.disabled { color: $fdatepicker-ui-disabled; }
-		span.month.disabled, span.year.disabled {
+    &.active, span.active {
+			color: $fdatepicker-ui-color-active;
+			background: $fdatepicker-ui-primary;
+		}
+		&.disabled, span.disabled {
+			cursor: default;
 			color: $fdatepicker-ui-disabled;
 		}
 	}
