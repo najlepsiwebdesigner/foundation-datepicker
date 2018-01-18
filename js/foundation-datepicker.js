@@ -173,6 +173,11 @@
         this.setDaysOfWeekDisabled(options.daysOfWeekDisabled || this.element.data('date-days-of-week-disabled'));
         this.setDatesDisabled(options.datesDisabled || this.element.data('dates-disabled'));
 
+        if (this.initialDate != null) {
+            this.date = this.viewDate = DPGlobal.parseDate(this.initialDate, this.format, this.language);
+            this.setValue();
+        }
+
         this.fillDow();
         this.fillMonths();
         this.update();
@@ -432,14 +437,10 @@
             if (arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
                 date = arguments[0];
                 fromArgs = true;
-            } 
-            else if (!currentVal && this.initialDate != null) { // If value is not set, set it to the initialDate 
-                date = this.initialDate
             }
             else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             }
-    
             if (date && date.length > this.formatText.length) {
                     $(this.picker).addClass('is-invalid')
                     $(this.element).addClass('is-invalid-input')
@@ -447,12 +448,18 @@
             } else {
                 $(this.picker).removeClass('is-invalid')
                 $(this.element).removeClass('is-invalid-input')
-                  
             }
         
-            this.date = DPGlobal.parseDate(date, this.format, this.language);  
+            this.date = DPGlobal.parseDate(date, this.format, this.language);
 
-            if (fromArgs || this.initialDate != null) this.setValue();
+            if (fromArgs) {
+                this.setValue();
+            } else if (currentVal == "") {
+                this.element.trigger({
+                    type: 'changeDate',
+                    date: null
+                });
+            }
 
             if (this.date < this.startDate) {
                 this.viewDate = new Date(this.startDate.valueOf());
@@ -507,7 +514,7 @@
                 today = new Date(),
                 titleFormat = dates[this.language].titleFormat || dates['en'].titleFormat;
             // this.picker.find('.datepicker-days thead th.date-switch')
-            // 			.text(DPGlobal.formatDate(new UTCDate(year, month), titleFormat, this.language));
+            //          .text(DPGlobal.formatDate(new UTCDate(year, month), titleFormat, this.language));
 
             this.picker.find('.datepicker-days thead th:eq(1)')
                 .text(dates[this.language].months[month] + ' ' + year);
@@ -1099,25 +1106,25 @@
                 }
             }
             /*
-            	vitalets: fixing bug of very special conditions:
-            	jquery 1.7.1 + webkit + show inline datepicker in bootstrap popover.
-            	Method show() does not set display css correctly and datepicker is not shown.
-            	Changed to .css('display', 'block') solve the problem.
-            	See https://github.com/vitalets/x-editable/issues/37
+                vitalets: fixing bug of very special conditions:
+                jquery 1.7.1 + webkit + show inline datepicker in bootstrap popover.
+                Method show() does not set display css correctly and datepicker is not shown.
+                Changed to .css('display', 'block') solve the problem.
+                See https://github.com/vitalets/x-editable/issues/37
 
-            	In jquery 1.7.2+ everything works fine.
+                In jquery 1.7.2+ everything works fine.
             */
             //this.picker.find('>div').hide().filter('.datepicker-'+DPGlobal.modes[this.viewMode].clsName).show();
             this.picker.find('>div').hide().filter('.datepicker-' + DPGlobal.modes[this.viewMode].clsName).css('display', 'block');
             this.updateNavArrows();
         },
-		
-		changeViewDate: function(date) {
-			this.date = date;
-			this.viewDate = date;
-			this.fill();
-		},
-		
+
+        changeViewDate: function(date) {
+            this.date = date;
+            this.viewDate = date;
+            this.fill();
+        },
+
         reset: function(e) {
             this._setDate(null, 'date');
         }
