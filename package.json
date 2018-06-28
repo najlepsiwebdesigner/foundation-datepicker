@@ -1,6 +1,7 @@
 {
   "name": "foundation-datepicker",
   "version": "1.5.6",
+  "license": "Apache-2.0",
   "main": "js/foundation-datepicker.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
