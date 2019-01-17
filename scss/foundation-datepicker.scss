@@ -120,6 +120,11 @@ $fdatepicker-inline-width: 220px !default;
 		span.month.disabled, span.year.disabled {
 			color: $fdatepicker-ui-disabled;
 		}
+		.nonMilitaryTime {
+			font-size: 9px;
+			height: 35px;
+			line-height: 35px;
+		}
 	}
 	th {
 		text-align: center;
