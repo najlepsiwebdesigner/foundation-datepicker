@@ -849,9 +849,17 @@
                                 if(this.nonMilitaryTime){
                                     if (target.text().indexOf("AM") >= 0){
                                         hours = parseInt(target.text(), 10) || 0;
+										if (hours == 12)
+										{
+											hours = 0;
+										}
                                     }
                                     else{
-                                        hours = (parseInt(target.text(), 10) + 12 || 0);
+                                        hours = (parseInt(target.text(), 10) || 0);
+										if (hours < 12)
+										{
+											hours =  hours + 12;
+										}
                                     }
                                 }
                                 else{
