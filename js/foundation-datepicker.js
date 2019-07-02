@@ -849,9 +849,17 @@
                                 if(this.nonMilitaryTime){
                                     if (target.text().indexOf("AM") >= 0){
                                         hours = parseInt(target.text(), 10) || 0;
+										if (hours == 12)
+										{
+											hours = 0;
+										}
                                     }
                                     else{
-                                        hours = (parseInt(target.text(), 10) + 12 || 0);
+                                        hours = (parseInt(target.text(), 10) || 0);
+										if (hours < 12)
+										{
+											hours =  hours + 12;
+										}
                                     }
                                 }
                                 else{
@@ -1222,7 +1230,7 @@
         getDaysInMonth: function(year, month) {
             return [31, (DPGlobal.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
         },
-        validParts: /hh?|ii?|ss?|dd?|mm?|MM?|yy(?:yy)?/g,
+        validParts: /HH?|hh?|ii?|ss?|dd?|mm?|MM?|yy(?:yy)?|tt?/g,
         nonpunctuation: /[^ -\/:-@\[\u3400-\u9fff-`{-~\t\n\r]+/g,
         parseFormat: function(format) {
             // IE treats \0 as a string end in inputs (truncating the value),
@@ -1359,7 +1367,8 @@
                 return '';
             }
             var val = {
-                h: date.getUTCHours(),
+                H: date.getUTCHours(),
+                h: date.getUTCHours() % 12,
                 i: date.getUTCMinutes(),
                 s: date.getUTCSeconds(),
                 d: date.getUTCDate(),
@@ -1367,9 +1376,11 @@
                 M: dates[language].monthsShort[date.getUTCMonth()],
                 MM: dates[language].months[date.getUTCMonth()],
                 yy: date.getUTCFullYear().toString().substring(2),
-                yyyy: date.getUTCFullYear()
+                yyyy: date.getUTCFullYear(),
+                tt: (date.getUTCHours() >= 12 && date.getUTCHours() <= 23) ? "PM" : "AM"
             };
             val.hh = (val.h < 10 ? '0' : '') + val.h;
+            val.HH = (val.H < 10 ? '0' : '') + val.H;
             val.ii = (val.i < 10 ? '0' : '') + val.i;
             val.ss = (val.s < 10 ? '0' : '') + val.s;
             val.dd = (val.d < 10 ? '0' : '') + val.d;
