@@ -758,6 +758,11 @@
                 this.hide();
             }
 
+            var input = this.hasInput ? this.element.find('input').first() : this.element;
+            if (input.is(':disabled')) {
+                return;
+            }
+
             var target = $(e.target).closest('span, td, th');
             if (target.length == 1) {
                 if (target.is('.disabled')) {
